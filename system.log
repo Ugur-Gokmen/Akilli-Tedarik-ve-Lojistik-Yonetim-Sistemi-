@@ -1,0 +1,140 @@
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: b271a07b-2e4a-40b3-8845-9d95ac634b2d
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: a0197ac4-db9a-4c2f-939e-1ca91f2c357a
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: b469cb45-9b36-42e1-b39a-55bad015feb8
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: c95a74be-c19e-43ba-9cd3-ada009f73f7b
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: f41780d4-de0e-4f68-8a2e-744ed33710ce
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 4f2d11f5-d562-4d5b-9fe7-0c9e074206ac
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: d67a358f-ec31-4e54-b971-7e6dbb729048
+[2026-04-20 21:00:47] [ERROR] YETKİ HATASI - Ürün ekleme: Yetersiz yetki! 'musteri_ayse' kullanıcısının bu işlemi yapma yetkisi yok.
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: DC8859A6 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: DC8859A6 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Mekanik Klavye', Azalma: -2, Yeni Stok: 38
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Mekanik Klavye x2 → Sipariş: DC8859A6
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Gaming Mouse', Azalma: -1, Yeni Stok: 59
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Gaming Mouse x1 → Sipariş: DC8859A6
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: DC8859A6 | Yöntem: Kredi Kartı | Tutar: 2150,00 TL
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: DC8859A6 | Tutar: 2150,00 TL | Kart: **** **** **** 1234
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1776708047341
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: DC8859A6 | TX: CC-1776708047341
+[2026-04-20 21:00:47] [INFO] Sipariş onaylandı: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: BEKLEMEde → ONAYLANDI
+[2026-04-20 21:00:47] [INFO] Sipariş hazırlanmaya başlandı: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: ONAYLANDI → HAZIRLANIYOR
+[2026-04-20 21:00:47] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: DC8859A6 | Kargo: Aras Kargo | Takip: ARAS-ANK-47352-DC8859A6
+[2026-04-20 21:00:47] [INFO] Kargo fiyatlandırması yapılandırıldı: Aras Kargo - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-04-20 21:00:47] [INFO] Kargo fiyatı hesaplandı | Aras Kargo | 1,8 kg | 450 km | 78,88 TL | Aras Kargo - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-04-20 21:00:47] [INFO] Sipariş kargoya verildi: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: HAZIRLANIYOR → KARGODA
+[2026-04-20 21:00:47] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: KARGODA → TESLİM EDİLDİ
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: 91C58B0C | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: 91C58B0C | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Bileşik Ürün: 'Gaming PC Bundle', Azalma: -1, Yeni Stok: 9
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Gaming PC Bundle x1 → Sipariş: 91C58B0C
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: 91C58B0C | Yöntem: Havale/EFT (Garanti BBVA) | Tutar: 14900,00 TL
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT] Havale ödemesi başlatıldı | Sipariş: 91C58B0C | Tutar: 14900,00 TL | Banka: Garanti BBVA | IBAN: TR123456789012345678901234
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_SUCCESS] Havale ödemesi alındı | Transaction: BT-1776708047365 | 1-3 iş günü içinde onaylanır.
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: 91C58B0C | TX: BT-1776708047365
+[2026-04-20 21:00:47] [INFO] Sipariş onaylandı: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: BEKLEMEde → ONAYLANDI
+[2026-04-20 21:00:47] [INFO] Sipariş hazırlanmaya başlandı: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: ONAYLANDI → HAZIRLANIYOR
+[2026-04-20 21:00:47] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: 91C58B0C | Kargo: GlobalExpress (Express) | Takip: GE-TR-TR-1001
+[2026-04-20 21:00:47] [INFO] Kargo fiyatlandırması yapılandırıldı: GlobalExpress (Express) - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-04-20 21:00:47] [INFO] Kargo fiyatı hesaplandı | GlobalExpress (Express) | 2,0 kg | 700 km | 211,88 TL | GlobalExpress (Express) - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-04-20 21:00:47] [INFO] Sipariş kargoya verildi: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: HAZIRLANIYOR → KARGODA
+[2026-04-20 21:00:47] [CRITICAL] [ORDER_RETURN] İade başlatıldı: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: KARGODA → İADE
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: 6FF7CB89 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: 6FF7CB89 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: '1TB NVMe SSD', Azalma: -3, Yeni Stok: 27
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: 1TB NVMe SSD x3 → Sipariş: 6FF7CB89
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: 6FF7CB89 | Yöntem: Kripto Para (ETH) | Tutar: 5700,00 TL
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT] Kripto ödeme başlatıldı | Sipariş: 6FF7CB89 | 5700,00 TL = 0,00162857 ETH | Cüzdan: 0xABC123DEF456789
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_SUCCESS] Kripto işlem yayınlandı | Tx Hash: CRYPTO-1776708047375 | Onay bekleniyor...
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: 6FF7CB89 | TX: CRYPTO-1776708047375
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Intel i9 CPU', Azalma: -16, Yeni Stok: 4
+[2026-04-20 21:00:47] [WARN] STOK EŞİK UYARISI: 'Intel i9 CPU' eşik altına düştü (4 <= 5)
+[2026-04-20 21:00:47] [CRITICAL] [EMAIL_NOTIFICATION] 📧 E-POSTA GÖNDERİLDİ → [satin-alma@sirket.com] | Konu: DÜŞÜK STOK UYARISI | Ürün: 'Intel i9 CPU' | Mevcut Stok: 4 | Eşik: 5 | Lütfen satın alma sürecini başlatın.
+[2026-04-20 21:00:47] [CRITICAL] [INAPP_NOTIFICATION] 🔔 SİSTEM BİLDİRİMİ → [Depo Sorumlusu Kemal] | Ürün: 'Intel i9 CPU' kritik stok seviyesine düştü! Mevcut: 4 adet | Eşik: 5 adet | Lütfen depoya göz atın.
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Intel i9 CPU', Azalma: -1, Yeni Stok: 3
+[2026-04-20 21:00:47] [WARN] STOK EŞİK UYARISI: 'Intel i9 CPU' eşik altına düştü (3 <= 5)
+[2026-04-20 21:00:47] [CRITICAL] [EMAIL_NOTIFICATION] 📧 E-POSTA GÖNDERİLDİ → [satin-alma@sirket.com] | Konu: DÜŞÜK STOK UYARISI | Ürün: 'Intel i9 CPU' | Mevcut Stok: 3 | Eşik: 5 | Lütfen satın alma sürecini başlatın.
+[2026-04-20 21:00:47] [CRITICAL] [INAPP_NOTIFICATION] 🔔 SİSTEM BİLDİRİMİ → [Depo Sorumlusu Kemal] | Ürün: 'Intel i9 CPU' kritik stok seviyesine düştü! Mevcut: 3 adet | Eşik: 5 adet | Lütfen depoya göz atın.
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: 2FA2BD23 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: 2FA2BD23 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Mekanik Klavye', Azalma: -1, Yeni Stok: 37
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Mekanik Klavye x1 → Sipariş: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş onaylandı: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş 2FA2BD23: BEKLEMEde → ONAYLANDI
+[2026-04-20 21:00:47] [INFO] Sipariş hazırlanmaya başlandı: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş 2FA2BD23: ONAYLANDI → HAZIRLANIYOR
+[2026-04-20 21:00:47] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: 2FA2BD23 | Kargo: Yurtiçi Kargo | Takip: YK43597563
+[2026-04-20 21:00:47] [INFO] Kargo fiyatlandırması yapılandırıldı: Yurtiçi Kargo - Temel Kargo Ücreti
+[2026-04-20 21:00:47] [INFO] Kargo fiyatı hesaplandı | Yurtiçi Kargo | 0,8 kg | 280 km | 23,04 TL | Yurtiçi Kargo - Temel Kargo Ücreti
+[2026-04-20 21:00:47] [INFO] Sipariş kargoya verildi: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş 2FA2BD23: HAZIRLANIYOR → KARGODA
+[2026-04-20 21:00:47] [INFO] Sistem oturumu sonlandırıldı.
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: 59dcd26c-e89e-4b5a-9d00-b87964ce14e6
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 1b156ae5-21ce-4ee6-aa31-700e938e9854
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 120c6464-a234-4a2b-a52e-d8209ab934de
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: a64bff67-5ebe-4701-a4e5-95076568240f
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: 8ef98240-74dd-47db-9ce6-dfe987fa7ee1
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 17be9958-8fe8-432a-bd52-e506470d06fe
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 844e5590-016b-41c5-be99-2724810c1cc4
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: 37860c68-d317-43da-b995-865bf7c9bd93
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 86f07d11-e374-42e0-9a7f-8b72f29e1a14
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 62808d5b-ca33-40de-a1f3-843329e6ecf1
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: 62e3fe2e-16c9-4093-9d45-436eddfad122
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: f7b7cd18-c6e2-4ef9-a418-c52036233e40
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 80c15710-2653-4c45-b5e3-42ab24336094
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 066bda72-469a-4835-87fd-b7cc0b1f3f58
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: 695ee124-3944-447d-98e5-63812fc8adb6
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 010b4157-670c-493e-bcf0-eef4cf989404
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 05d47e33-45a9-43b0-9400-e77171caf9f3
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: 1b0b5bae-806d-4e26-923c-b146bd0daeda
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: 784ed987-df5c-466f-a19c-7d9c7ee62dce
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 0d880317-5377-4c66-8507-5eef0fe571c9
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 018e0e4a-aed3-451e-85f7-628260eccf18
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 16 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: c9c6d5ab-023f-419d-999d-81340d9d767a
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 15 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 0a901b71-43a8-47c4-8b25-5078db18105f
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 77a8e4af-d051-47ff-8982-370d64de79bb
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: f5d5004b-c091-4c1e-8e1a-4e8c21557d79
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 77b2406c-bad0-4108-b495-ccf26ae361a4
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 29 ms
+[2026-04-29 16:14:59] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-04-29 16:14:59] [ERROR] [AOP Validation Error] Metot 'OrderService.approveOrder(..)' geçersiz argüman ile patladı: Sipariş bulunamadı: 12
+[2026-04-29 16:15:09] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-04-29 16:15:09] [ERROR] [AOP Validation Error] Metot 'OrderService.approveOrder(..)' geçersiz argüman ile patladı: Sipariş bulunamadı: 25
+[2026-05-01 12:14:17] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-05-01 12:14:17] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 189 ms
+[2026-05-01 12:14:41] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-05-01 12:14:41] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 68 ms

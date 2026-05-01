@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bileşik Ürün Ekle - Akıllı Lojistik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: rgba(22, 28, 45, 0.6);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --info-color: #0ea5e9;
+            --info-hover: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-blur: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.15), transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 0;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .form-header {
+            background: linear-gradient(90deg, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0.05));
+            padding: 2rem;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .form-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #e0f2fe;
+        }
+
+        .form-body {
+            padding: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--info-color);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+        }
+
+        /* Component Selection Area */
+        .component-section-title {
+            color: var(--info-color);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .component-list {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 2rem;
+        }
+
+        /* Custom Checkbox */
+        .component-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        
+        .component-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .component-item input[type="checkbox"] {
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--text-muted);
+            border-radius: 6px;
+            background: transparent;
+            margin-right: 1rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .component-item input[type="checkbox"]:checked {
+            background: var(--info-color);
+            border-color: var(--info-color);
+        }
+
+        .component-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .component-label {
+            cursor: pointer;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+        
+        .component-price {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--info-color), var(--info-hover));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+        }
+
+        /* Scrollbar Styling */
+        .component-list::-webkit-scrollbar { width: 8px; }
+        .component-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 4px; }
+        .component-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h2>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+                Yeni Bileşik Ürün (Montaj) Ekle
+            </h2>
+        </div>
+        
+        <div class="form-body">
+            <form th:action="@{/inventory/add-composite}" method="post">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Ürün Adı (Örn: Gaming PC)</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Montaj Ücreti (TL)</label>
+                        <input type="number" step="0.01" name="assemblyFee" class="form-control" value="0" required>
+                    </div>
+                </div>
+
+                <div class="component-section-title">Alt Bileşenleri Seçin (Composite Yapısı):</div>
+                <div class="component-list">
+                    <div th:each="ap : ${availableProducts}" class="component-item">
+                        <input type="checkbox" name="selectedComponentIds" th:value="${ap.id}" th:id="'comp-' + ${ap.id}">
+                        <label class="component-label" th:for="'comp-' + ${ap.id}" th:text="${ap.name}"></label>
+                        <span class="component-price" th:text="${ap.unitPrice} + ' TL'"></span>
+                    </div>
+                    <div th:if="${availableProducts == null or availableProducts.empty}" style="color: var(--text-muted); font-size: 0.9rem;">
+                        Sistemde alt bileşen olarak eklenebilecek ürün bulunmamaktadır.
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Başlangıç Stoğu</label>
+                        <input type="number" name="stock" class="form-control" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Kritik Stok Eşiği</label>
+                        <input type="number" name="threshold" class="form-control" value="10" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Bileşik Ürünü Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
