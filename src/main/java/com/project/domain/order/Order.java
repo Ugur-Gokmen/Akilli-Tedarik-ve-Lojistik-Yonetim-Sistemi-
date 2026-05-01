@@ -10,6 +10,27 @@ import java.util.UUID;
 import com.project.domain.user.User;
 import com.project.infrastructure.logger.SystemLogger;
 
+<<<<<<< HEAD:src/main/java/com/project/domain/order/Order.java
+=======
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.persistence.*;
+
+/**
+ * Sipariş domain entity'si - State Pattern'in Context sınıfı.
+ *
+ * <p>Order nesnesi mevcut durumunu bir OrderState referansı olarak tutar.
+ * Tüm durum geçiş operasyonları ilgili state nesnesine delege edilir.
+ * Order sınıfının kendisi hiçbir if-else veya switch-case içermez.</p>
+ */
 @Entity
 @Table(name = "orders")
 public class Order {
