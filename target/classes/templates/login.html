@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sisteme Giriş - Akıllı Lojistik</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: rgba(22, 28, 45, 0.6);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --primary-color: #4f46e5;
+            --primary-hover: #6366f1;
+            --accent-color: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --danger: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.1);
+            
+            --glass-blur: 16px;
+            --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.15), transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.1), transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .shape-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, var(--primary-color), transparent);
+            filter: blur(100px);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: float 10s ease-in-out infinite alternate;
+        }
+
+        .shape-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(-45deg, var(--accent-color), transparent);
+            filter: blur(80px);
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 12s ease-in-out infinite alternate-reverse;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 3rem 2.5rem;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            box-shadow: var(--glass-shadow);
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            position: relative;
+            z-index: 10;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+        }
+
+        .brand-logo {
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #a5b4fc, #818cf8, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-hover);
+            background: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+        }
+
+        .form-control:focus + .form-label {
+            color: var(--primary-hover);
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        .alert-danger {
+            background: var(--danger-bg);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+        }
+
+        .btn-submit:hover::after {
+            left: 150%;
+        }
+
+        .btn-submit:active {
+            transform: translateY(1px);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: rgba(148, 163, 184, 0.6);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 30px); }
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shape-1"></div>
+    <div class="shape-2"></div>
+
+    <div class="login-container">
+        <h1 class="brand-logo">AklıLojistik</h1>
+        <p class="subtitle">Tedarik ve Lojistik Yönetim Sistemine Giriş Yapın</p>
+
+        <div th:if="${error}" class="alert alert-danger">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span th:text="${error}"></span>
+        </div>
+
+        <form th:action="@{/auth/login}" method="post">
+            <div class="form-group">
+                <label class="form-label" for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Örn: admin" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Şifre</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Şifrenizi giriniz" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Sisteme Giriş Yap</button>
+        </form>
+
+        <p class="footer-text">OOAD Proje Ödevi &copy; Sakarya Üniversitesi</p>
+    </div>
+
+</body>
+</html>

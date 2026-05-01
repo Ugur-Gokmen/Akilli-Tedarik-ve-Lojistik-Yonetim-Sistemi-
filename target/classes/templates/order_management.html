@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sipariş Yönetimi - Akıllı Lojistik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: rgba(22, 28, 45, 0.6);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            
+            /* State Colors */
+            --state-pending: #f59e0b;
+            --state-approved: #3b82f6;
+            --state-preparing: #8b5cf6;
+            --state-shipped: #0ea5e9;
+            --state-delivered: #10b981;
+            
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-blur: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.15), transparent 30%),
+                radial-gradient(circle at 15% 85%, rgba(59, 130, 246, 0.15), transparent 30%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .header-row {
+            margin-bottom: 2.5rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f8fafc, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .table-container {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        th {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1rem;
+            vertical-align: middle;
+        }
+
+        tbody tr {
+            transition: background 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Order ID styling */
+        .order-id {
+            font-family: 'Outfit', monospace;
+            font-weight: 700;
+            color: #e2e8f0;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.05);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* State Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-pending { background: rgba(245, 158, 11, 0.15); color: var(--state-pending); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .badge-approved { background: rgba(59, 130, 246, 0.15); color: var(--state-approved); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .badge-preparing { background: rgba(139, 92, 246, 0.15); color: var(--state-preparing); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .badge-shipped { background: rgba(14, 165, 233, 0.15); color: var(--state-shipped); border: 1px solid rgba(14, 165, 233, 0.3); }
+        .badge-delivered { background: rgba(16, 185, 129, 0.15); color: var(--state-delivered); border: 1px solid rgba(16, 185, 129, 0.3); }
+
+        /* Dynamic Buttons */
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-success { background: linear-gradient(135deg, var(--state-delivered), #059669); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2); }
+        .btn-success:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); }
+
+        .btn-primary { background: linear-gradient(135deg, var(--state-approved), #2563eb); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
+
+        .btn-info { background: linear-gradient(135deg, var(--state-shipped), #0284c7); box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2); }
+        .btn-info:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4); }
+
+        .price {
+            font-weight: 700;
+            color: #e2e8f0;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-row">
+            <h2>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--state-shipped);">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+                Sipariş ve Operasyon Yönetimi
+            </h2>
+        </div>
+
+        <div class="table-container">
+            <!-- Flash Attribute Success Message -->
+            <div th:if="${successMessage}" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #a7f3d0; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span th:text="${successMessage}"></span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sipariş ID</th>
+                        <th>Müşteri</th>
+                        <th>Durum</th>
+                        <th>Toplam Tutar</th>
+                        <th>Operasyon (State Trigger)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="o : ${orders}">
+                        <td><span class="order-id" th:text="${o.id}"></span></td>
+                        <td th:text="${o.customer.username}" style="font-weight: 500;"></td>
+                        <td>
+                            <!-- State Dynamic Badges -->
+                            <span class="badge" 
+                                  th:classappend="${o.currentStateName == 'BEKLEMEDE' ? 'badge-pending' : 
+                                                  (o.currentStateName == 'ONAYLANDI' ? 'badge-approved' : 
+                                                  (o.currentStateName == 'HAZIRLANIYOR' ? 'badge-preparing' : 
+                                                  (o.currentStateName == 'KARGODA' ? 'badge-shipped' : 'badge-delivered')))}"
+                                  th:text="${o.currentStateName}"></span>
+                        </td>
+                        <td class="price" th:text="${o.grandTotal + ' TL'}"></td>
+                        <td>
+                            <!-- State Machine Actions -->
+                            <form th:if="${o.currentStateName == 'BEKLEMEDE'}" th:action="@{'/orders/' + ${o.id} + '/approve'}" method="post" style="display:inline;">
+                                <button class="btn btn-success">Onayla</button>
+                            </form>
+                            
+                            <form th:if="${o.currentStateName == 'ONAYLANDI'}" th:action="@{'/orders/' + ${o.id} + '/prepare'}" method="post" style="display:inline;">
+                                <button class="btn btn-primary">Hazırlığı Başlat</button>
+                            </form>
+                            
+                            <a th:if="${o.currentStateName == 'HAZIRLANIYOR'}" th:href="@{'/orders/' + ${o.id} + '/shipping-form'}" class="btn btn-info">Kargoya Ver</a>
+                            
+                            <!-- If shipped, no further simple button is shown here since delivery might be another flow, or we can just show a disabled button -->
+                            <span th:if="${o.currentStateName == 'KARGODA'}" style="color: var(--text-muted); font-size: 0.9rem;">Kargoya Verildi</span>
+                            <span th:if="${o.currentStateName == 'TESLİM EDİLDİ'}" style="color: var(--state-delivered); font-size: 0.9rem; font-weight: 600;">✓ Tamamlandı</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div th:if="${orders == null or orders.empty}" style="padding: 3rem; text-align: center; color: var(--text-muted);">
+                <p>Sistemde henüz kayıtlı sipariş bulunmamaktadır.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

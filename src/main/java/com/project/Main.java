@@ -1,18 +1,18 @@
 package com.project;
 
-import com.project.controller.Controllers.InventoryController;
-import com.project.controller.Controllers.OrderController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.project.api.controller.InventoryRestController;
+import com.project.api.controller.OrderRestController;
 import com.project.domain.product.CompositeProduct;
 import com.project.domain.product.SimpleProduct;
 import com.project.domain.user.Role;
 import com.project.domain.user.User;
 import com.project.repository.UserRepository;
-import com.project.ui.ConsoleApp;
 import com.project.ui.SessionManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Main implements CommandLineRunner {
@@ -21,13 +21,11 @@ public class Main implements CommandLineRunner {
     private UserRepository userRepo;
 
     @Autowired
-    private InventoryController inventoryCtrl;
+    private InventoryRestController inventoryrestCtrl;
 
     @Autowired
-    private OrderController orderCtrl;
+    private OrderRestController orderrestCtrl;
 
-    @Autowired
-    private ConsoleApp consoleApp;
 
     @Autowired
     private SessionManager sessionManager;
@@ -59,9 +57,9 @@ public class Main implements CommandLineRunner {
             SimpleProduct cpu = new SimpleProduct("Intel i9 CPU", "CPU-001", 15000.0, 0.5, 20, 5);
             SimpleProduct ram = new SimpleProduct("32GB DDR5 RAM", "RAM-001", 4000.0, 0.1, 50, 10);
             SimpleProduct ssd = new SimpleProduct("2TB NVMe SSD", "SSD-001", 3500.0, 0.1, 30, 5);
-            inventoryCtrl.addProduct(cpu);
-            inventoryCtrl.addProduct(ram);
-            inventoryCtrl.addProduct(ssd);
+            inventoryrestCtrl.addProduct(cpu);
+            inventoryrestCtrl.addProduct(ram);
+            inventoryrestCtrl.addProduct(ssd);
 
             // 3. Bileşik Ürün (Composite Pattern Kanıtı)
             CompositeProduct gamingPc = new CompositeProduct.Builder("Gaming PC Master")
@@ -72,7 +70,7 @@ public class Main implements CommandLineRunner {
                     .initialStock(5)
                     .stockThreshold(2)
                     .build();
-            inventoryCtrl.addProduct(gamingPc);
+            inventoryrestCtrl.addProduct(gamingPc);
 
             System.out.println("✅ Örnek veriler başarıyla eklendi.");
             
@@ -84,6 +82,5 @@ public class Main implements CommandLineRunner {
         // 4. ETKİLEŞİMLİ KONSOL UYGULAMASINI BAŞLAT
         // ─────────────────────────────────────────────────
         System.out.println("\n🚀 Konsol uygulaması başlatılıyor...");
-        consoleApp.start();
     }
 }

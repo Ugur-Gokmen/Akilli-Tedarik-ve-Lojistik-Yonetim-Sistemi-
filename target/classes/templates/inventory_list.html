@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Yönetimi - Akıllı Lojistik</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: rgba(22, 28, 45, 0.6);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --primary-color: #4f46e5;
+            --primary-hover: #6366f1;
+            --info-color: #0ea5e9;
+            --accent-color: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --danger: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.15);
+            
+            --glass-blur: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.15), transparent 25%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--accent-color), #059669);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-info {
+            background: linear-gradient(135deg, var(--info-color), #0284c7);
+        }
+
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        .table-container {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        th {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1rem;
+            vertical-align: middle;
+        }
+
+        tbody tr {
+            transition: background 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Danger Row (Observer Pattern visualization) */
+        tr.danger-row {
+            background: var(--danger-bg) !important;
+            border-left: 4px solid var(--danger);
+        }
+        
+        tr.danger-row td {
+            color: #fca5a5;
+        }
+
+        .badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-simple {
+            background: rgba(148, 163, 184, 0.2);
+            color: #cbd5e1;
+        }
+
+        .badge-composite {
+            background: rgba(14, 165, 233, 0.2);
+            color: #38bdf8;
+        }
+
+        .fw-bold {
+            font-weight: 700;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-row">
+            <h2>📦 Mevcut Ürünler</h2>
+            <div class="action-buttons">
+                <a th:href="@{/inventory/add-simple}" class="btn btn-success">+ Basit Ürün</a>
+                <a th:href="@{/inventory/add-composite}" class="btn btn-info">+ Bileşik Ürün</a>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <th>Tür</th>
+                        <th>Fiyat</th>
+                        <th>Stok</th>
+                        <th>Eşik</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="p : ${products}" th:classappend="${p.stock <= p.stockThreshold} ? 'danger-row' : ''">
+                        <td th:text="${p.name}" style="font-weight: 600;">Ürün</td>
+                        <td>
+                            <span th:if="${p instanceof T(com.project.domain.product.SimpleProduct)}" class="badge badge-simple">Basit</span>
+                            <span th:if="${p instanceof T(com.project.domain.product.CompositeProduct)}" class="badge badge-composite">Bileşik</span>
+                        </td>
+                        <td th:text="${p.unitPrice + ' TL'}">0 TL</td>
+                        <td th:text="${p.stock}" class="fw-bold">0</td>
+                        <td th:text="${p.stockThreshold}">0</td>
+                        <td>
+                            <button style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; cursor: pointer; transition: 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Düzenle</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div th:if="${products == null or products.empty}" style="padding: 3rem; text-align: center; color: var(--text-muted);">
+                <p>Gösterilecek ürün bulunmamaktadır.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
