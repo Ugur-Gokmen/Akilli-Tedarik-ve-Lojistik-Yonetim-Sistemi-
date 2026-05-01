@@ -10,20 +10,6 @@ import java.util.UUID;
 import com.project.domain.user.User;
 import com.project.infrastructure.logger.SystemLogger;
 
-<<<<<<< HEAD:src/main/java/com/project/domain/order/Order.java
-=======
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.*;
-
 /**
  * Sipariş domain entity'si - State Pattern'in Context sınıfı.
  *
@@ -82,7 +68,7 @@ public class Order {
     public void cancel()         { currentState.cancel(this); }
 
     /**
-     * [HATA ÇÖZÜMÜ]: Sequential (Ardışık) geçiş desteği.
+     * Sequential (Ardışık) geçiş desteği.
      * OrderService içindeki çağrılar için handleNext metoduna delege eder.
      */
     public void nextState() {
@@ -108,7 +94,7 @@ public class Order {
             throw new IllegalArgumentException("Eklenecek sipariş kalemi null olamaz.");
         }
         
-        // [SENIOR DEFENSIVE CHECK]: Yalnızca PENDING aşamasında ürün eklenebilir
+        // Yalnızca PENDING aşamasında ürün eklenebilir
         if (!(currentState instanceof OrderStates.PendingState)) {
             throw new IllegalStateException("Sadece beklemede (Pending) olan siparişlere ürün eklenebilir. Mevcut: " + currentState.getStateName());
         }
