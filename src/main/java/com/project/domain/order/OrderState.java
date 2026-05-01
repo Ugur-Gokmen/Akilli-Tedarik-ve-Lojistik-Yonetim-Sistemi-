@@ -3,62 +3,46 @@ package com.project.domain.order;
 /**
  * Sipariş durumu arayüzü - State Pattern.
  *
- * <p>State Pattern: Siparişin her aşaması (Beklemede, Onaylandı, Hazırlanıyor,
- * Kargoda, Teslim Edildi, İade) ayrı bir sınıfta tanımlanır. Her durum
- * hangi geçişlerin yapılabileceğini ve hangilerinin yasak olduğunu kendi içinde
- * bilir. Bu sayede uzun if-else/switch zincirlerinden tamamen kaçınılır.</p>
+ * <p>Her durum hangi geçişlerin geçerli, hangilerinin yasak olduğunu
+ * kendi içinde bilir. Yasak geçişler exception fırlatır.
+ * Order sınıfında hiçbir if-else veya switch-case bulunmaz.</p>
  *
- * <p>Yeni bir durum eklemek için sadece bu arayüzü implement etmek yeterlidir
+ * <p>Yeni durum eklemek: sadece bu arayüzü implement etmek yeterlidir
  * → Open/Closed Principle.</p>
  */
 public interface OrderState {
-	void handleNext(Order order);
-    /**
-     * Siparişi onaylar (Beklemede → Onaylandı).
-     *
-     * @param order İşlenecek sipariş
-     */
+
+    /** Siparişi onaylar: Beklemede → Onaylandı */
     void approve(Order order);
 
-    /**
-     * Sipariş hazırlığını başlatır (Onaylandı → Hazırlanıyor).
-     *
-     * @param order İşlenecek sipariş
-     */
+    /** Hazırlığı başlatır: Onaylandı → Hazırlanıyor */
     void startPreparing(Order order);
 
-    /**
-     * Siparişi kargoya verir (Hazırlanıyor → Kargoda).
-     *
-     * @param order İşlenecek sipariş
-     */
+    /** Kargoya verir: Hazırlanıyor → Kargoda */
     void ship(Order order);
 
-    /**
-     * Siparişi teslim edildi olarak işaretler (Kargoda → Teslim Edildi).
-     *
-     * @param order İşlenecek sipariş
-     */
+    /** Teslim edildi işaretler: Kargoda → Teslim Edildi */
     void deliver(Order order);
 
-    /**
-     * Siparişi iade sürecine alır (Kargoda → İade).
-     *
-     * @param order İşlenecek sipariş
-     */
+    /** İade başlatır: Kargoda → İade */
     void returnOrder(Order order);
 
-    /**
-     * Siparişi iptal eder (yalnızca belirli aşamalarda mümkün).
-     *
-     * @param order İşlenecek sipariş
-     */
+    /** İptal eder (yalnızca belirli aşamalarda) */
     void cancel(Order order);
 
     /**
-     * Mevcut durumun adını döner.
+     * Sıradaki mantıksal duruma otomatik geçiş.
      *
-     * @return Durum adı
+     * <p>Order.nextState() tarafından çağrılır. Her durum kendi sıradaki
+     * geçişini tanımlar. Terminal durumlarda (Teslim, İade, İptal)
+     * exception fırlatır.</p>
+     *
+     * @param order İşlenecek sipariş
+     */
+    void handleNext(Order order);
+
+    /**
+     * @return Mevcut durumun görünen adı
      */
     String getStateName();
 }

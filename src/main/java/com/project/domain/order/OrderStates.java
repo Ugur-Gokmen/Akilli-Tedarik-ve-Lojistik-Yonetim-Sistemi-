@@ -5,9 +5,12 @@ import com.project.infrastructure.logger.SystemLogger;
 /**
  * Sipariş durumu implementasyonları - State Pattern.
  *
- * <p>Her iç sınıf, siparişin belirli bir aşamasını temsil eder.
- * Her durum; hangi geçişlerin geçerli, hangilerinin yasak olduğunu bilir.
- * Yasak geçişler exception fırlatır - if-else/switch KULLANILMAZ.</p>
+ * <p>7 durum: Pending → Approved → Preparing → Shipped → Delivered
+ *                                                       ↘ Returned
+ *                    ↘ Cancelled (Pending ve Approved'dan)</p>
+ *
+ * <p>Her iç sınıf hangi geçişlerin geçerli, hangilerinin yasak
+ * olduğunu kendi içinde bilir. if-else / switch-case KULLANILMAZ.</p>
  */
 public class OrderStates {
 
@@ -17,16 +20,8 @@ public class OrderStates {
     // 1. BEKLEMEDE (Pending)
     // ─────────────────────────────────────────────────
 
-    /**
-     * Beklemede durumu - sipariş sisteme alınmış ama henüz onaylanmamış.
-     * İzin verilen: approve, cancel
-     */
     public static class PendingState implements OrderState {
-    	@Override
-    	public void handleNext(Order order) {
-    	    order.setState(new ApprovedState()); // Beklemedekini Onayla
-    	}
-    	
+
         @Override
         public void approve(Order order) {
             logger.info("Sipariş onaylandı: " + order.getId());
@@ -60,24 +55,20 @@ public class OrderStates {
         }
 
         @Override
-        public String getStateName() { return "BEKLEMEde"; }
+        public void handleNext(Order order) {
+            approve(order);
+        }
+
+        @Override
+        public String getStateName() { return "BEKLEMEDE"; }
     }
 
     // ─────────────────────────────────────────────────
     // 2. ONAYLANDI (Approved)
     // ─────────────────────────────────────────────────
 
-    /**
-     * Onaylandı durumu - sipariş onaylanmış, hazırlık bekleniyor.
-     * İzin verilen: startPreparing, cancel
-     */
     public static class ApprovedState implements OrderState {
-    	@Override
-        public void handleNext(Order order) {
-            // Onaylanmış bir siparişin bir sonraki doğal adımı hazırlıktır.
-            this.startPreparing(order);
-        }
-    	
+
         @Override
         public void approve(Order order) {
             throw new IllegalStateException("Sipariş zaten onaylandı!");
@@ -96,7 +87,7 @@ public class OrderStates {
 
         @Override
         public void deliver(Order order) {
-            throw new IllegalStateException("Sipariş teslim edilemez - henüz hazırlanmadı!");
+            throw new IllegalStateException("Sipariş teslim edilemez — henüz hazırlanmadı!");
         }
 
         @Override
@@ -111,6 +102,11 @@ public class OrderStates {
         }
 
         @Override
+        public void handleNext(Order order) {
+            startPreparing(order);
+        }
+
+        @Override
         public String getStateName() { return "ONAYLANDI"; }
     }
 
@@ -118,16 +114,8 @@ public class OrderStates {
     // 3. HAZIRLANIYOR (Preparing)
     // ─────────────────────────────────────────────────
 
-    /**
-     * Hazırlanıyor durumu - depo aktif olarak siparişi paketliyor.
-     * İzin verilen: ship (iptal artık mümkün değil)
-     */
     public static class PreparingState implements OrderState {
-    	@Override
-    	public void handleNext(Order order) {
-    	    order.setState(new ShippedState()); // Hazırlananı Kargola
-    	}
-    	
+
         @Override
         public void approve(Order order) {
             throw new IllegalStateException("Hazırlanan sipariş tekrar onaylanamaz!");
@@ -151,13 +139,19 @@ public class OrderStates {
 
         @Override
         public void returnOrder(Order order) {
-            throw new IllegalStateException("Hazırlanan sipariş iade edilemez - önce kargoya verilmeli!");
+            throw new IllegalStateException("Hazırlanan sipariş iade edilemez — önce kargoya verilmeli!");
         }
 
         @Override
         public void cancel(Order order) {
             throw new IllegalStateException(
-                "Hazırlama aşamasındaki sipariş iptal edilemez! Kargoya verdikten sonra iade talep edebilirsiniz.");
+                "Hazırlama aşamasındaki sipariş iptal edilemez! " +
+                "Kargoya verdikten sonra iade talep edebilirsiniz.");
+        }
+
+        @Override
+        public void handleNext(Order order) {
+            ship(order);
         }
 
         @Override
@@ -168,17 +162,8 @@ public class OrderStates {
     // 4. KARGODA (Shipped)
     // ─────────────────────────────────────────────────
 
-    /**
-     * Kargoda durumu - ürün kargo şirketinde taşınıyor.
-     * İzin verilen: deliver, returnOrder
-     * İzin verilmeyen: cancel (kargodaki ürün iptal YAPILAMAZ)
-     */
     public static class ShippedState implements OrderState {
-    	@Override
-    	public void handleNext(Order order) {
-    	    order.setState(new DeliveredState()); // Kargodakini Teslim Et
-    	}
-    	
+
         @Override
         public void approve(Order order) {
             throw new IllegalStateException("Kargodaki sipariş onaylanamaz!");
@@ -196,22 +181,28 @@ public class OrderStates {
 
         @Override
         public void deliver(Order order) {
-            logger.logCriticalOperation("ORDER_DELIVERED", "Sipariş teslim edildi: " + order.getId());
+            logger.logCriticalOperation("ORDER_DELIVERED",
+                "Sipariş teslim edildi: " + order.getId());
             order.setState(new DeliveredState());
         }
 
         @Override
         public void returnOrder(Order order) {
-            logger.logCriticalOperation("ORDER_RETURN", "İade başlatıldı: " + order.getId());
+            logger.logCriticalOperation("ORDER_RETURN",
+                "İade başlatıldı: " + order.getId());
             order.setState(new ReturnedState());
         }
 
         @Override
         public void cancel(Order order) {
-            // KARGODAKI ÜRÜN İPTAL EDİLEMEZ - Ödev şartnamesi gereği
             throw new IllegalStateException(
-                "Kargodaki sipariş iptal edilemez! Ürünü teslim aldıktan sonra iade talep edebilirsiniz. " +
-                "Doğrudan iade için returnOrder() metodunu kullanın.");
+                "Kargodaki sipariş iptal edilemez! " +
+                "Teslim aldıktan sonra iade talep edebilirsiniz.");
+        }
+
+        @Override
+        public void handleNext(Order order) {
+            deliver(order);
         }
 
         @Override
@@ -219,37 +210,18 @@ public class OrderStates {
     }
 
     // ─────────────────────────────────────────────────
-    // 5. TESLİM EDİLDİ (Delivered)
+    // 5. TESLİM EDİLDİ (Delivered) — Terminal
     // ─────────────────────────────────────────────────
 
-    /**
-     * Teslim edildi durumu - sipariş başarıyla tamamlandı.
-     * Terminal durum - hiçbir geçiş yapılamaz.
-     */
     public static class DeliveredState implements OrderState {
-    	@Override
-    	public void handleNext(Order order) {
-    	    // Son durumlarda bir sonraki adım yoktur, hata fırlatılabilir veya sabit kalır.
-    	    System.out.println("Sipariş son aşamadadır, daha fazla ilerleyemez.");
-    	}
-    	
-        @Override
-        public void approve(Order order) { throwTerminal(); }
 
-        @Override
-        public void startPreparing(Order order) { throwTerminal(); }
-
-        @Override
-        public void ship(Order order) { throwTerminal(); }
-
-        @Override
-        public void deliver(Order order) { throwTerminal(); }
-
-        @Override
-        public void returnOrder(Order order) { throwTerminal(); }
-
-        @Override
-        public void cancel(Order order) { throwTerminal(); }
+        @Override public void approve(Order o)        { throwTerminal(); }
+        @Override public void startPreparing(Order o) { throwTerminal(); }
+        @Override public void ship(Order o)           { throwTerminal(); }
+        @Override public void deliver(Order o)        { throwTerminal(); }
+        @Override public void returnOrder(Order o)    { throwTerminal(); }
+        @Override public void cancel(Order o)         { throwTerminal(); }
+        @Override public void handleNext(Order o)     { throwTerminal(); }
 
         private void throwTerminal() {
             throw new IllegalStateException("Teslim edilmiş sipariş üzerinde işlem yapılamaz.");
@@ -260,39 +232,22 @@ public class OrderStates {
     }
 
     // ─────────────────────────────────────────────────
-    // 6. İADE (Returned)
+    // 6. İADE (Returned) — Terminal
     // ─────────────────────────────────────────────────
 
-    /**
-     * İade durumu - ürün iade sürecinde.
-     * Terminal durum.
-     */
     public static class ReturnedState implements OrderState {
-    	@Override
-        public void handleNext(Order order) {
-            // İade süreci bir son durumdur, ardışık geçiş yapılamaz.
-            throwTerminal();
-        }
-    	
-        @Override
-        public void approve(Order order) { throwTerminal(); }
 
-        @Override
-        public void startPreparing(Order order) { throwTerminal(); }
-
-        @Override
-        public void ship(Order order) { throwTerminal(); }
-
-        @Override
-        public void deliver(Order order) { throwTerminal(); }
+        @Override public void approve(Order o)        { throwTerminal(); }
+        @Override public void startPreparing(Order o) { throwTerminal(); }
+        @Override public void ship(Order o)           { throwTerminal(); }
+        @Override public void deliver(Order o)        { throwTerminal(); }
+        @Override public void cancel(Order o)         { throwTerminal(); }
+        @Override public void handleNext(Order o)     { throwTerminal(); }
 
         @Override
         public void returnOrder(Order order) {
             throw new IllegalStateException("Sipariş zaten iade aşamasında!");
         }
-
-        @Override
-        public void cancel(Order order) { throwTerminal(); }
 
         private void throwTerminal() {
             throw new IllegalStateException("İade aşamasındaki sipariş üzerinde işlem yapılamaz.");
@@ -303,33 +258,17 @@ public class OrderStates {
     }
 
     // ─────────────────────────────────────────────────
-    // 7. İPTAL EDİLDİ (Cancelled)
+    // 7. İPTAL (Cancelled) — Terminal
     // ─────────────────────────────────────────────────
 
-    /**
-     * İptal edildi durumu - terminal durum.
-     */
     public static class CancelledState implements OrderState {
-    	@Override
-        public void handleNext(Order order) {
-            // İptal edilmiş bir sipariş daha fazla ilerleyemez.
-            throwTerminal();
-        }
-    	
-        @Override
-        public void approve(Order order) { throwTerminal(); }
 
-        @Override
-        public void startPreparing(Order order) { throwTerminal(); }
-
-        @Override
-        public void ship(Order order) { throwTerminal(); }
-
-        @Override
-        public void deliver(Order order) { throwTerminal(); }
-
-        @Override
-        public void returnOrder(Order order) { throwTerminal(); }
+        @Override public void approve(Order o)        { throwTerminal(); }
+        @Override public void startPreparing(Order o) { throwTerminal(); }
+        @Override public void ship(Order o)           { throwTerminal(); }
+        @Override public void deliver(Order o)        { throwTerminal(); }
+        @Override public void returnOrder(Order o)    { throwTerminal(); }
+        @Override public void handleNext(Order o)     { throwTerminal(); }
 
         @Override
         public void cancel(Order order) {
