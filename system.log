@@ -1042,3 +1042,23 @@
 [2026-05-12 10:16:02] [INFO] Sipariş onaylandı: A20B10FB
 [2026-05-12 10:16:02] [INFO] Sipariş [A20B10FB] durum değiştirdi -> ONAYLANDI
 [2026-05-12 10:16:02] [INFO] Yeni sipariş oluşturuldu: E567EE6A | Müşteri: musteri
+[2026-05-13 01:44:46] [INFO] [AOP Start] Metot başlıyor: AuthService.authenticate(..)
+[2026-05-13 01:44:47] [ERROR] [AOP Error] Metot 'AuthService.authenticate(..)' bir hata nedeniyle durdu: Kullanıcı adı veya şifre hatalı.
+[2026-05-13 01:44:53] [INFO] [AOP Start] Metot başlıyor: AuthService.authenticate(..)
+[2026-05-13 01:44:53] [ERROR] [AOP Error] Metot 'AuthService.authenticate(..)' bir hata nedeniyle durdu: Kullanıcı adı veya şifre hatalı.
+[2026-05-13 01:45:11] [INFO] [AOP Start] Metot başlıyor: AuthService.authenticate(..)
+[2026-05-13 01:45:11] [INFO] [AOP Success] Metot 'AuthService.authenticate(..)' başarıyla tamamlandı. Süre: 497 ms
+[2026-05-13 01:45:11] [INFO] [AOP Start] Metot başlıyor: InventoryApplicationService.listAllProducts()
+[2026-05-13 01:45:11] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-05-13 01:45:12] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 267 ms
+[2026-05-13 01:45:12] [INFO] [AOP Success] Metot 'InventoryApplicationService.listAllProducts()' başarıyla tamamlandı. Süre: 270 ms
+[2026-05-13 01:45:15] [INFO] [AOP Start] Metot başlıyor: InventoryApplicationService.listAllProducts()
+[2026-05-13 01:45:15] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-05-13 01:45:15] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 110 ms
+[2026-05-13 01:45:15] [INFO] [AOP Success] Metot 'InventoryApplicationService.listAllProducts()' başarıyla tamamlandı. Süre: 112 ms
+[2026-05-13 01:45:18] [INFO] [AOP Start] Metot başlıyor: InventoryApplicationService.listAllProducts()
+[2026-05-13 01:45:18] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-05-13 01:45:18] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 56 ms
+[2026-05-13 01:45:18] [INFO] [AOP Success] Metot 'InventoryApplicationService.listAllProducts()' başarıyla tamamlandı. Süre: 57 ms
+[2026-05-13 01:45:23] [INFO] [AOP Start] Metot başlıyor: AuthService.authenticate(..)
+[2026-05-13 01:45:23] [ERROR] [AOP Error] Metot 'AuthService.authenticate(..)' bir hata nedeniyle durdu: Kullanıcı adı veya şifre hatalı.
