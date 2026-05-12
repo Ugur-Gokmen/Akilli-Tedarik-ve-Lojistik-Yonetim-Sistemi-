@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="adminHead(pageTitle)" th:replace="~{fragments/common_head :: appHead(${pageTitle})}"></head>
+<body>
+    <nav th:fragment="adminSidebar(activeMenu)" class="hidden md:flex flex-col bg-slate-900 fixed left-0 top-0 h-full w-[280px] z-40 border-r border-white/10 py-6 space-y-4">
+        <div class="px-6 pb-4 mb-4 border-b border-white/10 flex items-center gap-3">
+            <div class="w-10 h-10 rounded bg-primary/20 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[24px]">hub</span></div>
+            <div>
+                <h1 class="text-lg font-black text-slate-100 uppercase tracking-wider">AklıLojistik</h1>
+                <p class="text-slate-400 text-xs mt-1">Yönetim Portalı</p>
+            </div>
+        </div>
+        <div class="flex-1 px-4 space-y-1 overflow-y-auto">
+            <a th:href="@{/analytics}" th:classappend="${activeMenu == 'analytics'} ? 'bg-blue-600/10 text-blue-400 border-l-4 border-blue-500' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'" class="flex items-center gap-4 px-4 py-3 rounded-lg transition-all group font-sans font-medium text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined">insights</span><span>Analitik</span>
+            </a>
+            <a th:href="@{/inventory/list}" th:classappend="${activeMenu == 'inventory'} ? 'bg-blue-600/10 text-blue-400 border-l-4 border-blue-500' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'" class="flex items-center gap-4 px-4 py-3 rounded-lg transition-all group font-sans font-medium text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined">inventory_2</span><span>Envanter</span>
+            </a>
+            <a th:href="@{/orders/manage}" th:classappend="${activeMenu == 'orders'} ? 'bg-blue-600/10 text-blue-400 border-l-4 border-blue-500' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'" class="flex items-center gap-4 px-4 py-3 rounded-lg transition-all group font-sans font-medium text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined">shopping_cart</span><span>Siparişler</span>
+            </a>
+            <a th:href="@{/users}" th:classappend="${activeMenu == 'users'} ? 'bg-blue-600/10 text-blue-400 border-l-4 border-blue-500' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'" class="flex items-center gap-4 px-4 py-3 rounded-lg transition-all group font-sans font-medium text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined">group</span><span>Kullanıcılar</span>
+            </a>
+            <a th:href="@{/facilities}" th:classappend="${activeMenu == 'facilities'} ? 'bg-blue-600/10 text-blue-400 border-l-4 border-blue-500' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'" class="flex items-center gap-4 px-4 py-3 rounded-lg transition-all group font-sans font-medium text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined">domain</span><span>Tesisler</span>
+            </a>
+            <a th:href="@{/settings}" th:classappend="${activeMenu == 'settings'} ? 'bg-blue-600/10 text-blue-400 border-l-4 border-blue-500' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'" class="flex items-center gap-4 px-4 py-3 rounded-lg transition-all group font-sans font-medium text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined">settings</span><span>Ayarlar</span>
+            </a>
+        </div>
+        <div class="px-4 mt-auto space-y-1 border-t border-white/10 pt-4">
+            <div class="px-4 py-2 text-xs text-slate-500 uppercase font-bold tracking-widest">
+                Oturum: <span class="text-slate-300" th:text="${currentUser != null ? currentUser.username : '-'}">User</span>
+            </div>
+            <a th:href="@{/auth/logout}" class="flex items-center gap-4 px-4 py-3 rounded-lg text-red-400 hover:text-red-200 hover:bg-red-900/20 transition-all group font-sans font-medium text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined group-hover:translate-x-1 duration-200">logout</span><span>Çıkış Yap</span>
+            </a>
+        </div>
+    </nav>
+</body>
+</html>

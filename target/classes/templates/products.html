@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/admin_layout :: adminHead('Envanter Yönetimi')}"></head>
+<body class="bg-background text-on-background font-body-lg antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- SideNavBar -->
+<div th:replace="~{fragments/admin_layout :: adminSidebar('inventory')}"></div>
+
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[280px] flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 md:left-[280px] h-16 bg-slate-900/50 backdrop-blur-md flex items-center justify-between px-6 w-full z-30 border-b border-white/10">
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 text-surface-variant font-medium bg-surface-container-high px-3 py-1.5 rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+<span class="text-sm text-on-surface-variant">Tesis: Kuzey Depo</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<form method="get" th:action="@{/inventory/list}" class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input name="q" th:value="${activeQuery}" class="bg-surface-container-high border-white/10 border text-sm text-on-surface rounded-lg pl-10 pr-4 py-2 w-64 focus:outline-none focus:border-primary transition-all placeholder:text-on-surface-variant/50" placeholder="SKU veya Ürün Ara..." type="text"/>
+<input type="hidden" name="stock" th:value="${activeStock}"/>
+</form>
+<div class="flex items-center gap-2 border-l border-white/10 pl-4">
+<button class="p-2 text-slate-400 hover:text-white transition-colors rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-slate-400 hover:text-white transition-colors rounded-full"><span class="material-symbols-outlined">help_outline</span></button>
+<div class="w-8 h-8 rounded-full border border-white/20 ml-2 bg-primary/20 flex items-center justify-center text-primary font-bold" th:if="${currentUser != null}" th:text="${#strings.substring(currentUser.username,0,1).toUpperCase()}">U</div>
+</div>
+</div>
+</header>
+
+<!-- Page Content -->
+<div class="flex-1 mt-16 p-lg pt-8 max-w-[1600px] w-full mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="font-h1 text-h1 text-on-surface mb-2">Envanter Yönetimi</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">Operasyonel stok seviyelerini izleyin, montaj ürünlerini takip edin ve kritik eksikleri belirleyin.</p>
+</div>
+<div class="flex gap-3">
+<a th:href="@{/inventory/list(stock='critical', q=${activeQuery})}" class="px-4 py-2 bg-surface-container-high border border-white/10 rounded-lg text-sm font-medium text-on-surface hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>Kritik Stok</a>
+<a th:href="@{/inventory/list(stock='all', q=${activeQuery})}" class="px-4 py-2 bg-surface-container-high border border-white/10 rounded-lg text-sm font-medium text-on-surface hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">refresh</span>Tümünü Göster</a>
+</div>
+</div>
+
+<div th:if="${successMessage}" class="mb-6 p-4 bg-primary/10 border border-primary/20 text-primary rounded-lg text-sm flex items-center gap-2">
+    <span class="material-symbols-outlined text-[20px]">check_circle</span>
+    <span th:text="${successMessage}">İşlem başarılı.</span>
+</div>
+<div th:if="${errorMessage}" class="mb-6 p-4 bg-error/10 border border-error/20 text-error rounded-lg text-sm flex items-center gap-2">
+    <span class="material-symbols-outlined text-[20px]">error</span>
+    <span th:text="${errorMessage}">İşlem başarısız.</span>
+</div>
+
+<!-- Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-8" th:with="criticalCount=${products.?[stock <= stockThreshold].size()}">
+<div class="bg-surface-container-low border border-white/10 rounded-xl p-md flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined">category</span></div>
+<div><p class="font-label-caps text-label-caps text-on-surface-variant mb-1">TOPLAM SKU</p><p class="font-h2 text-h2 text-on-surface" th:text="${#lists.size(products)}">0</p></div>
+</div>
+<div class="bg-surface-container-low border border-white/10 rounded-xl p-md flex items-center gap-4" th:classappend="${criticalCount > 0 ? 'border-error/30' : ''}">
+<div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center text-error shrink-0"><span class="material-symbols-outlined">warning</span></div>
+<div><p class="font-label-caps text-label-caps text-on-surface-variant mb-1">KRİTİK STOK</p><p class="font-h2 text-h2 text-error" th:text="${criticalCount}">0</p></div>
+</div>
+<div class="bg-surface-container-low border border-white/10 rounded-xl p-md flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary shrink-0"><span class="material-symbols-outlined">precision_manufacturing</span></div>
+<div><p class="font-label-caps text-label-caps text-on-surface-variant mb-1">BİLEŞİK ÜRÜN</p><p class="font-h2 text-h2 text-on-surface" th:text="${products.?[composite].size()}">0</p></div>
+</div>
+<div class="bg-surface-container-low border border-white/10 rounded-xl p-md flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0"><span class="material-symbols-outlined">conveyor_belt</span></div>
+<div><p class="font-label-caps text-label-caps text-on-surface-variant mb-1">TOPLAM STOK</p><p class="font-h2 text-h2 text-on-surface" th:text="${#lists.isEmpty(products) ? 0 : #aggregates.sum(products.![stock])}">0</p></div>
+</div>
+</div>
+
+<!-- Inventory Data Table -->
+<div th:if="${!#lists.isEmpty(products)}" class="bg-surface-container border border-white/10 rounded-xl overflow-hidden flex flex-col">
+<div class="p-lg border-b border-white/10 flex items-center justify-between bg-surface-container-lowest">
+<h3 class="font-h2 text-h2 text-on-surface">Varlık Kaydı</h3>
+<div class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-error pulse-critical inline-block"></span>Dikkat Gerektirir</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-white/10">
+<th class="font-label-caps text-label-caps text-on-surface-variant p-4 w-12"></th>
+<th class="font-label-caps text-label-caps text-on-surface-variant p-4 min-w-[300px]">Ürün / Bileşen</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant p-4">SKU / ID</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant p-4">Tür</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant p-4 text-right">Stok</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant p-4 text-right">Durum</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant p-4 w-16"></th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y divide-white/5">
+
+<th:block th:each="p : ${products}">
+    <!-- Main Row -->
+    <tr class="hover:bg-primary/5 transition-colors group">
+        <td class="p-4 align-top">
+            <button th:if="${p.composite}"
+                    th:onclick="'toggleRow(\'row-' + ${p.id} + '\')'"
+                    class="text-on-surface-variant hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-[20px] expand-icon" th:id="'icon-' + ${p.id}">keyboard_arrow_down</span>
+            </button>
+        </td>
+        <td class="p-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded border border-white/10 overflow-hidden shrink-0 bg-surface-container-high flex items-center justify-center">
+                    <span th:if="${!p.composite}" class="material-symbols-outlined text-outline">settings_applications</span>
+                    <span th:if="${p.composite}" class="material-symbols-outlined text-tertiary">precision_manufacturing</span>
+                </div>
+                <div>
+                    <p class="font-medium text-on-surface" th:text="${p.name}">Ürün Adı</p>
+                    <p class="text-xs text-on-surface-variant mt-0.5" th:text="${p.composite ? 'Bileşik Birim' : 'Basit Birim'}">Tür</p>
+                </div>
+            </div>
+        </td>
+        <td class="p-4 align-top pt-6 font-mono text-mono text-on-surface-variant" th:text="${!p.composite ? p.sku : p.id}">SKU</td>
+        <td class="p-4 align-top pt-6 text-on-surface-variant" th:text="${p.composite ? 'Bileşik' : 'Basit'}">Konum</td>
+        <td class="p-4 align-top pt-6 text-right font-mono text-mono text-on-surface" th:text="${p.stock} + ' Adet'">0 Adet</td>
+        <td class="p-4 align-top pt-5 text-right">
+            <span th:if="${p.stock <= p.stockThreshold}" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-error/10 border border-error/20 text-xs font-medium text-error">
+                <span class="w-1.5 h-1.5 rounded-full bg-error pulse-critical"></span>Kritik
+            </span>
+            <span th:if="${p.stock > p.stockThreshold and p.stock <= p.stockThreshold + 10}" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-surface-container-high border border-white/5 text-xs font-medium text-on-surface">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Yeterli
+            </span>
+            <span th:if="${p.stock > p.stockThreshold + 10}" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-medium text-primary">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Optimal
+            </span>
+        </td>
+        <td class="p-4 align-top pt-5 text-right">
+            <form th:if="${currentUser != null and !currentUser.staffOrAbove}" method="post" th:action="@{/orders/quick-order}" class="flex justify-end items-center gap-2">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <input type="hidden" name="productId" th:value="${p.id}"/>
+                <input name="quantity" type="number" min="1" value="1" class="w-16 bg-surface-container-high border border-white/10 rounded px-2 py-1 text-xs text-on-surface"/>
+                <button type="submit" class="px-3 py-1.5 rounded bg-primary text-on-primary text-xs font-semibold hover:bg-primary-container transition-colors">Sipariş Ver</button>
+            </form>
+            <button th:if="${currentUser != null and currentUser.staffOrAbove}" class="text-on-surface-variant hover:text-white transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+        </td>
+    </tr>
+
+    <!-- Nested Components for Composite -->
+    <tr th:if="${p.composite}"
+        th:id="'row-' + ${p.id}" class="bg-surface-container-lowest/50 border-0 hidden">
+        <td class="p-0"></td>
+        <td class="p-0 relative tree-line ml-8 pl-12 pb-4" colspan="6">
+            <table class="w-full text-left">
+                <tbody class="divide-y divide-white/5">
+                    <tr th:each="comp : ${p.components}" class="hover:bg-primary/5 transition-colors relative tree-item">
+                        <td class="py-3 pr-4 min-w-[264px]">
+                            <div class="flex items-center gap-2 pl-4">
+                                <span class="material-symbols-outlined text-[16px] text-on-surface-variant">settings_applications</span>
+                                <span class="text-on-surface" th:text="${comp.name}">Alt Bileşen</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-4 font-mono text-mono text-on-surface-variant" th:text="${!comp.composite ? comp.sku : 'N/A'}">SKU</td>
+                        <td class="py-3 px-4 text-on-surface-variant text-sm" th:text="${#numbers.formatDecimal(comp.unitPrice,1,2)} + ' TL'">Fiyat</td>
+                        <td class="py-3 px-4 text-right font-mono text-mono text-on-surface" th:text="${comp.stock} + ' / ' + ${comp.stockThreshold}">Stok</td>
+                        <td class="py-3 px-4 text-right">
+                             <span th:if="${comp.stock <= comp.stockThreshold}" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-error/10 border border-error/20 text-[10px] font-medium text-error">
+                                <span class="w-1.2 h-1.2 rounded-full bg-error pulse-critical"></span>Kritik
+                            </span>
+                             <span th:if="${comp.stock > comp.stockThreshold}" class="text-[10px] text-on-surface-variant">Sağlıklı</span>
+                        </td>
+                        <td class="py-3 px-4 w-16"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</th:block>
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div th:if="${#lists.isEmpty(products) and totalProductCount > 0}" class="bg-surface-container border border-white/10 rounded-xl p-16 text-center">
+    <span class="material-symbols-outlined text-6xl text-on-surface-variant opacity-30">search_off</span>
+    <h3 class="text-xl font-bold text-on-surface mt-4">Filtreye uygun ürün bulunamadı</h3>
+    <p class="text-on-surface-variant mt-2 mb-8 max-w-md mx-auto">Arama/filtre kriterlerini değiştirerek tekrar deneyin.</p>
+    <a th:href="@{/inventory/list}" class="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all">Filtreyi Temizle</a>
+</div>
+
+<div th:if="${#lists.isEmpty(products) and totalProductCount == 0}" class="bg-surface-container border border-white/10 rounded-xl p-16 text-center">
+    <span class="material-symbols-outlined text-6xl text-on-surface-variant opacity-30">inventory_2</span>
+    <h3 class="text-xl font-bold text-on-surface mt-4">Envanterde henüz ürün yok</h3>
+    <p class="text-on-surface-variant mt-2 mb-8 max-w-md mx-auto" th:if="${currentUser != null and currentUser.staffOrAbove}">İlk ürünü ekleyerek envanter akışını başlatabilirsiniz.</p>
+    <p class="text-on-surface-variant mt-2 mb-8 max-w-md mx-auto" th:if="${currentUser != null and !currentUser.staffOrAbove}">Şu an siparişe açık ürün bulunmuyor. Kısa süre sonra tekrar kontrol edin.</p>
+    <a th:if="${currentUser != null and currentUser.staffOrAbove}" th:href="@{/inventory/add-simple}" class="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all">İlk Ürünü Ekle</a>
+</div>
+</div>
+</main>
+
+<script>
+    function toggleRow(rowId) {
+        const row = document.getElementById(rowId);
+        const iconId = rowId.replace('row-', 'icon-');
+        const icon = document.getElementById(iconId);
+        
+        if (row.classList.contains('hidden')) {
+            row.classList.remove('hidden');
+            icon.innerText = 'keyboard_arrow_up';
+        } else {
+            row.classList.add('hidden');
+            icon.innerText = 'keyboard_arrow_down';
+        }
+    }
+</script>
+
+</body>
+</html>

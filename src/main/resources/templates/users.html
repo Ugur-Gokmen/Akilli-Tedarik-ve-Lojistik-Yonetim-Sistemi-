@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/admin_layout :: adminHead('Kullanıcı Yetkilendirme')}"></head>
+<body class="bg-background text-on-background font-body-lg flex min-h-screen antialiased overflow-hidden">
+
+<!-- SideNavBar -->
+<div th:replace="~{fragments/admin_layout :: adminSidebar('users')}"></div>
+
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-[280px] flex flex-col min-h-screen relative overflow-hidden bg-[#0F172A]">
+    <header class="sticky top-0 z-40 w-full bg-slate-900/90 backdrop-blur-md border-b border-white/5 flex justify-between items-center h-16 px-8">
+        <div class="flex items-center gap-4">
+            <h2 class="text-on-surface font-bold">Kullanıcı Yetkilendirme</h2>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold" th:if="${currentUser != null}" th:text="${#strings.substring(currentUser.username,0,1).toUpperCase()}">U</div>
+        </div>
+    </header>
+
+    <main class="flex-1 p-8 flex gap-8 overflow-hidden h-[calc(100vh-64px)]">
+        
+        <!-- Users List Section -->
+        <section class="flex-1 flex flex-col bg-surface-container rounded-xl border border-white/10 overflow-hidden shadow-2xl">
+            <!-- Section Header -->
+            <div class="p-6 border-b border-white/10 bg-surface-container-low flex justify-between items-center">
+                <div>
+                    <h2 class="text-xl font-bold text-on-surface">Kullanıcı Erişimi</h2>
+                    <p class="text-xs text-on-surface-variant mt-1">Sistem erişimini ve rol atamalarını yönetin.</p>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="flex-1 overflow-auto custom-scrollbar">
+                <table class="w-full text-left border-collapse whitespace-nowrap">
+                    <thead class="sticky top-0 bg-surface-container-high z-10 border-b border-white/10">
+                        <tr class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+                            <th class="px-6 py-4">Kullanıcı</th>
+                            <th class="px-6 py-4">Rol</th>
+                            <th class="px-6 py-4">Durum</th>
+                            <th class="px-6 py-4">Son Görülme</th>
+                            <th class="px-6 py-4 text-right">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 text-sm">
+                        <tr th:each="user : ${users}" class="hover:bg-primary/5 transition-colors group cursor-pointer">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-bold border border-white/10" th:text="${#strings.substring(user.username,0,1).toUpperCase()}">U</div>
+                                    <div>
+                                        <div class="font-bold text-on-surface" th:text="${user.username}">Kullanıcı Adı</div>
+                                        <div class="text-[10px] text-on-surface-variant font-mono" th:text="${user.email}">email@example.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border"
+                                      th:classappend="${user.role.name() == 'ADMIN' ? 'bg-primary/10 text-primary border-primary/20' : (user.role.name() == 'STAFF' ? 'bg-secondary-container/30 text-on-secondary-container border-secondary-container/20' : 'bg-surface-container-highest text-on-surface-variant border-white/5')}">
+                                    <span class="material-symbols-outlined text-[14px]" th:text="${user.role.name() == 'ADMIN' ? 'shield_person' : (user.role.name() == 'STAFF' ? 'badge' : 'person')}">badge</span>
+                                    <span th:text="${user.role}">Role</span>
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input checked class="sr-only peer" type="checkbox"/>
+                                    <div class="w-9 h-5 bg-surface-container-highest rounded-full peer peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full"></div>
+                                </label>
+                            </td>
+                            <td class="px-6 py-4 text-xs text-on-surface-variant font-mono">Bugün, 14:20</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="text-on-surface-variant hover:text-primary transition-colors p-1 opacity-0 group-hover:opacity-100">
+                                    <span class="material-symbols-outlined">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Role Management Side Panel -->
+        <aside class="w-[400px] bg-surface-container rounded-xl border border-white/10 flex flex-col overflow-hidden shadow-2xl relative">
+            <div class="h-1 w-full bg-gradient-to-r from-primary to-surface-container"></div>
+            <div class="p-8 border-b border-white/10 bg-surface-container-low">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-primary">admin_panel_settings</span>
+                    <h3 class="text-xl font-bold text-on-surface">Rol Tanımlama</h3>
+                </div>
+                <p class="text-xs text-on-surface-variant">Spesifik izinleri yapılandırın (SOLID mapping).</p>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-8 space-y-8 custom-scrollbar">
+                <!-- Selected Role -->
+                <div class="bg-surface-container-highest rounded-lg p-4 border border-white/5">
+                    <label class="block text-[10px] font-bold text-on-surface-variant mb-2 uppercase tracking-widest">Hedef Rol</label>
+                    <select class="w-full bg-surface border border-white/10 rounded-md px-3 py-2 text-sm text-on-surface focus:border-primary outline-none cursor-pointer">
+                        <option th:each="role : ${roles}" th:text="${role}">Role</option>
+                    </select>
+                </div>
+
+                <!-- Permissions -->
+                <div class="space-y-4">
+                    <h4 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Envanter Yetkileri</h4>
+                    <div class="space-y-4 bg-surface-container-lowest border border-white/5 rounded-lg p-5">
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input checked class="mt-1 w-4 h-4 rounded border-outline-variant bg-surface-container text-primary focus:ring-primary" type="checkbox"/>
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors">Envanter Okuma</span>
+                                <span class="text-[10px] text-on-surface-variant mt-1">Stok seviyelerini ve lokasyonları görebilir.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input checked class="mt-1 w-4 h-4 rounded border-outline-variant bg-surface-container text-primary focus:ring-primary" type="checkbox"/>
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors">Envanter Düzenleme</span>
+                                <span class="text-[10px] text-on-surface-variant mt-1">Stok miktarlarını değiştirebilir ve denetim yapabilir.</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-white/10 bg-surface-container-low flex justify-end gap-3">
+                <button class="px-6 py-2 rounded-lg font-bold text-xs uppercase tracking-widest text-on-surface border border-white/10 hover:bg-white/5 transition-all">Geri Al</button>
+                <button class="px-6 py-2 rounded-lg font-bold text-xs uppercase tracking-widest bg-primary text-on-primary hover:brightness-110 transition-all shadow-lg shadow-primary/20">Politikayı Uygula</button>
+            </div>
+        </aside>
+    </main>
+</div>
+
+</body>
+</html>

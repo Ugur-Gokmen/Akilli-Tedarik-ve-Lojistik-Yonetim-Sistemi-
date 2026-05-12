@@ -1,0 +1,12 @@
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\api\OrderFlowIntegrationTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\domain\product\ProductObserverTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\service\OrderServiceTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\infrastructure\adapter\CargoAdaptersTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\infrastructure\resolver\PaymentStrategyResolverTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\domain\cargo\CargoPricingBuilderTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\service\InventoryServiceTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\infrastructure\logger\SystemLoggerSingletonTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\api\controller\InventorySecurityWebMvcTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\domain\order\ExtendedOrderStateTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\repository\ProductRepositoryTest.java
+C:\Users\PC\eclipse-workspace\Akilli-Tedarik-ve-Lojistik-Yonetim-Sistemi--main\src\test\java\com\project\domain\order\OrderStateTest.java

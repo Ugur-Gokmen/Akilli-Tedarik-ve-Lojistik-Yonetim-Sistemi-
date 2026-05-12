@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/admin_layout :: adminHead('Sipariş Yönetimi')}"></head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex antialiased">
+
+<!-- SideNavBar -->
+<div th:replace="~{fragments/admin_layout :: adminSidebar('orders')}"></div>
+
+<!-- Main Content -->
+<main class="flex-1 md:ml-[280px] p-6 md:p-10 flex flex-col gap-8">
+
+    <!-- Access Denied -->
+    <div th:if="${currentUser == null or not currentUser.staffOrAbove}" class="flex flex-col items-center justify-center h-full py-32 text-center">
+        <span class="material-symbols-outlined text-6xl text-red-400 mb-4">lock</span>
+        <h2 class="text-2xl font-bold text-white mb-2">Erişim Engellendi</h2>
+        <p class="text-slate-400 mb-6">Bu sayfa yalnızca personel ve yöneticilere açıktır.</p>
+        <a th:href="@{/inventory/list}" class="bg-primary text-on-primary font-bold py-2 px-6 rounded-lg hover:opacity-90 transition">Envantere Dön</a>
+    </div>
+
+    <div th:if="${currentUser != null and currentUser.staffOrAbove}">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h2 class="font-h1 text-h1 text-on-surface">Sipariş Yönetimi</h2>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Tüm aktif sipariş yaşam döngülerini izleyin ve kontrol edin.</p>
+            </div>
+            <!-- Stats -->
+            <div class="flex gap-3 flex-wrap">
+                <div class="bg-surface-container border border-outline-variant rounded-lg px-4 py-2 text-center">
+                    <p class="text-2xl font-black text-yellow-400" th:text="${pendingCount ?: 0}">0</p>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-wider">Beklemede</p>
+                </div>
+                <div class="bg-surface-container border border-outline-variant rounded-lg px-4 py-2 text-center">
+                    <p class="text-2xl font-black text-blue-400" th:text="${approvedCount ?: 0}">0</p>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-wider">Onaylandı</p>
+                </div>
+                <div class="bg-surface-container border border-outline-variant rounded-lg px-4 py-2 text-center">
+                    <p class="text-2xl font-black text-sky-400" th:text="${shippedCount ?: 0}">0</p>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-wider">Kargoda</p>
+                </div>
+                <div class="bg-surface-container border border-outline-variant rounded-lg px-4 py-2 text-center">
+                    <p class="text-2xl font-black text-success" th:text="${deliveredCount ?: 0}">0</p>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-wider">Teslim</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Flash Messages -->
+        <div th:if="${successMessage}" class="bg-success-container text-on-success-container border border-success/30 rounded-lg p-4 flex items-center gap-3">
+            <span class="material-symbols-outlined">check_circle</span>
+            <span th:text="${successMessage}"></span>
+        </div>
+        <div th:if="${errorMessage}" class="bg-error-container text-on-error-container border border-error/30 rounded-lg p-4 flex items-center gap-3">
+            <span class="material-symbols-outlined">error</span>
+            <span th:text="${errorMessage}"></span>
+        </div>
+
+        <!-- Order List -->
+        <div class="flex flex-col gap-4">
+
+            <!-- Empty State -->
+            <div th:if="${orders == null or orders.empty}" class="text-center py-24 bg-surface-container rounded-xl ghost-border">
+                <span class="material-symbols-outlined text-6xl text-slate-600 mb-4">receipt_long</span>
+                <h3 class="text-xl font-bold text-white">Henüz Sipariş Yok</h3>
+                <p class="text-slate-400">Müşteriler sipariş verdiğinde burada görünecek.</p>
+            </div>
+
+            <!-- Order Card Loop -->
+            <div th:each="o : ${orders}"
+                 class="bg-[#1E293B] rounded-lg p-6 ghost-border flex flex-col xl:flex-row gap-6 justify-between items-start xl:items-center hover:bg-surface-bright transition-colors duration-200">
+
+                <!-- Left: Order Details -->
+                <div class="flex items-start gap-4 w-full xl:w-auto">
+                    <div class="bg-surface-container-high p-2 rounded border border-outline-variant hidden sm:flex items-center justify-center">
+                        <span class="material-symbols-outlined text-outline">package</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="font-mono text-mono text-on-surface" th:text="${o.id}">ORD-ID</span>
+                            <span class="bg-surface-container-lowest text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded-full border border-outline-variant"
+                                  th:text="${o.isPaid ? 'ÖDENDİ' : 'ÖDEKLENİYOR'}">DURUM</span>
+                        </div>
+                        <span class="font-h2 text-h2 text-on-surface" th:text="${o.customer.username}">Müşteri</span>
+                        <div class="flex items-center gap-4 font-body-sm text-body-sm text-on-surface-variant mt-1 flex-wrap">
+                            <span class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                                <span th:text="${#temporals.format(o.createdAt,'dd.MM.yyyy HH:mm')}">Tarih</span>
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[16px]">payments</span>
+                                <span th:text="${#numbers.formatDecimal(o.grandTotal,1,2)} + ' TL'">0 TL</span>
+                            </span>
+                            <span th:if="${o.trackingNumber != null}" class="flex items-center gap-1 text-sky-400">
+                                <span class="material-symbols-outlined text-[16px]">local_shipping</span>
+                                <span th:text="${o.trackingNumber}">TAKIP</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle: Stepper -->
+                <div class="w-full xl:w-1/2 py-4 xl:py-0 overflow-x-auto">
+                    <div class="flex items-center min-w-[380px]">
+
+                        <!-- Step 1: Beklemede -->
+                        <div class="flex flex-col items-center relative flex-1">
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center z-10"
+                                 th:classappend="${o.currentStateName == 'BEKLEMEDE'} ? 'bg-primary-container text-on-primary-container active-pulse shadow-[0_0_10px_rgba(74,142,255,0.5)]' : 'bg-success text-[#0F172A]'">
+                                <span class="material-symbols-outlined text-[14px]"
+                                      th:text="${o.currentStateName == 'BEKLEMEDE'} ? 'hourglass_empty' : 'check'">check</span>
+                            </div>
+                            <span class="font-label-caps text-label-caps mt-2 absolute top-8 whitespace-nowrap"
+                                  th:classappend="${o.currentStateName == 'BEKLEMEDE'} ? 'text-primary' : 'text-success'">Beklemede</span>
+                        </div>
+
+                        <div class="h-[2px] flex-1 -mx-3 z-0"
+                             th:classappend="${o.currentStateName == 'BEKLEMEDE'} ? 'bg-outline-variant' : 'bg-success'"></div>
+
+                        <!-- Step 2: Onaylandı / Hazırlanıyor -->
+                        <div class="flex flex-col items-center relative flex-1">
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center z-10"
+                                 th:classappend="${o.currentStateName == 'ONAYLANDI' or o.currentStateName == 'HAZIRLANIYOR'} ? 'bg-primary-container text-on-primary-container active-pulse shadow-[0_0_10px_rgba(74,142,255,0.5)]' :
+                                                (${o.currentStateName == 'KARGODA' or o.currentStateName == 'TESLİM EDİLDİ'} ? 'bg-success text-[#0F172A]' : 'bg-surface-container-high border border-outline-variant text-outline')">
+                                <span class="material-symbols-outlined text-[14px]"
+                                      th:text="${o.currentStateName == 'KARGODA' or o.currentStateName == 'TESLİM EDİLDİ'} ? 'check' : 'thumb_up'">thumb_up</span>
+                            </div>
+                            <span class="font-label-caps text-label-caps mt-2 absolute top-8 whitespace-nowrap"
+                                  th:classappend="${o.currentStateName == 'ONAYLANDI' or o.currentStateName == 'HAZIRLANIYOR'} ? 'text-primary' :
+                                                 (${o.currentStateName == 'KARGODA' or o.currentStateName == 'TESLİM EDİLDİ'} ? 'text-success' : 'text-outline')">Onaylandı</span>
+                        </div>
+
+                        <div class="h-[2px] flex-1 -mx-3 z-0"
+                             th:classappend="${o.currentStateName == 'KARGODA' or o.currentStateName == 'TESLİM EDİLDİ'} ? 'bg-success' : 'bg-outline-variant'"></div>
+
+                        <!-- Step 3: Kargoda -->
+                        <div class="flex flex-col items-center relative flex-1">
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center z-10"
+                                 th:classappend="${o.currentStateName == 'KARGODA'} ? 'bg-primary-container text-on-primary-container active-pulse shadow-[0_0_10px_rgba(74,142,255,0.5)]' :
+                                                (${o.currentStateName == 'TESLİM EDİLDİ'} ? 'bg-success text-[#0F172A]' : 'bg-surface-container-high border border-outline-variant text-outline')">
+                                <span class="material-symbols-outlined text-[14px]"
+                                      th:text="${o.currentStateName == 'TESLİM EDİLDİ'} ? 'check' : 'local_shipping'">local_shipping</span>
+                            </div>
+                            <span class="font-label-caps text-label-caps mt-2 absolute top-8 whitespace-nowrap"
+                                  th:classappend="${o.currentStateName == 'KARGODA'} ? 'text-primary' : (${o.currentStateName == 'TESLİM EDİLDİ'} ? 'text-success' : 'text-outline')">Kargoda</span>
+                        </div>
+
+                        <div class="h-[2px] flex-1 -mx-3 z-0"
+                             th:classappend="${o.currentStateName == 'TESLİM EDİLDİ'} ? 'bg-success' : 'bg-outline-variant'"></div>
+
+                        <!-- Step 4: Teslim Edildi -->
+                        <div class="flex flex-col items-center relative flex-1">
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center z-10"
+                                 th:classappend="${o.currentStateName == 'TESLİM EDİLDİ'} ? 'bg-success text-[#0F172A]' : 'bg-surface-container-high border border-outline-variant text-outline'">
+                                <span class="material-symbols-outlined text-[14px]">done_all</span>
+                            </div>
+                            <span class="font-label-caps text-label-caps mt-2 absolute top-8 whitespace-nowrap"
+                                  th:classappend="${o.currentStateName == 'TESLİM EDİLDİ'} ? 'text-success' : 'text-outline'">Teslim</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="flex items-center gap-2 w-full xl:w-auto justify-end border-t border-outline-variant xl:border-none pt-4 xl:pt-0 mt-8 xl:mt-0 flex-wrap">
+
+                    <!-- Onayla (Beklemede → Onaylandı) -->
+                    <form th:if="${orderUiMap[o.id].canApprove}" th:action="@{'/orders/' + ${o.id} + '/approve'}" method="post">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <button class="bg-blue-600/20 text-blue-300 border border-blue-500/30 font-label-caps text-label-caps py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">thumb_up</span>Onayla
+                        </button>
+                    </form>
+
+                    <!-- Hazırla (Onaylandı → Hazırlanıyor) -->
+                    <form th:if="${orderUiMap[o.id].canPrepare}" th:action="@{'/orders/' + ${o.id} + '/prepare'}" method="post">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <button class="bg-purple-600/20 text-purple-300 border border-purple-500/30 font-label-caps text-label-caps py-2 px-4 rounded hover:bg-purple-600 hover:text-white transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>Hazırla
+                        </button>
+                    </form>
+
+                    <!-- Kargola (Hazırlanıyor → Kargo Formu) -->
+                    <a th:if="${orderUiMap[o.id].canShip}" th:href="@{'/orders/' + ${o.id} + '/shipping-form'}"
+                       class="bg-sky-600/20 text-sky-300 border border-sky-500/30 font-label-caps text-label-caps py-2 px-4 rounded hover:bg-sky-600 hover:text-white transition-colors flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">local_shipping</span>Kargola
+                    </a>
+
+                    <!-- Teslim Et (Kargoda) -->
+                    <form th:if="${orderUiMap[o.id].canDeliver}" th:action="@{'/orders/' + ${o.id} + '/deliver'}" method="post">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <button class="bg-success-container text-on-success-container font-label-caps text-label-caps py-2 px-4 rounded hover:bg-success hover:text-[#0F172A] transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">done_all</span>Teslim Et
+                        </button>
+                    </form>
+
+                    <!-- İade (Kargoda veya Teslim Edildi) -->
+                    <form th:if="${orderUiMap[o.id].canReturn}"
+                          th:action="@{'/orders/' + ${o.id} + '/return'}" method="post">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <button class="bg-surface-container-highest border border-outline-variant text-on-surface font-label-caps text-label-caps py-2 px-4 rounded hover:bg-surface-bright transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">assignment_return</span>İade
+                        </button>
+                    </form>
+
+                    <!-- İade Disabled (diğer durumlar) -->
+                    <button th:if="${!orderUiMap[o.id].canReturn}"
+                            disabled class="bg-surface-container-highest text-outline cursor-not-allowed font-label-caps text-label-caps py-2 px-4 rounded flex items-center gap-1 opacity-40">
+                        <span class="material-symbols-outlined text-[16px]">assignment_return</span>İade
+                    </button>
+
+                    <!-- İptal (Sadece Beklemede) -->
+                    <form th:if="${o.currentStateName == 'BEKLEMEDE'}"
+                          th:action="@{'/orders/' + ${o.id} + '/cancel'}" method="post"
+                          onsubmit="return confirm('Bu siparişi iptal etmek istediğinize emin misiniz?')">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <button class="bg-error-container text-on-error-container font-label-caps text-label-caps py-2 px-4 rounded hover:bg-error hover:text-on-error transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">cancel</span>İptal
+                        </button>
+                    </form>
+
+                    <!-- İptal Disabled (diğer durumlar) -->
+                    <button th:if="${o.currentStateName != 'BEKLEMEDE'}"
+                            disabled class="bg-surface-container-highest text-outline cursor-not-allowed font-label-caps text-label-caps py-2 px-4 rounded flex items-center gap-1 opacity-40">
+                        <span class="material-symbols-outlined text-[16px]">cancel</span>İptal
+                    </button>
+
+                    <!-- Terminal state badge -->
+                    <span th:if="${o.currentStateName == 'İADE'}" class="text-orange-400 font-label-caps text-label-caps flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">assignment_return</span>İade Süreci
+                    </span>
+                    <span th:if="${o.currentStateName == 'İPTAL EDİLDİ'}" class="text-slate-400 font-label-caps text-label-caps flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">block</span>İptal Edildi
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Imagery Bento -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            <div class="rounded-lg overflow-hidden h-40 relative ghost-border">
+                <img src="/images/ops/warehouse.svg" class="w-full h-full object-cover opacity-50" alt="Warehouse"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent flex items-end p-4">
+                    <span class="font-h2 text-h2 text-white">Tesis Kapasitesi</span>
+                </div>
+            </div>
+            <div class="rounded-lg overflow-hidden h-40 relative ghost-border">
+                <img src="/images/ops/fleet.svg" class="w-full h-full object-cover opacity-50" alt="Fleet"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent flex items-end p-4">
+                    <span class="font-h2 text-h2 text-white">Aktif Filo</span>
+                </div>
+            </div>
+            <div class="rounded-lg overflow-hidden h-40 relative ghost-border">
+                <img src="/images/ops/analytics.svg" class="w-full h-full object-cover opacity-50" alt="Analytics"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent flex items-end p-4">
+                    <span class="font-h2 text-h2 text-white">Sistem Analitiği</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+</body>
+</html>

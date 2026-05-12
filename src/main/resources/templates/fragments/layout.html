@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title} + ' - AklıLojistik'">AklıLojistik</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: rgba(22, 28, 45, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --primary: #4f46e5;
+            --primary-hover: #6366f1;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #0ea5e9;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --blur: 16px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .page-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        /* Common Components */
+        .glass {
+            background: var(--surface);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            font-family: inherit;
+            color: white;
+        }
+
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .btn:active { transform: translateY(0); }
+
+        .btn-primary { background: linear-gradient(135deg, var(--primary), #3730a3); }
+        .btn-success { background: linear-gradient(135deg, var(--success), #059669); }
+        .btn-warning { background: linear-gradient(135deg, var(--warning), #d97706); }
+        .btn-danger  { background: linear-gradient(135deg, var(--error), #dc2626); }
+        .btn-info    { background: linear-gradient(135deg, var(--info), #0284c7); }
+        .btn-purple  { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+        
+        .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.82rem; border-radius: 8px; }
+        .btn-full { width: 100%; }
+
+        .badge {
+            display: inline-flex;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Form Elements */
+        .form-group { margin-bottom: 1.25rem; }
+        .form-label { display: block; margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 600; color: var(--muted); }
+        .form-control, .form-select {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: white;
+            font-family: inherit;
+            transition: all 0.3s;
+            outline: none;
+        }
+        .form-control:focus, .form-select:focus { border-color: var(--primary); background: rgba(15, 23, 42, 0.7); box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
+
+        /* Alerts */
+        .alert { padding: 1rem 1.25rem; border-radius: 12px; margin-bottom: 1.5rem; font-weight: 500; font-size: 0.9rem; }
+        .alert-success { background: rgba(16, 185, 129, 0.12); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .alert-error { background: rgba(239, 68, 68, 0.12); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+        /* Tables */
+        .table-wrap { overflow-x: auto; margin-top: 1rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 1.25rem 1.5rem; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); }
+        td { padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        tr:last-child td { border-bottom: none; }
+
+        /* Page Headers */
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+        .page-title { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Access Denied */
+        .access-denied { text-align: center; padding: 5rem 2rem; }
+        .access-denied h2 { font-size: 2rem; margin-bottom: 1rem; }
+
+        /* Empty State */
+        .empty-state { text-align: center; padding: 4rem 2rem; color: var(--muted); }
+        .empty-state svg { margin-bottom: 1rem; opacity: 0.5; }
+
+        /* Animations */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .anim-up { animation: fadeUp 0.6s ease-out both; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .anim-in { animation: fadeIn 0.4s ease-out both; }
+
+    </style>
+</head>
+<body>
+    <nav th:fragment="navbar" class="glass" style="margin: 1.5rem 5%; padding: 1.1rem 2.5rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 1.5rem; z-index: 1000; border-radius: 20px;">
+        <a th:href="@{/products}" style="text-decoration:none; display:flex; align-items:center; gap:0.75rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg, var(--primary), var(--success)); border-radius:10px; display:flex; align-items:center; justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <div style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:800; background:linear-gradient(135deg, #fff, #a5b4fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:-0.5px;">AklıLojistik</div>
+        </a>
+        
+        <div style="display:flex; gap:2rem; align-items:center;">
+            <a th:href="@{/products}" style="color:var(--text); text-decoration:none; font-weight:600; font-size:0.95rem;">Ürünler</a>
+            
+            <th:block th:if="${currentUser != null}">
+                <a th:if="${not currentUser.staffOrAbove}" th:href="@{/orders/my-orders}" style="color:var(--text); text-decoration:none; font-weight:600; font-size:0.95rem;">Siparişlerim</a>
+                <a th:if="${currentUser.staffOrAbove}" th:href="@{/orders/manage}" style="color:var(--text); text-decoration:none; font-weight:600; font-size:0.95rem;">Yönetim</a>
+                
+                <div style="height:20px; width:1px; background:var(--border);"></div>
+                
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <div style="text-align:right;">
+                        <div style="font-size:0.85rem; font-weight:700;" th:text="${currentUser.username}">User</div>
+                        <div style="font-size:0.65rem; color:var(--muted); text-transform:uppercase;" th:text="${currentUser.role}">Role</div>
+                    </div>
+                    <a th:href="@{/auth/logout}" style="color:var(--error); padding:0.5rem; border-radius:8px; background:rgba(239,68,68,0.1); display:flex;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    </a>
+                </div>
+            </th:block>
+            
+            <a th:if="${currentUser == null}" th:href="@{/auth/login}" class="btn btn-primary btn-sm">Giriş Yap</a>
+        </div>
+    </nav>
+</body>
+</html>

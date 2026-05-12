@@ -1,0 +1,1044 @@
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: b271a07b-2e4a-40b3-8845-9d95ac634b2d
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: a0197ac4-db9a-4c2f-939e-1ca91f2c357a
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: b469cb45-9b36-42e1-b39a-55bad015feb8
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: c95a74be-c19e-43ba-9cd3-ada009f73f7b
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: f41780d4-de0e-4f68-8a2e-744ed33710ce
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 4f2d11f5-d562-4d5b-9fe7-0c9e074206ac
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:00:47] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:00:47] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: d67a358f-ec31-4e54-b971-7e6dbb729048
+[2026-04-20 21:00:47] [ERROR] YETKİ HATASI - Ürün ekleme: Yetersiz yetki! 'musteri_ayse' kullanıcısının bu işlemi yapma yetkisi yok.
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: DC8859A6 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: DC8859A6 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Mekanik Klavye', Azalma: -2, Yeni Stok: 38
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Mekanik Klavye x2 → Sipariş: DC8859A6
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Gaming Mouse', Azalma: -1, Yeni Stok: 59
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Gaming Mouse x1 → Sipariş: DC8859A6
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: DC8859A6 | Yöntem: Kredi Kartı | Tutar: 2150,00 TL
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: DC8859A6 | Tutar: 2150,00 TL | Kart: **** **** **** 1234
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1776708047341
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: DC8859A6 | TX: CC-1776708047341
+[2026-04-20 21:00:47] [INFO] Sipariş onaylandı: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: BEKLEMEde → ONAYLANDI
+[2026-04-20 21:00:47] [INFO] Sipariş hazırlanmaya başlandı: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: ONAYLANDI → HAZIRLANIYOR
+[2026-04-20 21:00:47] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: DC8859A6 | Kargo: Aras Kargo | Takip: ARAS-ANK-47352-DC8859A6
+[2026-04-20 21:00:47] [INFO] Kargo fiyatlandırması yapılandırıldı: Aras Kargo - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-04-20 21:00:47] [INFO] Kargo fiyatı hesaplandı | Aras Kargo | 1,8 kg | 450 km | 78,88 TL | Aras Kargo - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-04-20 21:00:47] [INFO] Sipariş kargoya verildi: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: HAZIRLANIYOR → KARGODA
+[2026-04-20 21:00:47] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: DC8859A6
+[2026-04-20 21:00:47] [INFO] Sipariş DC8859A6: KARGODA → TESLİM EDİLDİ
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: 91C58B0C | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: 91C58B0C | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Bileşik Ürün: 'Gaming PC Bundle', Azalma: -1, Yeni Stok: 9
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Gaming PC Bundle x1 → Sipariş: 91C58B0C
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: 91C58B0C | Yöntem: Havale/EFT (Garanti BBVA) | Tutar: 14900,00 TL
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT] Havale ödemesi başlatıldı | Sipariş: 91C58B0C | Tutar: 14900,00 TL | Banka: Garanti BBVA | IBAN: TR123456789012345678901234
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_SUCCESS] Havale ödemesi alındı | Transaction: BT-1776708047365 | 1-3 iş günü içinde onaylanır.
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: 91C58B0C | TX: BT-1776708047365
+[2026-04-20 21:00:47] [INFO] Sipariş onaylandı: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: BEKLEMEde → ONAYLANDI
+[2026-04-20 21:00:47] [INFO] Sipariş hazırlanmaya başlandı: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: ONAYLANDI → HAZIRLANIYOR
+[2026-04-20 21:00:47] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: 91C58B0C | Kargo: GlobalExpress (Express) | Takip: GE-TR-TR-1001
+[2026-04-20 21:00:47] [INFO] Kargo fiyatlandırması yapılandırıldı: GlobalExpress (Express) - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-04-20 21:00:47] [INFO] Kargo fiyatı hesaplandı | GlobalExpress (Express) | 2,0 kg | 700 km | 211,88 TL | GlobalExpress (Express) - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-04-20 21:00:47] [INFO] Sipariş kargoya verildi: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: HAZIRLANIYOR → KARGODA
+[2026-04-20 21:00:47] [CRITICAL] [ORDER_RETURN] İade başlatıldı: 91C58B0C
+[2026-04-20 21:00:47] [INFO] Sipariş 91C58B0C: KARGODA → İADE
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: 6FF7CB89 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: 6FF7CB89 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: '1TB NVMe SSD', Azalma: -3, Yeni Stok: 27
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: 1TB NVMe SSD x3 → Sipariş: 6FF7CB89
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: 6FF7CB89 | Yöntem: Kripto Para (ETH) | Tutar: 5700,00 TL
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT] Kripto ödeme başlatıldı | Sipariş: 6FF7CB89 | 5700,00 TL = 0,00162857 ETH | Cüzdan: 0xABC123DEF456789
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_SUCCESS] Kripto işlem yayınlandı | Tx Hash: CRYPTO-1776708047375 | Onay bekleniyor...
+[2026-04-20 21:00:47] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: 6FF7CB89 | TX: CRYPTO-1776708047375
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Intel i9 CPU', Azalma: -16, Yeni Stok: 4
+[2026-04-20 21:00:47] [WARN] STOK EŞİK UYARISI: 'Intel i9 CPU' eşik altına düştü (4 <= 5)
+[2026-04-20 21:00:47] [CRITICAL] [EMAIL_NOTIFICATION] 📧 E-POSTA GÖNDERİLDİ → [satin-alma@sirket.com] | Konu: DÜŞÜK STOK UYARISI | Ürün: 'Intel i9 CPU' | Mevcut Stok: 4 | Eşik: 5 | Lütfen satın alma sürecini başlatın.
+[2026-04-20 21:00:47] [CRITICAL] [INAPP_NOTIFICATION] 🔔 SİSTEM BİLDİRİMİ → [Depo Sorumlusu Kemal] | Ürün: 'Intel i9 CPU' kritik stok seviyesine düştü! Mevcut: 4 adet | Eşik: 5 adet | Lütfen depoya göz atın.
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Intel i9 CPU', Azalma: -1, Yeni Stok: 3
+[2026-04-20 21:00:47] [WARN] STOK EŞİK UYARISI: 'Intel i9 CPU' eşik altına düştü (3 <= 5)
+[2026-04-20 21:00:47] [CRITICAL] [EMAIL_NOTIFICATION] 📧 E-POSTA GÖNDERİLDİ → [satin-alma@sirket.com] | Konu: DÜŞÜK STOK UYARISI | Ürün: 'Intel i9 CPU' | Mevcut Stok: 3 | Eşik: 5 | Lütfen satın alma sürecini başlatın.
+[2026-04-20 21:00:47] [CRITICAL] [INAPP_NOTIFICATION] 🔔 SİSTEM BİLDİRİMİ → [Depo Sorumlusu Kemal] | Ürün: 'Intel i9 CPU' kritik stok seviyesine düştü! Mevcut: 3 adet | Eşik: 5 adet | Lütfen depoya göz atın.
+[2026-04-20 21:00:47] [INFO] Yeni sipariş oluşturuldu: 2FA2BD23 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [INFO] Sipariş oluşturuldu: 2FA2BD23 | Müşteri: musteri_ayse
+[2026-04-20 21:00:47] [CRITICAL] [STOCK_DECREASE] Ürün: 'Mekanik Klavye', Azalma: -1, Yeni Stok: 37
+[2026-04-20 21:00:47] [INFO] Siparişe ürün eklendi: Mekanik Klavye x1 → Sipariş: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş onaylandı: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş 2FA2BD23: BEKLEMEde → ONAYLANDI
+[2026-04-20 21:00:47] [INFO] Sipariş hazırlanmaya başlandı: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş 2FA2BD23: ONAYLANDI → HAZIRLANIYOR
+[2026-04-20 21:00:47] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: 2FA2BD23 | Kargo: Yurtiçi Kargo | Takip: YK43597563
+[2026-04-20 21:00:47] [INFO] Kargo fiyatlandırması yapılandırıldı: Yurtiçi Kargo - Temel Kargo Ücreti
+[2026-04-20 21:00:47] [INFO] Kargo fiyatı hesaplandı | Yurtiçi Kargo | 0,8 kg | 280 km | 23,04 TL | Yurtiçi Kargo - Temel Kargo Ücreti
+[2026-04-20 21:00:47] [INFO] Sipariş kargoya verildi: 2FA2BD23
+[2026-04-20 21:00:47] [INFO] Sipariş 2FA2BD23: HAZIRLANIYOR → KARGODA
+[2026-04-20 21:00:47] [INFO] Sistem oturumu sonlandırıldı.
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: 59dcd26c-e89e-4b5a-9d00-b87964ce14e6
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 1b156ae5-21ce-4ee6-aa31-700e938e9854
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 120c6464-a234-4a2b-a52e-d8209ab934de
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: a64bff67-5ebe-4701-a4e5-95076568240f
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: 8ef98240-74dd-47db-9ce6-dfe987fa7ee1
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 17be9958-8fe8-432a-bd52-e506470d06fe
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:36:53] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:36:53] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 844e5590-016b-41c5-be99-2724810c1cc4
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: 37860c68-d317-43da-b995-865bf7c9bd93
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 86f07d11-e374-42e0-9a7f-8b72f29e1a14
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 62808d5b-ca33-40de-a1f3-843329e6ecf1
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: 62e3fe2e-16c9-4093-9d45-436eddfad122
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: f7b7cd18-c6e2-4ef9-a418-c52036233e40
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 80c15710-2653-4c45-b5e3-42ab24336094
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:41] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:41] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 066bda72-469a-4835-87fd-b7cc0b1f3f58
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: 695ee124-3944-447d-98e5-63812fc8adb6
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 010b4157-670c-493e-bcf0-eef4cf989404
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 05d47e33-45a9-43b0-9400-e77171caf9f3
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: 1b0b5bae-806d-4e26-923c-b146bd0daeda
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Mekanik Klavye' | ID: 784ed987-df5c-466f-a19c-7d9c7ee62dce
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming Mouse' | ID: 0d880317-5377-4c66-8507-5eef0fe571c9
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'Intel i9 CPU' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: EmailStockNotifier
+[2026-04-20 21:42:57] [INFO] Gözlemci eklendi: Ürün 'DDR5 32GB RAM' | Gözlemci: InAppStockNotifier
+[2026-04-20 21:42:57] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 018e0e4a-aed3-451e-85f7-628260eccf18
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 16 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Intel i9 CPU' | ID: c9c6d5ab-023f-419d-999d-81340d9d767a
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 15 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'DDR5 32GB RAM' | ID: 0a901b71-43a8-47c4-8b25-5078db18105f
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '1TB NVMe SSD' | ID: 77a8e4af-d051-47ff-8982-370d64de79bb
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: '850W Gold PSU' | ID: f5d5004b-c091-4c1e-8e1a-4e8c21557d79
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-04-29 16:07:05] [INFO] [AOP Start] Metot başlıyor: InventoryService.addProduct(..)
+[2026-04-29 16:07:05] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Gaming PC Bundle' | ID: 77b2406c-bad0-4108-b495-ccf26ae361a4
+[2026-04-29 16:07:05] [INFO] [AOP Success] Metot 'InventoryService.addProduct(..)' başarıyla tamamlandı. Süre: 29 ms
+[2026-04-29 16:14:59] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-04-29 16:14:59] [ERROR] [AOP Validation Error] Metot 'OrderService.approveOrder(..)' geçersiz argüman ile patladı: Sipariş bulunamadı: 12
+[2026-04-29 16:15:09] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-04-29 16:15:09] [ERROR] [AOP Validation Error] Metot 'OrderService.approveOrder(..)' geçersiz argüman ile patladı: Sipariş bulunamadı: 25
+[2026-05-01 12:14:17] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-05-01 12:14:17] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 189 ms
+[2026-05-01 12:14:41] [INFO] [AOP Start] Metot başlıyor: InventoryService.listAllProducts()
+[2026-05-01 12:14:41] [INFO] [AOP Success] Metot 'InventoryService.listAllProducts()' başarıyla tamamlandı. Süre: 68 ms
+[2026-05-03 16:40:50] [INFO] Yeni sipariş oluşturuldu: 4AC58F11 | Müşteri: test_musteri
+[2026-05-03 16:40:50] [INFO] Yeni sipariş oluşturuldu: 566E2A06 | Müşteri: test_musteri
+[2026-05-03 16:40:50] [INFO] Yeni sipariş oluşturuldu: 37D7596F | Müşteri: test_musteri
+[2026-05-03 16:40:50] [INFO] Sipariş onaylandı: 37D7596F
+[2026-05-03 16:40:50] [INFO] Sipariş [37D7596F] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:40:50] [INFO] Sipariş hazırlanmaya başlandı: 37D7596F
+[2026-05-03 16:40:50] [INFO] Sipariş [37D7596F] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:40:50] [INFO] Sipariş kargoya verildi: 37D7596F
+[2026-05-03 16:40:50] [INFO] Sipariş [37D7596F] durum değiştirdi -> KARGODA
+[2026-05-03 16:40:50] [INFO] Yeni sipariş oluşturuldu: E44CC252 | Müşteri: test_musteri
+[2026-05-03 16:40:50] [INFO] Sipariş onaylandı: E44CC252
+[2026-05-03 16:40:50] [INFO] Sipariş [E44CC252] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:40:50] [INFO] Sipariş hazırlanmaya başlandı: E44CC252
+[2026-05-03 16:40:50] [INFO] Sipariş [E44CC252] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:40:50] [INFO] Sipariş kargoya verildi: E44CC252
+[2026-05-03 16:40:50] [INFO] Sipariş [E44CC252] durum değiştirdi -> KARGODA
+[2026-05-03 16:40:50] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: E44CC252
+[2026-05-03 16:40:50] [INFO] Sipariş [E44CC252] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 16:40:50] [INFO] Yeni sipariş oluşturuldu: 7C5BE8C5 | Müşteri: test_musteri
+[2026-05-03 16:40:50] [INFO] Sipariş iptal edildi: 7C5BE8C5
+[2026-05-03 16:40:50] [INFO] Sipariş [7C5BE8C5] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 16:40:50] [INFO] Yeni sipariş oluşturuldu: E95DF2F7 | Müşteri: test_musteri
+[2026-05-03 16:40:50] [INFO] Sipariş onaylandı: E95DF2F7
+[2026-05-03 16:40:50] [INFO] Sipariş [E95DF2F7] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:40:50] [INFO] Sipariş hazırlanmaya başlandı: E95DF2F7
+[2026-05-03 16:40:50] [INFO] Sipariş [E95DF2F7] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:40:50] [INFO] Sipariş kargoya verildi: E95DF2F7
+[2026-05-03 16:40:50] [INFO] Sipariş [E95DF2F7] durum değiştirdi -> KARGODA
+[2026-05-03 16:40:50] [CRITICAL] [ORDER_RETURN] İade başlatıldı: E95DF2F7
+[2026-05-03 16:40:50] [INFO] Sipariş [E95DF2F7] durum değiştirdi -> İADE
+[2026-05-03 16:40:50] [INFO] Yeni sipariş oluşturuldu: 4965AD76 | Müşteri: test_musteri
+[2026-05-03 16:40:50] [INFO] Sipariş onaylandı: 4965AD76
+[2026-05-03 16:40:50] [INFO] Sipariş [4965AD76] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:40:55] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 16:40:56] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 5137a155-4cef-4aac-819b-c6d8571f021c
+[2026-05-03 16:40:56] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$PUieIZc2
+[2026-05-03 16:40:56] [INFO] Yeni sipariş oluşturuldu: DE29A444 | Müşteri: staff
+[2026-05-03 16:40:56] [INFO] Yeni sipariş oluşturuldu: 88D21072 | Müşteri: cust
+[2026-05-03 16:40:56] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 16:40:56] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 16:40:56] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 16:40:57] [INFO] Yeni sipariş oluşturuldu: 02F94DC0 | Müşteri: staff2
+[2026-05-03 16:40:57] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 16:40:57] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 16:40:57] [INFO] Sipariş onaylandı: 02F94DC0
+[2026-05-03 16:40:57] [INFO] Sipariş [02F94DC0] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:40:57] [INFO] Yeni sipariş oluşturuldu: DF405D6A | Müşteri: musteri
+[2026-05-03 16:43:31] [INFO] Yeni sipariş oluşturuldu: 93FE7AB7 | Müşteri: test_musteri
+[2026-05-03 16:43:31] [INFO] Yeni sipariş oluşturuldu: 6921AA97 | Müşteri: test_musteri
+[2026-05-03 16:43:31] [INFO] Yeni sipariş oluşturuldu: 1F8B63FA | Müşteri: test_musteri
+[2026-05-03 16:43:31] [INFO] Sipariş onaylandı: 1F8B63FA
+[2026-05-03 16:43:31] [INFO] Sipariş [1F8B63FA] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:43:31] [INFO] Sipariş hazırlanmaya başlandı: 1F8B63FA
+[2026-05-03 16:43:31] [INFO] Sipariş [1F8B63FA] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:43:31] [INFO] Sipariş kargoya verildi: 1F8B63FA
+[2026-05-03 16:43:31] [INFO] Sipariş [1F8B63FA] durum değiştirdi -> KARGODA
+[2026-05-03 16:43:31] [INFO] Yeni sipariş oluşturuldu: 4EEEC688 | Müşteri: test_musteri
+[2026-05-03 16:43:31] [INFO] Sipariş onaylandı: 4EEEC688
+[2026-05-03 16:43:31] [INFO] Sipariş [4EEEC688] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:43:31] [INFO] Sipariş hazırlanmaya başlandı: 4EEEC688
+[2026-05-03 16:43:31] [INFO] Sipariş [4EEEC688] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:43:31] [INFO] Sipariş kargoya verildi: 4EEEC688
+[2026-05-03 16:43:31] [INFO] Sipariş [4EEEC688] durum değiştirdi -> KARGODA
+[2026-05-03 16:43:31] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: 4EEEC688
+[2026-05-03 16:43:31] [INFO] Sipariş [4EEEC688] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 16:43:32] [INFO] Yeni sipariş oluşturuldu: 4E38E21E | Müşteri: test_musteri
+[2026-05-03 16:43:32] [INFO] Sipariş iptal edildi: 4E38E21E
+[2026-05-03 16:43:32] [INFO] Sipariş [4E38E21E] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 16:43:32] [INFO] Yeni sipariş oluşturuldu: C2A879BD | Müşteri: test_musteri
+[2026-05-03 16:43:32] [INFO] Sipariş onaylandı: C2A879BD
+[2026-05-03 16:43:32] [INFO] Sipariş [C2A879BD] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:43:32] [INFO] Sipariş hazırlanmaya başlandı: C2A879BD
+[2026-05-03 16:43:32] [INFO] Sipariş [C2A879BD] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:43:32] [INFO] Sipariş kargoya verildi: C2A879BD
+[2026-05-03 16:43:32] [INFO] Sipariş [C2A879BD] durum değiştirdi -> KARGODA
+[2026-05-03 16:43:32] [CRITICAL] [ORDER_RETURN] İade başlatıldı: C2A879BD
+[2026-05-03 16:43:32] [INFO] Sipariş [C2A879BD] durum değiştirdi -> İADE
+[2026-05-03 16:43:32] [INFO] Yeni sipariş oluşturuldu: 62900084 | Müşteri: test_musteri
+[2026-05-03 16:43:32] [INFO] Sipariş onaylandı: 62900084
+[2026-05-03 16:43:32] [INFO] Sipariş [62900084] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:43:35] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 16:43:35] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 30583dce-8cd6-445d-a28c-206429a30ae5
+[2026-05-03 16:43:35] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$oAmlF1AO
+[2026-05-03 16:43:35] [INFO] Yeni sipariş oluşturuldu: 92EED7AC | Müşteri: staff
+[2026-05-03 16:43:35] [INFO] Yeni sipariş oluşturuldu: 8C810584 | Müşteri: cust
+[2026-05-03 16:43:35] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 16:43:35] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 16:43:35] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 16:43:35] [INFO] Yeni sipariş oluşturuldu: E1F24937 | Müşteri: staff2
+[2026-05-03 16:43:35] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 16:43:35] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 16:43:35] [INFO] Sipariş onaylandı: E1F24937
+[2026-05-03 16:43:35] [INFO] Sipariş [E1F24937] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:43:35] [INFO] Yeni sipariş oluşturuldu: 0CE3B425 | Müşteri: musteri
+[2026-05-03 16:58:31] [INFO] Yeni sipariş oluşturuldu: A477F0F4 | Müşteri: test_musteri
+[2026-05-03 16:58:31] [INFO] Yeni sipariş oluşturuldu: 6709296E | Müşteri: test_musteri
+[2026-05-03 16:58:31] [INFO] Yeni sipariş oluşturuldu: 3F422EAD | Müşteri: test_musteri
+[2026-05-03 16:58:31] [INFO] Sipariş onaylandı: 3F422EAD
+[2026-05-03 16:58:31] [INFO] Sipariş [3F422EAD] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:58:31] [INFO] Sipariş hazırlanmaya başlandı: 3F422EAD
+[2026-05-03 16:58:31] [INFO] Sipariş [3F422EAD] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:58:31] [INFO] Sipariş kargoya verildi: 3F422EAD
+[2026-05-03 16:58:31] [INFO] Sipariş [3F422EAD] durum değiştirdi -> KARGODA
+[2026-05-03 16:58:31] [INFO] Yeni sipariş oluşturuldu: E9DC6CFE | Müşteri: test_musteri
+[2026-05-03 16:58:31] [INFO] Sipariş onaylandı: E9DC6CFE
+[2026-05-03 16:58:31] [INFO] Sipariş [E9DC6CFE] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:58:31] [INFO] Sipariş hazırlanmaya başlandı: E9DC6CFE
+[2026-05-03 16:58:31] [INFO] Sipariş [E9DC6CFE] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:58:31] [INFO] Sipariş kargoya verildi: E9DC6CFE
+[2026-05-03 16:58:31] [INFO] Sipariş [E9DC6CFE] durum değiştirdi -> KARGODA
+[2026-05-03 16:58:31] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: E9DC6CFE
+[2026-05-03 16:58:31] [INFO] Sipariş [E9DC6CFE] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 16:58:31] [INFO] Yeni sipariş oluşturuldu: 43F307A2 | Müşteri: test_musteri
+[2026-05-03 16:58:31] [INFO] Sipariş iptal edildi: 43F307A2
+[2026-05-03 16:58:31] [INFO] Sipariş [43F307A2] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 16:58:31] [INFO] Yeni sipariş oluşturuldu: 0FDF2140 | Müşteri: test_musteri
+[2026-05-03 16:58:31] [INFO] Sipariş onaylandı: 0FDF2140
+[2026-05-03 16:58:31] [INFO] Sipariş [0FDF2140] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:58:31] [INFO] Sipariş hazırlanmaya başlandı: 0FDF2140
+[2026-05-03 16:58:31] [INFO] Sipariş [0FDF2140] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 16:58:31] [INFO] Sipariş kargoya verildi: 0FDF2140
+[2026-05-03 16:58:31] [INFO] Sipariş [0FDF2140] durum değiştirdi -> KARGODA
+[2026-05-03 16:58:31] [CRITICAL] [ORDER_RETURN] İade başlatıldı: 0FDF2140
+[2026-05-03 16:58:31] [INFO] Sipariş [0FDF2140] durum değiştirdi -> İADE
+[2026-05-03 16:58:31] [INFO] Yeni sipariş oluşturuldu: DFBF231C | Müşteri: test_musteri
+[2026-05-03 16:58:31] [INFO] Sipariş onaylandı: DFBF231C
+[2026-05-03 16:58:31] [INFO] Sipariş [DFBF231C] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:58:35] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 16:58:35] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: df354435-f315-4c6e-a942-b4dc32f2a3cd
+[2026-05-03 16:58:35] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$9GfSvjlc
+[2026-05-03 16:58:36] [INFO] Yeni sipariş oluşturuldu: 8CB1A30D | Müşteri: staff
+[2026-05-03 16:58:36] [INFO] Yeni sipariş oluşturuldu: D23EC59C | Müşteri: cust
+[2026-05-03 16:58:36] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 16:58:36] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 16:58:36] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 16:58:36] [INFO] Yeni sipariş oluşturuldu: A484DF7D | Müşteri: staff2
+[2026-05-03 16:58:36] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 16:58:36] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 16:58:36] [INFO] Sipariş onaylandı: A484DF7D
+[2026-05-03 16:58:36] [INFO] Sipariş [A484DF7D] durum değiştirdi -> ONAYLANDI
+[2026-05-03 16:58:36] [INFO] Yeni sipariş oluşturuldu: E32B37EA | Müşteri: musteri
+[2026-05-03 17:01:50] [INFO] Yeni sipariş oluşturuldu: E0124EB1 | Müşteri: test_musteri
+[2026-05-03 17:01:50] [INFO] Yeni sipariş oluşturuldu: 0557F148 | Müşteri: test_musteri
+[2026-05-03 17:01:50] [INFO] Yeni sipariş oluşturuldu: 56C49272 | Müşteri: test_musteri
+[2026-05-03 17:01:50] [INFO] Sipariş onaylandı: 56C49272
+[2026-05-03 17:01:50] [INFO] Sipariş [56C49272] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:01:50] [INFO] Sipariş hazırlanmaya başlandı: 56C49272
+[2026-05-03 17:01:50] [INFO] Sipariş [56C49272] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:01:50] [INFO] Sipariş kargoya verildi: 56C49272
+[2026-05-03 17:01:50] [INFO] Sipariş [56C49272] durum değiştirdi -> KARGODA
+[2026-05-03 17:01:50] [INFO] Yeni sipariş oluşturuldu: DD482698 | Müşteri: test_musteri
+[2026-05-03 17:01:50] [INFO] Sipariş onaylandı: DD482698
+[2026-05-03 17:01:50] [INFO] Sipariş [DD482698] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:01:50] [INFO] Sipariş hazırlanmaya başlandı: DD482698
+[2026-05-03 17:01:50] [INFO] Sipariş [DD482698] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:01:50] [INFO] Sipariş kargoya verildi: DD482698
+[2026-05-03 17:01:50] [INFO] Sipariş [DD482698] durum değiştirdi -> KARGODA
+[2026-05-03 17:01:50] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: DD482698
+[2026-05-03 17:01:50] [INFO] Sipariş [DD482698] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:01:50] [INFO] Yeni sipariş oluşturuldu: 9B7C6420 | Müşteri: test_musteri
+[2026-05-03 17:01:50] [INFO] Sipariş iptal edildi: 9B7C6420
+[2026-05-03 17:01:50] [INFO] Sipariş [9B7C6420] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 17:01:50] [INFO] Yeni sipariş oluşturuldu: B17D870D | Müşteri: test_musteri
+[2026-05-03 17:01:50] [INFO] Sipariş onaylandı: B17D870D
+[2026-05-03 17:01:50] [INFO] Sipariş [B17D870D] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:01:50] [INFO] Sipariş hazırlanmaya başlandı: B17D870D
+[2026-05-03 17:01:50] [INFO] Sipariş [B17D870D] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:01:50] [INFO] Sipariş kargoya verildi: B17D870D
+[2026-05-03 17:01:50] [INFO] Sipariş [B17D870D] durum değiştirdi -> KARGODA
+[2026-05-03 17:01:50] [CRITICAL] [ORDER_RETURN] İade başlatıldı: B17D870D
+[2026-05-03 17:01:50] [INFO] Sipariş [B17D870D] durum değiştirdi -> İADE
+[2026-05-03 17:01:50] [INFO] Yeni sipariş oluşturuldu: 5B34BA51 | Müşteri: test_musteri
+[2026-05-03 17:01:50] [INFO] Sipariş onaylandı: 5B34BA51
+[2026-05-03 17:01:50] [INFO] Sipariş [5B34BA51] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:01:54] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 17:01:54] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: cbf036d4-c471-4e6d-8e79-f35b59cebaf4
+[2026-05-03 17:01:54] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$WBvvR6jX
+[2026-05-03 17:01:54] [INFO] Yeni sipariş oluşturuldu: 4557FD30 | Müşteri: staff
+[2026-05-03 17:01:54] [INFO] Yeni sipariş oluşturuldu: 4331BC2C | Müşteri: cust
+[2026-05-03 17:01:54] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 17:01:54] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 17:01:54] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:01:54] [INFO] Yeni sipariş oluşturuldu: 9BC17FDF | Müşteri: staff2
+[2026-05-03 17:01:54] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 17:01:54] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 17:01:54] [INFO] Sipariş onaylandı: 9BC17FDF
+[2026-05-03 17:01:54] [INFO] Sipariş [9BC17FDF] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:01:54] [INFO] Yeni sipariş oluşturuldu: 32957F86 | Müşteri: musteri
+[2026-05-03 17:08:23] [INFO] [AOP Start] Metot başlıyor: AuthService.registerUser(..)
+[2026-05-03 17:08:23] [INFO] [AOP Success] Metot 'AuthService.registerUser(..)' başarıyla tamamlandı. Süre: 733 ms
+[2026-05-03 17:08:23] [INFO] [AOP Start] Metot başlıyor: AuthService.registerUser(..)
+[2026-05-03 17:08:24] [INFO] [AOP Success] Metot 'AuthService.registerUser(..)' başarıyla tamamlandı. Süre: 381 ms
+[2026-05-03 17:08:24] [INFO] [AOP Start] Metot başlıyor: AuthService.registerUser(..)
+[2026-05-03 17:08:24] [INFO] [AOP Success] Metot 'AuthService.registerUser(..)' başarıyla tamamlandı. Süre: 363 ms
+[2026-05-03 17:08:24] [INFO] [AOP Start] Metot başlıyor: InventoryApplicationService.addProductFromApi(..)
+[2026-05-03 17:08:24] [INFO] [AOP Start] Metot başlıyor: InventoryService.saveProduct(..)
+[2026-05-03 17:08:24] [ERROR] [AOP Error] Metot 'InventoryService.saveProduct(..)' bir hata nedeniyle durdu: Bu işlemi yapmak için sisteme giriş yapmalısınız: saveProduct
+[2026-05-03 17:08:24] [ERROR] [AOP Error] Metot 'InventoryApplicationService.addProductFromApi(..)' bir hata nedeniyle durdu: Bu işlemi yapmak için sisteme giriş yapmalısınız: saveProduct
+[2026-05-03 17:08:24] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-03 17:08:24] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-03 17:08:24] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:08:24] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:08:24] [INFO] Yeni sipariş oluşturuldu: 2706DBBB | Müşteri: test_musteri
+[2026-05-03 17:08:24] [INFO] Yeni sipariş oluşturuldu: 161AD145 | Müşteri: test_musteri
+[2026-05-03 17:08:24] [INFO] Yeni sipariş oluşturuldu: B01FB922 | Müşteri: test_musteri
+[2026-05-03 17:08:24] [INFO] Sipariş onaylandı: B01FB922
+[2026-05-03 17:08:24] [INFO] Sipariş [B01FB922] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:08:24] [INFO] Sipariş hazırlanmaya başlandı: B01FB922
+[2026-05-03 17:08:24] [INFO] Sipariş [B01FB922] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:08:24] [INFO] Sipariş kargoya verildi: B01FB922
+[2026-05-03 17:08:24] [INFO] Sipariş [B01FB922] durum değiştirdi -> KARGODA
+[2026-05-03 17:08:24] [INFO] Yeni sipariş oluşturuldu: 5FBD299C | Müşteri: test_musteri
+[2026-05-03 17:08:24] [INFO] Sipariş onaylandı: 5FBD299C
+[2026-05-03 17:08:24] [INFO] Sipariş [5FBD299C] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:08:24] [INFO] Sipariş hazırlanmaya başlandı: 5FBD299C
+[2026-05-03 17:08:24] [INFO] Sipariş [5FBD299C] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:08:24] [INFO] Sipariş kargoya verildi: 5FBD299C
+[2026-05-03 17:08:24] [INFO] Sipariş [5FBD299C] durum değiştirdi -> KARGODA
+[2026-05-03 17:08:24] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: 5FBD299C
+[2026-05-03 17:08:24] [INFO] Sipariş [5FBD299C] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:08:24] [INFO] Yeni sipariş oluşturuldu: DC3B6520 | Müşteri: test_musteri
+[2026-05-03 17:08:24] [INFO] Sipariş iptal edildi: DC3B6520
+[2026-05-03 17:08:24] [INFO] Sipariş [DC3B6520] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 17:08:24] [INFO] Yeni sipariş oluşturuldu: 426ACE28 | Müşteri: test_musteri
+[2026-05-03 17:08:24] [INFO] Sipariş onaylandı: 426ACE28
+[2026-05-03 17:08:24] [INFO] Sipariş [426ACE28] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:08:24] [INFO] Sipariş hazırlanmaya başlandı: 426ACE28
+[2026-05-03 17:08:24] [INFO] Sipariş [426ACE28] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:08:24] [INFO] Sipariş kargoya verildi: 426ACE28
+[2026-05-03 17:08:24] [INFO] Sipariş [426ACE28] durum değiştirdi -> KARGODA
+[2026-05-03 17:08:24] [CRITICAL] [ORDER_RETURN] İade başlatıldı: 426ACE28
+[2026-05-03 17:08:24] [INFO] Sipariş [426ACE28] durum değiştirdi -> İADE
+[2026-05-03 17:08:24] [INFO] Yeni sipariş oluşturuldu: B549F9FA | Müşteri: test_musteri
+[2026-05-03 17:08:24] [INFO] Sipariş onaylandı: B549F9FA
+[2026-05-03 17:08:24] [INFO] Sipariş [B549F9FA] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:08:28] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 17:08:28] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 2158e823-3122-4828-a15f-c305da5b7cb6
+[2026-05-03 17:08:28] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$xes7Mdit
+[2026-05-03 17:08:29] [INFO] Yeni sipariş oluşturuldu: 144A8823 | Müşteri: staff
+[2026-05-03 17:08:29] [INFO] Yeni sipariş oluşturuldu: 06735BD0 | Müşteri: cust
+[2026-05-03 17:08:29] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 17:08:29] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 17:08:29] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:08:29] [INFO] Yeni sipariş oluşturuldu: FD32BC76 | Müşteri: staff2
+[2026-05-03 17:08:29] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 17:08:29] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 17:08:29] [INFO] Sipariş onaylandı: FD32BC76
+[2026-05-03 17:08:29] [INFO] Sipariş [FD32BC76] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:08:29] [INFO] Yeni sipariş oluşturuldu: 99C6C4A5 | Müşteri: musteri
+[2026-05-03 17:10:52] [INFO] [AOP Start] Metot başlıyor: OrderService.createOrder(..)
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: 203AB8F4 | Müşteri: cust
+[2026-05-03 17:10:52] [INFO] Sipariş oluşturuldu: 203AB8F4 | Müşteri: cust
+[2026-05-03 17:10:52] [INFO] [AOP Success] Metot 'OrderService.createOrder(..)' başarıyla tamamlandı. Süre: 299 ms
+[2026-05-03 17:10:52] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-03 17:10:52] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-03 17:10:52] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:10:52] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: 28A5C5F1 | Müşteri: test_musteri
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: 064FFB4C | Müşteri: test_musteri
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: 70B46829 | Müşteri: test_musteri
+[2026-05-03 17:10:52] [INFO] Sipariş onaylandı: 70B46829
+[2026-05-03 17:10:52] [INFO] Sipariş [70B46829] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:10:52] [INFO] Sipariş hazırlanmaya başlandı: 70B46829
+[2026-05-03 17:10:52] [INFO] Sipariş [70B46829] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:10:52] [INFO] Sipariş kargoya verildi: 70B46829
+[2026-05-03 17:10:52] [INFO] Sipariş [70B46829] durum değiştirdi -> KARGODA
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: 2BEB7870 | Müşteri: test_musteri
+[2026-05-03 17:10:52] [INFO] Sipariş onaylandı: 2BEB7870
+[2026-05-03 17:10:52] [INFO] Sipariş [2BEB7870] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:10:52] [INFO] Sipariş hazırlanmaya başlandı: 2BEB7870
+[2026-05-03 17:10:52] [INFO] Sipariş [2BEB7870] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:10:52] [INFO] Sipariş kargoya verildi: 2BEB7870
+[2026-05-03 17:10:52] [INFO] Sipariş [2BEB7870] durum değiştirdi -> KARGODA
+[2026-05-03 17:10:52] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: 2BEB7870
+[2026-05-03 17:10:52] [INFO] Sipariş [2BEB7870] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: 537BEFB9 | Müşteri: test_musteri
+[2026-05-03 17:10:52] [INFO] Sipariş iptal edildi: 537BEFB9
+[2026-05-03 17:10:52] [INFO] Sipariş [537BEFB9] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: B25B941E | Müşteri: test_musteri
+[2026-05-03 17:10:52] [INFO] Sipariş onaylandı: B25B941E
+[2026-05-03 17:10:52] [INFO] Sipariş [B25B941E] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:10:52] [INFO] Sipariş hazırlanmaya başlandı: B25B941E
+[2026-05-03 17:10:52] [INFO] Sipariş [B25B941E] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:10:52] [INFO] Sipariş kargoya verildi: B25B941E
+[2026-05-03 17:10:52] [INFO] Sipariş [B25B941E] durum değiştirdi -> KARGODA
+[2026-05-03 17:10:52] [CRITICAL] [ORDER_RETURN] İade başlatıldı: B25B941E
+[2026-05-03 17:10:52] [INFO] Sipariş [B25B941E] durum değiştirdi -> İADE
+[2026-05-03 17:10:52] [INFO] Yeni sipariş oluşturuldu: 9B047842 | Müşteri: test_musteri
+[2026-05-03 17:10:52] [INFO] Sipariş onaylandı: 9B047842
+[2026-05-03 17:10:52] [INFO] Sipariş [9B047842] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:10:55] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 17:10:55] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 8808c765-cb76-4bb4-9e9c-c7a53059a12a
+[2026-05-03 17:10:55] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$qhD8keil
+[2026-05-03 17:10:55] [INFO] Yeni sipariş oluşturuldu: 2ADF46DF | Müşteri: staff
+[2026-05-03 17:10:55] [INFO] Yeni sipariş oluşturuldu: 45355802 | Müşteri: cust
+[2026-05-03 17:10:56] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 17:10:56] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 17:10:56] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:10:56] [INFO] Yeni sipariş oluşturuldu: 076EFCC4 | Müşteri: staff2
+[2026-05-03 17:10:56] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 17:10:56] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 17:10:56] [INFO] Sipariş onaylandı: 076EFCC4
+[2026-05-03 17:10:56] [INFO] Sipariş [076EFCC4] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:10:56] [INFO] Yeni sipariş oluşturuldu: 306D1D27 | Müşteri: musteri
+[2026-05-03 17:12:41] [INFO] [AOP Start] Metot başlıyor: OrderService.createOrder(..)
+[2026-05-03 17:12:41] [INFO] Yeni sipariş oluşturuldu: CF6D7862 | Müşteri: cust
+[2026-05-03 17:12:41] [INFO] Sipariş oluşturuldu: CF6D7862 | Müşteri: cust
+[2026-05-03 17:12:41] [INFO] [AOP Success] Metot 'OrderService.createOrder(..)' başarıyla tamamlandı. Süre: 46 ms
+[2026-05-03 17:12:41] [INFO] [AOP Start] Metot başlıyor: PaymentApplicationService.processPayment(..)
+[2026-05-03 17:12:41] [INFO] [AOP Start] Metot başlıyor: OrderService.pay(..)
+[2026-05-03 17:12:41] [INFO] [AOP Start] Metot başlıyor: PaymentService.processPayment(..)
+[2026-05-03 17:12:41] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: CF6D7862 | Yöntem: Kredi Kartı | Tutar: 0,00 TL
+[2026-05-03 17:12:41] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: CF6D7862 | Tutar: 0,00 TL | Kart: **** **** **** 1111
+[2026-05-03 17:12:41] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1777817561879
+[2026-05-03 17:12:41] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: CF6D7862 | TX: CC-1777817561879
+[2026-05-03 17:12:41] [INFO] [AOP Success] Metot 'PaymentService.processPayment(..)' başarıyla tamamlandı. Süre: 17 ms
+[2026-05-03 17:12:41] [INFO] [AOP Success] Metot 'OrderService.pay(..)' başarıyla tamamlandı. Süre: 59 ms
+[2026-05-03 17:12:41] [INFO] [AOP Success] Metot 'PaymentApplicationService.processPayment(..)' başarıyla tamamlandı. Süre: 64 ms
+[2026-05-03 17:12:41] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-05-03 17:12:41] [ERROR] [AOP Error] Metot 'OrderService.approveOrder(..)' bir hata nedeniyle durdu: Ürün içermeyen sipariş onaylanamaz! Sipariş: CF6D7862
+[2026-05-03 17:12:42] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-03 17:12:42] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-03 17:12:42] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:12:42] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:12:42] [INFO] Yeni sipariş oluşturuldu: 3D651731 | Müşteri: test_musteri
+[2026-05-03 17:12:42] [INFO] Yeni sipariş oluşturuldu: 9E08F0D1 | Müşteri: test_musteri
+[2026-05-03 17:12:42] [INFO] Yeni sipariş oluşturuldu: 294E2EFB | Müşteri: test_musteri
+[2026-05-03 17:12:42] [INFO] Sipariş onaylandı: 294E2EFB
+[2026-05-03 17:12:42] [INFO] Sipariş [294E2EFB] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:12:42] [INFO] Sipariş hazırlanmaya başlandı: 294E2EFB
+[2026-05-03 17:12:42] [INFO] Sipariş [294E2EFB] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:12:42] [INFO] Sipariş kargoya verildi: 294E2EFB
+[2026-05-03 17:12:42] [INFO] Sipariş [294E2EFB] durum değiştirdi -> KARGODA
+[2026-05-03 17:12:42] [INFO] Yeni sipariş oluşturuldu: CB2AED94 | Müşteri: test_musteri
+[2026-05-03 17:12:42] [INFO] Sipariş onaylandı: CB2AED94
+[2026-05-03 17:12:42] [INFO] Sipariş [CB2AED94] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:12:42] [INFO] Sipariş hazırlanmaya başlandı: CB2AED94
+[2026-05-03 17:12:42] [INFO] Sipariş [CB2AED94] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:12:42] [INFO] Sipariş kargoya verildi: CB2AED94
+[2026-05-03 17:12:42] [INFO] Sipariş [CB2AED94] durum değiştirdi -> KARGODA
+[2026-05-03 17:12:42] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: CB2AED94
+[2026-05-03 17:12:42] [INFO] Sipariş [CB2AED94] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:12:42] [INFO] Yeni sipariş oluşturuldu: C27D7C4C | Müşteri: test_musteri
+[2026-05-03 17:12:42] [INFO] Sipariş iptal edildi: C27D7C4C
+[2026-05-03 17:12:42] [INFO] Sipariş [C27D7C4C] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 17:12:42] [INFO] Yeni sipariş oluşturuldu: AB413F64 | Müşteri: test_musteri
+[2026-05-03 17:12:42] [INFO] Sipariş onaylandı: AB413F64
+[2026-05-03 17:12:42] [INFO] Sipariş [AB413F64] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:12:42] [INFO] Sipariş hazırlanmaya başlandı: AB413F64
+[2026-05-03 17:12:42] [INFO] Sipariş [AB413F64] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:12:42] [INFO] Sipariş kargoya verildi: AB413F64
+[2026-05-03 17:12:42] [INFO] Sipariş [AB413F64] durum değiştirdi -> KARGODA
+[2026-05-03 17:12:42] [CRITICAL] [ORDER_RETURN] İade başlatıldı: AB413F64
+[2026-05-03 17:12:42] [INFO] Sipariş [AB413F64] durum değiştirdi -> İADE
+[2026-05-03 17:12:42] [INFO] Yeni sipariş oluşturuldu: 52B68172 | Müşteri: test_musteri
+[2026-05-03 17:12:42] [INFO] Sipariş onaylandı: 52B68172
+[2026-05-03 17:12:42] [INFO] Sipariş [52B68172] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:12:44] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 17:12:44] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 3d5e939f-b273-4431-ac53-2d31b858ce8a
+[2026-05-03 17:12:44] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$Dzz8sDc4
+[2026-05-03 17:12:45] [INFO] Yeni sipariş oluşturuldu: 2E170DC2 | Müşteri: staff
+[2026-05-03 17:12:45] [INFO] Yeni sipariş oluşturuldu: C77CB64C | Müşteri: cust
+[2026-05-03 17:12:45] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 17:12:45] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 17:12:45] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:12:45] [INFO] Yeni sipariş oluşturuldu: 2153FB81 | Müşteri: staff2
+[2026-05-03 17:12:45] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 17:12:45] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 17:12:45] [INFO] Sipariş onaylandı: 2153FB81
+[2026-05-03 17:12:45] [INFO] Sipariş [2153FB81] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:12:45] [INFO] Yeni sipariş oluşturuldu: 65439EE0 | Müşteri: musteri
+[2026-05-03 17:14:03] [INFO] [AOP Start] Metot başlıyor: OrderService.createOrder(..)
+[2026-05-03 17:14:03] [INFO] Yeni sipariş oluşturuldu: 26CAFCAD | Müşteri: cust
+[2026-05-03 17:14:03] [INFO] Sipariş oluşturuldu: 26CAFCAD | Müşteri: cust
+[2026-05-03 17:14:03] [INFO] [AOP Success] Metot 'OrderService.createOrder(..)' başarıyla tamamlandı. Süre: 49 ms
+[2026-05-03 17:14:03] [INFO] [AOP Start] Metot başlıyor: OrderService.addItemToOrder(..)
+[2026-05-03 17:14:03] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 9
+[2026-05-03 17:14:03] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:14:03] [INFO] [AOP Success] Metot 'OrderService.addItemToOrder(..)' başarıyla tamamlandı. Süre: 75 ms
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: PaymentApplicationService.processPayment(..)
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: OrderService.pay(..)
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: PaymentService.processPayment(..)
+[2026-05-03 17:14:04] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: 26CAFCAD | Yöntem: Kredi Kartı | Tutar: 1000,00 TL
+[2026-05-03 17:14:04] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: 26CAFCAD | Tutar: 1000,00 TL | Kart: **** **** **** 1111
+[2026-05-03 17:14:04] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1777817644073
+[2026-05-03 17:14:04] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: 26CAFCAD | TX: CC-1777817644073
+[2026-05-03 17:14:04] [INFO] [AOP Success] Metot 'PaymentService.processPayment(..)' başarıyla tamamlandı. Süre: 15 ms
+[2026-05-03 17:14:04] [INFO] [AOP Success] Metot 'OrderService.pay(..)' başarıyla tamamlandı. Süre: 20 ms
+[2026-05-03 17:14:04] [INFO] [AOP Success] Metot 'PaymentApplicationService.processPayment(..)' başarıyla tamamlandı. Süre: 27 ms
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-05-03 17:14:04] [INFO] Sipariş onaylandı: 26CAFCAD
+[2026-05-03 17:14:04] [INFO] Sipariş [26CAFCAD] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:14:04] [INFO] [AOP Success] Metot 'OrderService.approveOrder(..)' başarıyla tamamlandı. Süre: 13 ms
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: ShippingApplicationService.shipOrder(..)
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: OrderService.findById(..)
+[2026-05-03 17:14:04] [INFO] [AOP Success] Metot 'OrderService.findById(..)' başarıyla tamamlandı. Süre: 10 ms
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: CargoService.generateAndAssignTracking(..)
+[2026-05-03 17:14:04] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: 26CAFCAD | Kargo: Aras Kargo | Takip: ARAS-ANK-44163-26CAFCAD
+[2026-05-03 17:14:04] [INFO] [AOP Success] Metot 'CargoService.generateAndAssignTracking(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: CargoService.calculateShippingCost(..)
+[2026-05-03 17:14:04] [INFO] Kargo fiyatlandırması yapılandırıldı: Aras Kargo - Temel Kargo Ücreti
+[2026-05-03 17:14:04] [INFO] Kargo fiyatı hesaplandı | Aras Kargo | 1,0 kg | 450 km | 65,50 TL | Aras Kargo - Temel Kargo Ücreti
+[2026-05-03 17:14:04] [INFO] [AOP Success] Metot 'CargoService.calculateShippingCost(..)' başarıyla tamamlandı. Süre: 15 ms
+[2026-05-03 17:14:04] [INFO] [AOP Start] Metot başlıyor: OrderService.shipOrder(..)
+[2026-05-03 17:14:04] [ERROR] [AOP Error] Metot 'OrderService.shipOrder(..)' bir hata nedeniyle durdu: Sipariş henüz hazırlanmadı, kargoya verilemez!
+[2026-05-03 17:14:04] [ERROR] [AOP Error] Metot 'ShippingApplicationService.shipOrder(..)' bir hata nedeniyle durdu: Sipariş henüz hazırlanmadı, kargoya verilemez!
+[2026-05-03 17:14:04] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-03 17:14:04] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-03 17:14:04] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:14:04] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:14:04] [INFO] Yeni sipariş oluşturuldu: 67BDBE2E | Müşteri: test_musteri
+[2026-05-03 17:14:04] [INFO] Yeni sipariş oluşturuldu: E29C8214 | Müşteri: test_musteri
+[2026-05-03 17:14:04] [INFO] Yeni sipariş oluşturuldu: 72843B51 | Müşteri: test_musteri
+[2026-05-03 17:14:04] [INFO] Sipariş onaylandı: 72843B51
+[2026-05-03 17:14:04] [INFO] Sipariş [72843B51] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:14:04] [INFO] Sipariş hazırlanmaya başlandı: 72843B51
+[2026-05-03 17:14:04] [INFO] Sipariş [72843B51] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:14:04] [INFO] Sipariş kargoya verildi: 72843B51
+[2026-05-03 17:14:04] [INFO] Sipariş [72843B51] durum değiştirdi -> KARGODA
+[2026-05-03 17:14:04] [INFO] Yeni sipariş oluşturuldu: 9774E165 | Müşteri: test_musteri
+[2026-05-03 17:14:04] [INFO] Sipariş onaylandı: 9774E165
+[2026-05-03 17:14:04] [INFO] Sipariş [9774E165] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:14:04] [INFO] Sipariş hazırlanmaya başlandı: 9774E165
+[2026-05-03 17:14:04] [INFO] Sipariş [9774E165] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:14:04] [INFO] Sipariş kargoya verildi: 9774E165
+[2026-05-03 17:14:04] [INFO] Sipariş [9774E165] durum değiştirdi -> KARGODA
+[2026-05-03 17:14:04] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: 9774E165
+[2026-05-03 17:14:04] [INFO] Sipariş [9774E165] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:14:04] [INFO] Yeni sipariş oluşturuldu: 8166AED5 | Müşteri: test_musteri
+[2026-05-03 17:14:04] [INFO] Sipariş iptal edildi: 8166AED5
+[2026-05-03 17:14:04] [INFO] Sipariş [8166AED5] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 17:14:04] [INFO] Yeni sipariş oluşturuldu: A3F871FB | Müşteri: test_musteri
+[2026-05-03 17:14:04] [INFO] Sipariş onaylandı: A3F871FB
+[2026-05-03 17:14:04] [INFO] Sipariş [A3F871FB] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:14:04] [INFO] Sipariş hazırlanmaya başlandı: A3F871FB
+[2026-05-03 17:14:04] [INFO] Sipariş [A3F871FB] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:14:04] [INFO] Sipariş kargoya verildi: A3F871FB
+[2026-05-03 17:14:04] [INFO] Sipariş [A3F871FB] durum değiştirdi -> KARGODA
+[2026-05-03 17:14:04] [CRITICAL] [ORDER_RETURN] İade başlatıldı: A3F871FB
+[2026-05-03 17:14:04] [INFO] Sipariş [A3F871FB] durum değiştirdi -> İADE
+[2026-05-03 17:14:04] [INFO] Yeni sipariş oluşturuldu: E9AC71B6 | Müşteri: test_musteri
+[2026-05-03 17:14:04] [INFO] Sipariş onaylandı: E9AC71B6
+[2026-05-03 17:14:04] [INFO] Sipariş [E9AC71B6] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:14:06] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 17:14:06] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: efe9340e-9132-454d-a3f1-dd66feea35e2
+[2026-05-03 17:14:06] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$l06kr8kg
+[2026-05-03 17:14:07] [INFO] Yeni sipariş oluşturuldu: FC0A69BD | Müşteri: staff
+[2026-05-03 17:14:07] [INFO] Yeni sipariş oluşturuldu: 339EFBE6 | Müşteri: cust
+[2026-05-03 17:14:07] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 17:14:07] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 17:14:07] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:14:07] [INFO] Yeni sipariş oluşturuldu: 549AE624 | Müşteri: staff2
+[2026-05-03 17:14:07] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 17:14:07] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 17:14:07] [INFO] Sipariş onaylandı: 549AE624
+[2026-05-03 17:14:07] [INFO] Sipariş [549AE624] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:14:07] [INFO] Yeni sipariş oluşturuldu: DF7B2BAA | Müşteri: musteri
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.createOrder(..)
+[2026-05-03 17:22:51] [INFO] Yeni sipariş oluşturuldu: F25043A4 | Müşteri: cust
+[2026-05-03 17:22:51] [INFO] Sipariş oluşturuldu: F25043A4 | Müşteri: cust
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.createOrder(..)' başarıyla tamamlandı. Süre: 34 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.addItemToOrder(..)
+[2026-05-03 17:22:51] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 9
+[2026-05-03 17:22:51] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.addItemToOrder(..)' başarıyla tamamlandı. Süre: 77 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: PaymentApplicationService.processPayment(..)
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.pay(..)
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: PaymentService.processPayment(..)
+[2026-05-03 17:22:51] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: F25043A4 | Yöntem: Kredi Kartı | Tutar: 1000,00 TL
+[2026-05-03 17:22:51] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: F25043A4 | Tutar: 1000,00 TL | Kart: **** **** **** 1111
+[2026-05-03 17:22:51] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1777818171714
+[2026-05-03 17:22:51] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: F25043A4 | TX: CC-1777818171714
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'PaymentService.processPayment(..)' başarıyla tamamlandı. Süre: 25 ms
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.pay(..)' başarıyla tamamlandı. Süre: 36 ms
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'PaymentApplicationService.processPayment(..)' başarıyla tamamlandı. Süre: 43 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-05-03 17:22:51] [INFO] Sipariş onaylandı: F25043A4
+[2026-05-03 17:22:51] [INFO] Sipariş [F25043A4] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.approveOrder(..)' başarıyla tamamlandı. Süre: 13 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.startPreparing(..)
+[2026-05-03 17:22:51] [INFO] Sipariş hazırlanmaya başlandı: F25043A4
+[2026-05-03 17:22:51] [INFO] Sipariş [F25043A4] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.startPreparing(..)' başarıyla tamamlandı. Süre: 7 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: ShippingApplicationService.shipOrder(..)
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.findById(..)
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.findById(..)' başarıyla tamamlandı. Süre: 9 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: CargoService.generateAndAssignTracking(..)
+[2026-05-03 17:22:51] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: F25043A4 | Kargo: Aras Kargo | Takip: ARAS-ANK-71853-F25043A4
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'CargoService.generateAndAssignTracking(..)' başarıyla tamamlandı. Süre: 4 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: CargoService.calculateShippingCost(..)
+[2026-05-03 17:22:51] [INFO] Kargo fiyatlandırması yapılandırıldı: Aras Kargo - Temel Kargo Ücreti
+[2026-05-03 17:22:51] [INFO] Kargo fiyatı hesaplandı | Aras Kargo | 1,0 kg | 450 km | 65,50 TL | Aras Kargo - Temel Kargo Ücreti
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'CargoService.calculateShippingCost(..)' başarıyla tamamlandı. Süre: 13 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.shipOrder(..)
+[2026-05-03 17:22:51] [INFO] Sipariş kargoya verildi: F25043A4
+[2026-05-03 17:22:51] [INFO] Sipariş [F25043A4] durum değiştirdi -> KARGODA
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.shipOrder(..)' başarıyla tamamlandı. Süre: 8 ms
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'ShippingApplicationService.shipOrder(..)' başarıyla tamamlandı. Süre: 49 ms
+[2026-05-03 17:22:51] [INFO] [AOP Start] Metot başlıyor: OrderService.deliverOrder(..)
+[2026-05-03 17:22:51] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: F25043A4
+[2026-05-03 17:22:51] [INFO] Sipariş [F25043A4] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:22:51] [INFO] [AOP Success] Metot 'OrderService.deliverOrder(..)' başarıyla tamamlandı. Süre: 9 ms
+[2026-05-03 17:22:51] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-03 17:22:51] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-03 17:22:51] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:22:51] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:22:51] [INFO] Yeni sipariş oluşturuldu: FD06A7E9 | Müşteri: test_musteri
+[2026-05-03 17:22:51] [INFO] Yeni sipariş oluşturuldu: B4666297 | Müşteri: test_musteri
+[2026-05-03 17:22:51] [INFO] Yeni sipariş oluşturuldu: 708822FE | Müşteri: test_musteri
+[2026-05-03 17:22:51] [INFO] Sipariş onaylandı: 708822FE
+[2026-05-03 17:22:51] [INFO] Sipariş [708822FE] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:22:51] [INFO] Sipariş hazırlanmaya başlandı: 708822FE
+[2026-05-03 17:22:51] [INFO] Sipariş [708822FE] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:22:51] [INFO] Sipariş kargoya verildi: 708822FE
+[2026-05-03 17:22:51] [INFO] Sipariş [708822FE] durum değiştirdi -> KARGODA
+[2026-05-03 17:22:51] [INFO] Yeni sipariş oluşturuldu: 976643A1 | Müşteri: test_musteri
+[2026-05-03 17:22:51] [INFO] Sipariş onaylandı: 976643A1
+[2026-05-03 17:22:51] [INFO] Sipariş [976643A1] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:22:51] [INFO] Sipariş hazırlanmaya başlandı: 976643A1
+[2026-05-03 17:22:51] [INFO] Sipariş [976643A1] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:22:51] [INFO] Sipariş kargoya verildi: 976643A1
+[2026-05-03 17:22:51] [INFO] Sipariş [976643A1] durum değiştirdi -> KARGODA
+[2026-05-03 17:22:51] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: 976643A1
+[2026-05-03 17:22:51] [INFO] Sipariş [976643A1] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:22:51] [INFO] Yeni sipariş oluşturuldu: 675A50AC | Müşteri: test_musteri
+[2026-05-03 17:22:51] [INFO] Sipariş iptal edildi: 675A50AC
+[2026-05-03 17:22:51] [INFO] Sipariş [675A50AC] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 17:22:52] [INFO] Yeni sipariş oluşturuldu: 60F21AF6 | Müşteri: test_musteri
+[2026-05-03 17:22:52] [INFO] Sipariş onaylandı: 60F21AF6
+[2026-05-03 17:22:52] [INFO] Sipariş [60F21AF6] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:22:52] [INFO] Sipariş hazırlanmaya başlandı: 60F21AF6
+[2026-05-03 17:22:52] [INFO] Sipariş [60F21AF6] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:22:52] [INFO] Sipariş kargoya verildi: 60F21AF6
+[2026-05-03 17:22:52] [INFO] Sipariş [60F21AF6] durum değiştirdi -> KARGODA
+[2026-05-03 17:22:52] [CRITICAL] [ORDER_RETURN] İade başlatıldı: 60F21AF6
+[2026-05-03 17:22:52] [INFO] Sipariş [60F21AF6] durum değiştirdi -> İADE
+[2026-05-03 17:22:52] [INFO] Yeni sipariş oluşturuldu: 21DF3490 | Müşteri: test_musteri
+[2026-05-03 17:22:52] [INFO] Sipariş onaylandı: 21DF3490
+[2026-05-03 17:22:52] [INFO] Sipariş [21DF3490] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:22:53] [CRITICAL] [STOCK_DECREASE] Ürün: 'LOW', Azalma: -5, Yeni Stok: 5
+[2026-05-03 17:22:53] [WARN] STOK EŞİK UYARISI: 'LOW' eşik altına düştü (5 <= 5)
+[2026-05-03 17:22:53] [CRITICAL] [STOCK_DECREASE] Ürün: 'VERY_LOW', Azalma: -8, Yeni Stok: 2
+[2026-05-03 17:22:53] [WARN] STOK EŞİK UYARISI: 'VERY_LOW' eşik altına düştü (2 <= 5)
+[2026-05-03 17:22:55] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 17:22:55] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 77dc37ef-fc5e-4f98-92fc-c6b842a4cdd3
+[2026-05-03 17:22:55] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$VrCA01bB
+[2026-05-03 17:22:55] [INFO] Yeni sipariş oluşturuldu: 88687896 | Müşteri: staff
+[2026-05-03 17:22:55] [INFO] Yeni sipariş oluşturuldu: 00CA6A4D | Müşteri: cust
+[2026-05-03 17:22:55] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 17:22:55] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 17:22:55] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:22:55] [INFO] Yeni sipariş oluşturuldu: 21406E9D | Müşteri: staff2
+[2026-05-03 17:22:55] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 17:22:55] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 17:22:55] [INFO] Sipariş onaylandı: 21406E9D
+[2026-05-03 17:22:55] [INFO] Sipariş [21406E9D] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:22:55] [INFO] Yeni sipariş oluşturuldu: 5CD16225 | Müşteri: musteri
+[2026-05-03 17:32:55] [INFO] [AOP Start] Metot başlıyor: OrderService.createOrder(..)
+[2026-05-03 17:32:55] [INFO] Yeni sipariş oluşturuldu: 6D4F6654 | Müşteri: cust
+[2026-05-03 17:32:55] [INFO] Sipariş oluşturuldu: 6D4F6654 | Müşteri: cust
+[2026-05-03 17:32:55] [INFO] [AOP Success] Metot 'OrderService.createOrder(..)' başarıyla tamamlandı. Süre: 35 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: OrderService.addItemToOrder(..)
+[2026-05-03 17:32:56] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 9
+[2026-05-03 17:32:56] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'OrderService.addItemToOrder(..)' başarıyla tamamlandı. Süre: 76 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: PaymentApplicationService.processPayment(..)
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: OrderService.pay(..)
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: PaymentService.processPayment(..)
+[2026-05-03 17:32:56] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: 6D4F6654 | Yöntem: Kredi Kartı | Tutar: 1000,00 TL
+[2026-05-03 17:32:56] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: 6D4F6654 | Tutar: 1000,00 TL | Kart: **** **** **** 1111
+[2026-05-03 17:32:56] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1777818776222
+[2026-05-03 17:32:56] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: 6D4F6654 | TX: CC-1777818776222
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'PaymentService.processPayment(..)' başarıyla tamamlandı. Süre: 17 ms
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'OrderService.pay(..)' başarıyla tamamlandı. Süre: 24 ms
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'PaymentApplicationService.processPayment(..)' başarıyla tamamlandı. Süre: 44 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-05-03 17:32:56] [INFO] Sipariş onaylandı: 6D4F6654
+[2026-05-03 17:32:56] [INFO] Sipariş [6D4F6654] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'OrderService.approveOrder(..)' başarıyla tamamlandı. Süre: 12 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: OrderService.startPreparing(..)
+[2026-05-03 17:32:56] [INFO] Sipariş hazırlanmaya başlandı: 6D4F6654
+[2026-05-03 17:32:56] [INFO] Sipariş [6D4F6654] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'OrderService.startPreparing(..)' başarıyla tamamlandı. Süre: 13 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: ShippingApplicationService.shipOrder(..)
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: OrderService.findById(..)
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'OrderService.findById(..)' başarıyla tamamlandı. Süre: 8 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: CargoService.generateAndAssignTracking(..)
+[2026-05-03 17:32:56] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: 6D4F6654 | Kargo: Aras Kargo | Takip: ARAS-ANK-76363-6D4F6654
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'CargoService.generateAndAssignTracking(..)' başarıyla tamamlandı. Süre: 5 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: CargoService.calculateShippingCost(..)
+[2026-05-03 17:32:56] [INFO] Kargo fiyatlandırması yapılandırıldı: Aras Kargo - Temel Kargo Ücreti
+[2026-05-03 17:32:56] [INFO] Kargo fiyatı hesaplandı | Aras Kargo | 1,0 kg | 450 km | 65,50 TL | Aras Kargo - Temel Kargo Ücreti
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'CargoService.calculateShippingCost(..)' başarıyla tamamlandı. Süre: 14 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: OrderService.shipOrder(..)
+[2026-05-03 17:32:56] [INFO] Sipariş kargoya verildi: 6D4F6654
+[2026-05-03 17:32:56] [INFO] Sipariş [6D4F6654] durum değiştirdi -> KARGODA
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'OrderService.shipOrder(..)' başarıyla tamamlandı. Süre: 9 ms
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'ShippingApplicationService.shipOrder(..)' başarıyla tamamlandı. Süre: 47 ms
+[2026-05-03 17:32:56] [INFO] [AOP Start] Metot başlıyor: OrderService.deliverOrder(..)
+[2026-05-03 17:32:56] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: 6D4F6654
+[2026-05-03 17:32:56] [INFO] Sipariş [6D4F6654] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:32:56] [INFO] [AOP Success] Metot 'OrderService.deliverOrder(..)' başarıyla tamamlandı. Süre: 9 ms
+[2026-05-03 17:32:56] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-03 17:32:56] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-03 17:32:56] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:32:56] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-03 17:32:56] [INFO] Yeni sipariş oluşturuldu: 87855478 | Müşteri: test_musteri
+[2026-05-03 17:32:56] [INFO] Yeni sipariş oluşturuldu: 3207E3FB | Müşteri: test_musteri
+[2026-05-03 17:32:56] [INFO] Yeni sipariş oluşturuldu: C9844169 | Müşteri: test_musteri
+[2026-05-03 17:32:56] [INFO] Sipariş onaylandı: C9844169
+[2026-05-03 17:32:56] [INFO] Sipariş [C9844169] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:32:56] [INFO] Sipariş hazırlanmaya başlandı: C9844169
+[2026-05-03 17:32:56] [INFO] Sipariş [C9844169] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:32:56] [INFO] Sipariş kargoya verildi: C9844169
+[2026-05-03 17:32:56] [INFO] Sipariş [C9844169] durum değiştirdi -> KARGODA
+[2026-05-03 17:32:56] [INFO] Yeni sipariş oluşturuldu: 3C548051 | Müşteri: test_musteri
+[2026-05-03 17:32:56] [INFO] Sipariş onaylandı: 3C548051
+[2026-05-03 17:32:56] [INFO] Sipariş [3C548051] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:32:56] [INFO] Sipariş hazırlanmaya başlandı: 3C548051
+[2026-05-03 17:32:56] [INFO] Sipariş [3C548051] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:32:56] [INFO] Sipariş kargoya verildi: 3C548051
+[2026-05-03 17:32:56] [INFO] Sipariş [3C548051] durum değiştirdi -> KARGODA
+[2026-05-03 17:32:56] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: 3C548051
+[2026-05-03 17:32:56] [INFO] Sipariş [3C548051] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-03 17:32:56] [INFO] Yeni sipariş oluşturuldu: 3EE6622F | Müşteri: test_musteri
+[2026-05-03 17:32:56] [INFO] Sipariş iptal edildi: 3EE6622F
+[2026-05-03 17:32:56] [INFO] Sipariş [3EE6622F] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-03 17:32:56] [INFO] Yeni sipariş oluşturuldu: E7486C2C | Müşteri: test_musteri
+[2026-05-03 17:32:56] [INFO] Sipariş onaylandı: E7486C2C
+[2026-05-03 17:32:56] [INFO] Sipariş [E7486C2C] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:32:56] [INFO] Sipariş hazırlanmaya başlandı: E7486C2C
+[2026-05-03 17:32:56] [INFO] Sipariş [E7486C2C] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-03 17:32:56] [INFO] Sipariş kargoya verildi: E7486C2C
+[2026-05-03 17:32:56] [INFO] Sipariş [E7486C2C] durum değiştirdi -> KARGODA
+[2026-05-03 17:32:56] [CRITICAL] [ORDER_RETURN] İade başlatıldı: E7486C2C
+[2026-05-03 17:32:56] [INFO] Sipariş [E7486C2C] durum değiştirdi -> İADE
+[2026-05-03 17:32:56] [INFO] Yeni sipariş oluşturuldu: C87B93D4 | Müşteri: test_musteri
+[2026-05-03 17:32:56] [INFO] Sipariş onaylandı: C87B93D4
+[2026-05-03 17:32:56] [INFO] Sipariş [C87B93D4] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:32:58] [CRITICAL] [STOCK_DECREASE] Ürün: 'LOW', Azalma: -5, Yeni Stok: 5
+[2026-05-03 17:32:58] [WARN] STOK EŞİK UYARISI: 'LOW' eşik altına düştü (5 <= 5)
+[2026-05-03 17:32:58] [CRITICAL] [STOCK_DECREASE] Ürün: 'VERY_LOW', Azalma: -8, Yeni Stok: 2
+[2026-05-03 17:32:58] [WARN] STOK EŞİK UYARISI: 'VERY_LOW' eşik altına düştü (2 <= 5)
+[2026-05-03 17:32:59] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-03 17:32:59] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 66c9e03e-0314-4859-809a-203d624b24c3
+[2026-05-03 17:32:59] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$5yKl4wTO
+[2026-05-03 17:33:00] [INFO] Yeni sipariş oluşturuldu: 49549EB7 | Müşteri: staff
+[2026-05-03 17:33:00] [INFO] Yeni sipariş oluşturuldu: AFC89C8D | Müşteri: cust
+[2026-05-03 17:33:00] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-03 17:33:00] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-03 17:33:00] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-03 17:33:00] [INFO] Yeni sipariş oluşturuldu: 045D9C26 | Müşteri: staff2
+[2026-05-03 17:33:00] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-03 17:33:00] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-03 17:33:00] [INFO] Sipariş onaylandı: 045D9C26
+[2026-05-03 17:33:00] [INFO] Sipariş [045D9C26] durum değiştirdi -> ONAYLANDI
+[2026-05-03 17:33:00] [INFO] Yeni sipariş oluşturuldu: BC97B837 | Müşteri: musteri
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.createOrder(..)
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: FFE49E1E | Müşteri: cust
+[2026-05-11 02:36:34] [INFO] Sipariş oluşturuldu: FFE49E1E | Müşteri: cust
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.createOrder(..)' başarıyla tamamlandı. Süre: 42 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.addItemToOrder(..)
+[2026-05-11 02:36:34] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 9
+[2026-05-11 02:36:34] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.addItemToOrder(..)' başarıyla tamamlandı. Süre: 71 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: PaymentApplicationService.processPayment(..)
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.pay(..)
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: PaymentService.processPayment(..)
+[2026-05-11 02:36:34] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: FFE49E1E | Yöntem: Kredi Kartı | Tutar: 1000,00 TL
+[2026-05-11 02:36:34] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: FFE49E1E | Tutar: 1000,00 TL | Kart: **** **** **** 1111
+[2026-05-11 02:36:34] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1778456194446
+[2026-05-11 02:36:34] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: FFE49E1E | TX: CC-1778456194446
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'PaymentService.processPayment(..)' başarıyla tamamlandı. Süre: 15 ms
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.pay(..)' başarıyla tamamlandı. Süre: 20 ms
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'PaymentApplicationService.processPayment(..)' başarıyla tamamlandı. Süre: 27 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: FFE49E1E
+[2026-05-11 02:36:34] [INFO] Sipariş [FFE49E1E] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.approveOrder(..)' başarıyla tamamlandı. Süre: 10 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.startPreparing(..)
+[2026-05-11 02:36:34] [INFO] Sipariş hazırlanmaya başlandı: FFE49E1E
+[2026-05-11 02:36:34] [INFO] Sipariş [FFE49E1E] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.startPreparing(..)' başarıyla tamamlandı. Süre: 8 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: ShippingApplicationService.shipOrder(..)
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.findById(..)
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.findById(..)' başarıyla tamamlandı. Süre: 3 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: CargoService.generateAndAssignTracking(..)
+[2026-05-11 02:36:34] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: FFE49E1E | Kargo: Aras Kargo | Takip: ARAS-ANK-94553-FFE49E1E
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'CargoService.generateAndAssignTracking(..)' başarıyla tamamlandı. Süre: 3 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: CargoService.calculateShippingCost(..)
+[2026-05-11 02:36:34] [INFO] Kargo fiyatlandırması yapılandırıldı: Aras Kargo - Temel Kargo Ücreti
+[2026-05-11 02:36:34] [INFO] Kargo fiyatı hesaplandı | Aras Kargo | 1,0 kg | 450 km | 65,50 TL | Aras Kargo - Temel Kargo Ücreti
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'CargoService.calculateShippingCost(..)' başarıyla tamamlandı. Süre: 12 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.shipOrder(..)
+[2026-05-11 02:36:34] [INFO] Sipariş kargoya verildi: FFE49E1E
+[2026-05-11 02:36:34] [INFO] Sipariş [FFE49E1E] durum değiştirdi -> KARGODA
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.shipOrder(..)' başarıyla tamamlandı. Süre: 10 ms
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'ShippingApplicationService.shipOrder(..)' başarıyla tamamlandı. Süre: 42 ms
+[2026-05-11 02:36:34] [INFO] [AOP Start] Metot başlıyor: OrderService.deliverOrder(..)
+[2026-05-11 02:36:34] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: FFE49E1E
+[2026-05-11 02:36:34] [INFO] Sipariş [FFE49E1E] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-11 02:36:34] [INFO] [AOP Success] Metot 'OrderService.deliverOrder(..)' başarıyla tamamlandı. Süre: 6 ms
+[2026-05-11 02:36:34] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-11 02:36:34] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-11 02:36:34] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-11 02:36:34] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 0785996D | Müşteri: qa_test
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: 0785996D
+[2026-05-11 02:36:34] [INFO] Sipariş [0785996D] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 3FD1EEE7 | Müşteri: qa_test
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: 3FD1EEE7
+[2026-05-11 02:36:34] [INFO] Sipariş [3FD1EEE7] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:34] [INFO] Sipariş hazırlanmaya başlandı: 3FD1EEE7
+[2026-05-11 02:36:34] [INFO] Sipariş [3FD1EEE7] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 12BED3B0 | Müşteri: qa_test
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: 12BED3B0
+[2026-05-11 02:36:34] [INFO] Sipariş [12BED3B0] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:34] [INFO] Sipariş hazırlanmaya başlandı: 12BED3B0
+[2026-05-11 02:36:34] [INFO] Sipariş [12BED3B0] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-11 02:36:34] [INFO] Sipariş kargoya verildi: 12BED3B0
+[2026-05-11 02:36:34] [INFO] Sipariş [12BED3B0] durum değiştirdi -> KARGODA
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 61057100 | Müşteri: qa_test
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 43AC5AEF | Müşteri: test_musteri
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 3B0261D2 | Müşteri: test_musteri
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 4847BA51 | Müşteri: test_musteri
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: 4847BA51
+[2026-05-11 02:36:34] [INFO] Sipariş [4847BA51] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:34] [INFO] Sipariş hazırlanmaya başlandı: 4847BA51
+[2026-05-11 02:36:34] [INFO] Sipariş [4847BA51] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-11 02:36:34] [INFO] Sipariş kargoya verildi: 4847BA51
+[2026-05-11 02:36:34] [INFO] Sipariş [4847BA51] durum değiştirdi -> KARGODA
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: A5A38C98 | Müşteri: test_musteri
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: A5A38C98
+[2026-05-11 02:36:34] [INFO] Sipariş [A5A38C98] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:34] [INFO] Sipariş hazırlanmaya başlandı: A5A38C98
+[2026-05-11 02:36:34] [INFO] Sipariş [A5A38C98] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-11 02:36:34] [INFO] Sipariş kargoya verildi: A5A38C98
+[2026-05-11 02:36:34] [INFO] Sipariş [A5A38C98] durum değiştirdi -> KARGODA
+[2026-05-11 02:36:34] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: A5A38C98
+[2026-05-11 02:36:34] [INFO] Sipariş [A5A38C98] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 71049132 | Müşteri: test_musteri
+[2026-05-11 02:36:34] [INFO] Sipariş iptal edildi: 71049132
+[2026-05-11 02:36:34] [INFO] Sipariş [71049132] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 702CF52A | Müşteri: test_musteri
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: 702CF52A
+[2026-05-11 02:36:34] [INFO] Sipariş [702CF52A] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:34] [INFO] Sipariş hazırlanmaya başlandı: 702CF52A
+[2026-05-11 02:36:34] [INFO] Sipariş [702CF52A] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-11 02:36:34] [INFO] Sipariş kargoya verildi: 702CF52A
+[2026-05-11 02:36:34] [INFO] Sipariş [702CF52A] durum değiştirdi -> KARGODA
+[2026-05-11 02:36:34] [CRITICAL] [ORDER_RETURN] İade başlatıldı: 702CF52A
+[2026-05-11 02:36:34] [INFO] Sipariş [702CF52A] durum değiştirdi -> İADE
+[2026-05-11 02:36:34] [INFO] Yeni sipariş oluşturuldu: 1E43B9EA | Müşteri: test_musteri
+[2026-05-11 02:36:34] [INFO] Sipariş onaylandı: 1E43B9EA
+[2026-05-11 02:36:34] [INFO] Sipariş [1E43B9EA] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:35] [CRITICAL] [STOCK_DECREASE] Ürün: 'Monitor', Azalma: -6, Yeni Stok: 4
+[2026-05-11 02:36:35] [WARN] STOK EŞİK UYARISI: 'Monitor' eşik altına düştü (4 <= 5)
+[2026-05-11 02:36:37] [CRITICAL] [STOCK_DECREASE] Ürün: 'LOW', Azalma: -5, Yeni Stok: 5
+[2026-05-11 02:36:37] [WARN] STOK EŞİK UYARISI: 'LOW' eşik altına düştü (5 <= 5)
+[2026-05-11 02:36:37] [CRITICAL] [STOCK_DECREASE] Ürün: 'VERY_LOW', Azalma: -8, Yeni Stok: 2
+[2026-05-11 02:36:37] [WARN] STOK EŞİK UYARISI: 'VERY_LOW' eşik altına düştü (2 <= 5)
+[2026-05-11 02:36:37] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-11 02:36:37] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: 0c28b5ae-b804-4991-ab07-cff36bf1a5bd
+[2026-05-11 02:36:37] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$veU97Soy
+[2026-05-11 02:36:37] [INFO] Yeni sipariş oluşturuldu: F29B2485 | Müşteri: staff
+[2026-05-11 02:36:37] [INFO] Yeni sipariş oluşturuldu: C52D0177 | Müşteri: cust
+[2026-05-11 02:36:37] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-11 02:36:37] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-11 02:36:37] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-11 02:36:37] [INFO] Yeni sipariş oluşturuldu: A435D5B0 | Müşteri: staff2
+[2026-05-11 02:36:37] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-11 02:36:37] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-11 02:36:37] [INFO] Sipariş onaylandı: A435D5B0
+[2026-05-11 02:36:37] [INFO] Sipariş [A435D5B0] durum değiştirdi -> ONAYLANDI
+[2026-05-11 02:36:37] [INFO] Yeni sipariş oluşturuldu: 05005ECC | Müşteri: musteri
+[2026-05-11 13:51:21] [INFO] Yeni sipariş oluşturuldu: A12FDE3F | Müşteri: staff
+[2026-05-11 13:51:21] [INFO] Yeni sipariş oluşturuldu: 0AE55338 | Müşteri: cust
+[2026-05-11 13:51:22] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-11 13:51:22] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-11 13:51:22] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-11 13:51:22] [INFO] Yeni sipariş oluşturuldu: 049FD5EE | Müşteri: staff2
+[2026-05-11 13:51:22] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-11 13:51:22] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-11 13:51:22] [INFO] Sipariş onaylandı: 049FD5EE
+[2026-05-11 13:51:22] [INFO] Sipariş [049FD5EE] durum değiştirdi -> ONAYLANDI
+[2026-05-11 13:51:22] [INFO] Yeni sipariş oluşturuldu: 909B4372 | Müşteri: musteri
+[2026-05-12 10:15:56] [INFO] [AOP Start] Metot başlıyor: OrderService.createOrder(..)
+[2026-05-12 10:15:56] [INFO] Yeni sipariş oluşturuldu: C762204A | Müşteri: cust
+[2026-05-12 10:15:56] [INFO] Sipariş oluşturuldu: C762204A | Müşteri: cust
+[2026-05-12 10:15:56] [INFO] [AOP Success] Metot 'OrderService.createOrder(..)' başarıyla tamamlandı. Süre: 46 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: OrderService.addItemToOrder(..)
+[2026-05-12 10:15:57] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 9
+[2026-05-12 10:15:57] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'OrderService.addItemToOrder(..)' başarıyla tamamlandı. Süre: 82 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: PaymentApplicationService.processPayment(..)
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: OrderService.pay(..)
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: PaymentService.processPayment(..)
+[2026-05-12 10:15:57] [CRITICAL] [PAYMENT_INIT] Ödeme başlatıldı | Sipariş: C762204A | Yöntem: Kredi Kartı | Tutar: 1000,00 TL
+[2026-05-12 10:15:57] [CRITICAL] [PAYMENT] Kredi Kartı ödemesi başlatıldı | Sipariş: C762204A | Tutar: 1000,00 TL | Kart: **** **** **** 1111
+[2026-05-12 10:15:57] [CRITICAL] [PAYMENT_SUCCESS] Kredi kartı ödemesi başarılı | Transaction: CC-1778570157289
+[2026-05-12 10:15:57] [CRITICAL] [PAYMENT_COMPLETE] Ödeme tamamlandı | Sipariş: C762204A | TX: CC-1778570157289
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'PaymentService.processPayment(..)' başarıyla tamamlandı. Süre: 22 ms
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'OrderService.pay(..)' başarıyla tamamlandı. Süre: 28 ms
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'PaymentApplicationService.processPayment(..)' başarıyla tamamlandı. Süre: 42 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: OrderService.approveOrder(..)
+[2026-05-12 10:15:57] [INFO] Sipariş onaylandı: C762204A
+[2026-05-12 10:15:57] [INFO] Sipariş [C762204A] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'OrderService.approveOrder(..)' başarıyla tamamlandı. Süre: 16 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: OrderService.startPreparing(..)
+[2026-05-12 10:15:57] [INFO] Sipariş hazırlanmaya başlandı: C762204A
+[2026-05-12 10:15:57] [INFO] Sipariş [C762204A] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'OrderService.startPreparing(..)' başarıyla tamamlandı. Süre: 11 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: ShippingApplicationService.shipOrder(..)
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: OrderService.findById(..)
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'OrderService.findById(..)' başarıyla tamamlandı. Süre: 5 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: CargoService.generateAndAssignTracking(..)
+[2026-05-12 10:15:57] [CRITICAL] [CARGO_TRACKING] Takip numarası atandı | Sipariş: C762204A | Kargo: Aras Kargo | Takip: ARAS-ANK-57435-C762204A
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'CargoService.generateAndAssignTracking(..)' başarıyla tamamlandı. Süre: 6 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: CargoService.calculateShippingCost(..)
+[2026-05-12 10:15:57] [INFO] Kargo fiyatlandırması yapılandırıldı: Aras Kargo - Temel Kargo Ücreti
+[2026-05-12 10:15:57] [INFO] Kargo fiyatı hesaplandı | Aras Kargo | 1,0 kg | 450 km | 65,50 TL | Aras Kargo - Temel Kargo Ücreti
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'CargoService.calculateShippingCost(..)' başarıyla tamamlandı. Süre: 17 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: OrderService.shipOrder(..)
+[2026-05-12 10:15:57] [INFO] Sipariş kargoya verildi: C762204A
+[2026-05-12 10:15:57] [INFO] Sipariş [C762204A] durum değiştirdi -> KARGODA
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'OrderService.shipOrder(..)' başarıyla tamamlandı. Süre: 10 ms
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'ShippingApplicationService.shipOrder(..)' başarıyla tamamlandı. Süre: 52 ms
+[2026-05-12 10:15:57] [INFO] [AOP Start] Metot başlıyor: OrderService.deliverOrder(..)
+[2026-05-12 10:15:57] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: C762204A
+[2026-05-12 10:15:57] [INFO] Sipariş [C762204A] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-12 10:15:57] [INFO] [AOP Success] Metot 'OrderService.deliverOrder(..)' başarıyla tamamlandı. Süre: 10 ms
+[2026-05-12 10:15:57] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti
+[2026-05-12 10:15:57] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi
+[2026-05-12 10:15:57] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-12 10:15:57] [INFO] Kargo fiyatlandırması yapılandırıldı: TEST - Temel Kargo Ücreti + Sigortalı Gönderi + Kırılacak Eşya Koruması (+35 TL)
+[2026-05-12 10:15:57] [INFO] Yeni sipariş oluşturuldu: AE250577 | Müşteri: qa_test
+[2026-05-12 10:15:57] [INFO] Sipariş onaylandı: AE250577
+[2026-05-12 10:15:57] [INFO] Sipariş [AE250577] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:57] [INFO] Yeni sipariş oluşturuldu: ECE7E5D1 | Müşteri: qa_test
+[2026-05-12 10:15:57] [INFO] Sipariş onaylandı: ECE7E5D1
+[2026-05-12 10:15:57] [INFO] Sipariş [ECE7E5D1] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:57] [INFO] Sipariş hazırlanmaya başlandı: ECE7E5D1
+[2026-05-12 10:15:57] [INFO] Sipariş [ECE7E5D1] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-12 10:15:57] [INFO] Yeni sipariş oluşturuldu: B2E33B06 | Müşteri: qa_test
+[2026-05-12 10:15:57] [INFO] Sipariş onaylandı: B2E33B06
+[2026-05-12 10:15:57] [INFO] Sipariş [B2E33B06] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:57] [INFO] Sipariş hazırlanmaya başlandı: B2E33B06
+[2026-05-12 10:15:57] [INFO] Sipariş [B2E33B06] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-12 10:15:57] [INFO] Sipariş kargoya verildi: B2E33B06
+[2026-05-12 10:15:57] [INFO] Sipariş [B2E33B06] durum değiştirdi -> KARGODA
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: 22ADDE98 | Müşteri: qa_test
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: 7A909112 | Müşteri: test_musteri
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: 32009005 | Müşteri: test_musteri
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: 3DFE4D39 | Müşteri: test_musteri
+[2026-05-12 10:15:58] [INFO] Sipariş onaylandı: 3DFE4D39
+[2026-05-12 10:15:58] [INFO] Sipariş [3DFE4D39] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:58] [INFO] Sipariş hazırlanmaya başlandı: 3DFE4D39
+[2026-05-12 10:15:58] [INFO] Sipariş [3DFE4D39] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-12 10:15:58] [INFO] Sipariş kargoya verildi: 3DFE4D39
+[2026-05-12 10:15:58] [INFO] Sipariş [3DFE4D39] durum değiştirdi -> KARGODA
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: FB5D4580 | Müşteri: test_musteri
+[2026-05-12 10:15:58] [INFO] Sipariş onaylandı: FB5D4580
+[2026-05-12 10:15:58] [INFO] Sipariş [FB5D4580] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:58] [INFO] Sipariş hazırlanmaya başlandı: FB5D4580
+[2026-05-12 10:15:58] [INFO] Sipariş [FB5D4580] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-12 10:15:58] [INFO] Sipariş kargoya verildi: FB5D4580
+[2026-05-12 10:15:58] [INFO] Sipariş [FB5D4580] durum değiştirdi -> KARGODA
+[2026-05-12 10:15:58] [CRITICAL] [ORDER_DELIVERED] Sipariş teslim edildi: FB5D4580
+[2026-05-12 10:15:58] [INFO] Sipariş [FB5D4580] durum değiştirdi -> TESLİM EDİLDİ
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: 7435CC91 | Müşteri: test_musteri
+[2026-05-12 10:15:58] [INFO] Sipariş iptal edildi: 7435CC91
+[2026-05-12 10:15:58] [INFO] Sipariş [7435CC91] durum değiştirdi -> İPTAL EDİLDİ
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: 387C5E6E | Müşteri: test_musteri
+[2026-05-12 10:15:58] [INFO] Sipariş onaylandı: 387C5E6E
+[2026-05-12 10:15:58] [INFO] Sipariş [387C5E6E] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:58] [INFO] Sipariş hazırlanmaya başlandı: 387C5E6E
+[2026-05-12 10:15:58] [INFO] Sipariş [387C5E6E] durum değiştirdi -> HAZIRLANIYOR
+[2026-05-12 10:15:58] [INFO] Sipariş kargoya verildi: 387C5E6E
+[2026-05-12 10:15:58] [INFO] Sipariş [387C5E6E] durum değiştirdi -> KARGODA
+[2026-05-12 10:15:58] [CRITICAL] [ORDER_RETURN] İade başlatıldı: 387C5E6E
+[2026-05-12 10:15:58] [INFO] Sipariş [387C5E6E] durum değiştirdi -> İADE
+[2026-05-12 10:15:58] [INFO] Yeni sipariş oluşturuldu: D6BE0F7E | Müşteri: test_musteri
+[2026-05-12 10:15:58] [INFO] Sipariş onaylandı: D6BE0F7E
+[2026-05-12 10:15:58] [INFO] Sipariş [D6BE0F7E] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:15:58] [CRITICAL] [STOCK_DECREASE] Ürün: 'Monitor', Azalma: -6, Yeni Stok: 4
+[2026-05-12 10:15:58] [WARN] STOK EŞİK UYARISI: 'Monitor' eşik altına düştü (4 <= 5)
+[2026-05-12 10:16:00] [CRITICAL] [STOCK_DECREASE] Ürün: 'LOW', Azalma: -5, Yeni Stok: 5
+[2026-05-12 10:16:00] [WARN] STOK EŞİK UYARISI: 'LOW' eşik altına düştü (5 <= 5)
+[2026-05-12 10:16:00] [CRITICAL] [STOCK_DECREASE] Ürün: 'VERY_LOW', Azalma: -8, Yeni Stok: 2
+[2026-05-12 10:16:00] [WARN] STOK EŞİK UYARISI: 'VERY_LOW' eşik altına düştü (2 <= 5)
+[2026-05-12 10:16:01] [CRITICAL] [STOCK_INCREASE] Ürün: 'SSD', Artış: +5, Yeni Stok: 15
+[2026-05-12 10:16:01] [CRITICAL] [PRODUCT_ADD] Yeni ürün eklendi: 'Defter' | ID: cb71d1ff-e4cc-4f25-8e8e-53090bf17c19
+[2026-05-12 10:16:01] [INFO] Gözlemci eklendi: 'Mouse' → StockObserver$MockitoMock$ujJI5afC
+[2026-05-12 10:16:01] [INFO] Yeni sipariş oluşturuldu: 35B59367 | Müşteri: staff
+[2026-05-12 10:16:01] [INFO] Yeni sipariş oluşturuldu: BA314DFE | Müşteri: cust
+[2026-05-12 10:16:01] [CRITICAL] [STOCK_DECREASE] Ürün: 'SSD', Azalma: -1, Yeni Stok: 5
+[2026-05-12 10:16:01] [WARN] STOK EŞİK UYARISI: 'SSD' eşik altına düştü (5 <= 5)
+[2026-05-12 10:16:01] [INFO] Siparişe ürün eklendi/güncellendi: SSD x1
+[2026-05-12 10:16:02] [INFO] Yeni sipariş oluşturuldu: A20B10FB | Müşteri: staff2
+[2026-05-12 10:16:02] [CRITICAL] [STOCK_DECREASE] Ürün: 'Kalem', Azalma: -1, Yeni Stok: 49
+[2026-05-12 10:16:02] [INFO] Siparişe ürün eklendi/güncellendi: Kalem x1
+[2026-05-12 10:16:02] [INFO] Sipariş onaylandı: A20B10FB
+[2026-05-12 10:16:02] [INFO] Sipariş [A20B10FB] durum değiştirdi -> ONAYLANDI
+[2026-05-12 10:16:02] [INFO] Yeni sipariş oluşturuldu: E567EE6A | Müşteri: musteri

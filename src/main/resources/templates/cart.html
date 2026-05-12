@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/customer_layout :: customerHead('Sepet')}"></head>
+<body class="bg-slate-950 text-slate-100 font-['Inter'] min-h-screen">
+<aside th:replace="~{fragments/customer_layout :: customerSidebar('cart', ${cartCount})}"></aside>
+
+<main class="md:ml-[280px] min-h-screen p-8">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold">Sepetim</h1>
+                <p class="text-slate-400 mt-2">Sipariş vermeden önce ürünlerinizi kontrol edin.</p>
+            </div>
+            <a th:href="@{/catalog}" class="px-4 py-2 rounded-lg border border-white/15 text-slate-200 hover:bg-slate-800">Kataloğa Dön</a>
+        </div>
+
+        <div th:if="${successMessage}" class="mb-6 p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-200" th:text="${successMessage}">Başarılı</div>
+        <div th:if="${errorMessage}" class="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-200" th:text="${errorMessage}">Hata</div>
+
+        <div th:if="${cart.empty}" class="p-16 rounded-xl border border-white/10 bg-slate-900 text-center">
+            <span class="material-symbols-outlined text-6xl text-slate-500">shopping_cart_off</span>
+            <p class="mt-4 text-slate-300">Sepetiniz boş. Ürün eklemek için kataloğa dönebilirsiniz.</p>
+        </div>
+
+        <div th:if="${!cart.empty}" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 bg-slate-900 rounded-xl border border-white/10 overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-slate-800/70 text-slate-400 text-sm">
+                    <tr>
+                        <th class="text-left p-4">Ürün</th>
+                        <th class="text-right p-4">Birim Fiyat</th>
+                        <th class="text-right p-4">Adet</th>
+                        <th class="text-right p-4">Toplam</th>
+                        <th class="p-4"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="line : ${cart.lines}" class="border-t border-white/5">
+                        <td class="p-4">
+                            <p class="font-medium" th:text="${line.productName}">Ürün</p>
+                            <p class="text-xs text-slate-400 font-mono" th:text="${line.productId}">ID</p>
+                        </td>
+                        <td class="p-4 text-right" th:text="${#numbers.formatDecimal(line.unitPrice,1,2)} + ' TL'">0 TL</td>
+                        <td class="p-4">
+                            <form method="post" th:action="@{/cart/update}" class="flex justify-end">
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                <input type="hidden" name="productId" th:value="${line.productId}"/>
+                                <label th:for="'cart-qty-' + ${line.productId}" class="sr-only">Adet</label>
+                                <input th:id="'cart-qty-' + ${line.productId}" type="number" min="1" name="quantity" th:value="${line.quantity}" aria-describedby="cartQtyHelp" class="w-20 bg-slate-800 border border-white/10 rounded px-2 py-1 text-sm text-right"/>
+                            </form>
+                        </td>
+                        <td class="p-4 text-right font-semibold" th:text="${#numbers.formatDecimal(line.lineTotal,1,2)} + ' TL'">0 TL</td>
+                        <td class="p-4 text-right">
+                            <form method="post" th:action="@{/cart/remove/{id}(id=${line.productId})}">
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                <button class="text-red-300 hover:text-red-200 text-sm">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-slate-900 rounded-xl border border-white/10 p-6 h-fit">
+                <h3 class="text-lg font-semibold mb-4">Sipariş Özeti</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="flex justify-between text-slate-400"><span>Toplam Ürün</span><span th:text="${cart.totalItems}">0</span></div>
+                    <div class="flex justify-between text-slate-100"><span>Ara Toplam</span><span th:text="${#numbers.formatDecimal(cart.subtotal,1,2)} + ' TL'">0 TL</span></div>
+                </div>
+                <form method="post" th:action="@{/cart/checkout}" class="mt-6">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <button class="w-full px-4 py-3 rounded-lg bg-blue-500 text-slate-950 font-semibold hover:bg-blue-400">Siparişi Oluştur</button>
+                </form>
+            </div>
+        </div>
+        <span id="cartQtyHelp" class="sr-only">Miktarı değiştirip sepeti güncelleyebilirsiniz.</span>
+    </div>
+</main>
+</body>
+</html>

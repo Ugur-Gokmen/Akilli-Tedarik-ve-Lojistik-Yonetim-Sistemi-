@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common_head :: appHead('Akıllı Lojistik - Giriş')}"></head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-lg text-body-lg">
+<main class="flex-grow flex relative">
+    <!-- Left Side: Image/Branding -->
+    <div class="hidden lg:flex w-1/2 relative overflow-hidden bg-surface-container-lowest">
+        <img alt="Logistics Background" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-background/90 to-background/20 z-10"></div>
+        <div class="relative z-20 flex flex-col justify-end p-xl h-full max-w-lg">
+            <div class="mb-auto mt-xl">
+                <div class="flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-primary text-[32px]">local_shipping</span>
+                    <span class="font-display text-display text-on-background tracking-tight">Akıllı Lojistik</span>
+                </div>
+            </div>
+            <div>
+                <h2 class="font-h1 text-h1 text-on-background mb-sm">Hareket Halindeki Hassasiyet.</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Güvenli, gerçek zamanlı lojistik yönetimi ve tedarik zinciri kontrol sistemi.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Right Side: Login Form -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-lg lg:p-xl bg-background relative z-20">
+        <div class="w-full max-w-[440px]">
+            <!-- Mobile Branding (Hidden on Desktop) -->
+            <div class="lg:hidden flex items-center gap-sm mb-xl justify-center">
+                <span class="material-symbols-outlined text-primary text-[32px]">local_shipping</span>
+                <span class="font-display text-display text-on-background tracking-tight">Akıllı Lojistik</span>
+            </div>
+            <!-- Form Header -->
+            <div class="mb-xl">
+                <h1 class="font-h1 text-h1 text-on-background mb-xs">Sistem Girişi</h1>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Güvenli tesis ağına erişmek için kimlik bilgilerinizi girin.</p>
+            </div>
+            
+            <!-- Login Form -->
+            <form th:action="@{/auth/login}" class="space-y-lg" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                
+                <!-- Error Message -->
+                <div th:if="${error}" class="p-sm bg-error-container text-on-error-container border border-error rounded font-body-sm text-body-sm flex items-start gap-xs mb-md">
+                    <span class="material-symbols-outlined text-[18px]">error</span>
+                    <span th:text="${error}">Kimlik doğrulama başarısız.</span>
+                </div>
+                <div th:if="${lockoutMessage}" class="p-sm bg-warning/10 text-warning border border-warning/30 rounded font-body-sm text-body-sm flex items-start gap-xs mb-md">
+                    <span class="material-symbols-outlined text-[18px]">schedule</span>
+                    <span th:text="${lockoutMessage}">Çok fazla hatalı deneme. Lütfen bekleyin.</span>
+                </div>
+
+                <!-- Username Field -->
+                <div class="space-y-xs">
+                    <label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="username">Operatör Kimliği / Kullanıcı Adı</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-sm flex items-center pointer-events-none">
+                            <span class="material-symbols-outlined text-outline text-[20px]">person</span>
+                        </div>
+                        <input aria-describedby="usernameError" class="block w-full pl-xl pr-md py-sm bg-surface-container border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary text-on-surface placeholder-outline-variant bg-opacity-50 transition-colors font-mono text-mono h-[48px]" id="username" name="username" placeholder="kullanici.adi" required="" type="text" th:value="${username}"/>
+                    </div>
+                    <p id="usernameError" class="text-xs text-error mt-1" th:if="${usernameError}" th:text="${usernameError}"></p>
+                </div>
+                <!-- Password Field -->
+                <div class="space-y-xs">
+                    <div class="flex justify-between items-center">
+                        <label class="block font-label-caps text-label-caps text-on-surface-variant uppercase" for="password">Erişim Anahtarı / Şifre</label>
+                        <span class="font-body-sm text-body-sm text-slate-500">Şifremi Unuttum (Yakında)</span>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-sm flex items-center pointer-events-none">
+                            <span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+                        </div>
+                        <input aria-describedby="passwordError" class="block w-full pl-xl pr-md py-sm bg-surface-container border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary text-on-surface placeholder-outline-variant bg-opacity-50 transition-colors font-mono text-mono h-[48px]" id="password" name="password" placeholder="••••••••••••" required="" type="password"/>
+                    </div>
+                    <p id="passwordError" class="text-xs text-error mt-1" th:if="${passwordError}" th:text="${passwordError}"></p>
+                </div>
+                <!-- Options Row -->
+                <div class="flex items-center justify-between pt-xs">
+                    <div class="flex items-center">
+                        <input class="h-4 w-4 bg-surface-container border-outline-variant rounded text-primary focus:ring-primary focus:ring-offset-background" id="remember-me" name="remember-me" type="checkbox"/>
+                        <label class="ml-sm block font-body-sm text-body-sm text-on-surface-variant" for="remember-me">
+                            Oturumu Açık Tut
+                        </label>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <button class="w-full flex justify-center py-sm px-md border border-transparent rounded bg-primary text-on-primary font-h2 text-h2 hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background transition-colors h-[48px] items-center gap-xs" type="submit">
+                    <span>Bağlantıyı Başlat</span>
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </button>
+            </form>
+            
+            <!-- Quick Access / SSO -->
+            <div class="mt-xl">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-outline-variant"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-sm bg-background text-on-surface-variant font-label-caps text-label-caps uppercase">Güvenli Protokol Kimlik Doğrulaması</span>
+                    </div>
+                </div>
+                <div class="mt-lg grid grid-cols-2 gap-sm">
+                    <button class="flex justify-center items-center gap-xs w-full px-md py-sm border border-outline-variant rounded bg-surface hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">badge</span>
+                        <span>RFID Tarama</span>
+                    </button>
+                    <button class="flex justify-center items-center gap-xs w-full px-md py-sm border border-outline-variant rounded bg-surface hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">vpn_key</span>
+                        <span>Token Yetki</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/30 py-md px-lg w-full z-30">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-sm">
+        <div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+            <span class="material-symbols-outlined text-[16px]">copyright</span>
+            <span>2026 Akıllı Lojistik Sistemleri.</span>
+        </div>
+        <div class="flex items-center gap-md font-mono text-mono text-on-surface-variant">
+            <div class="flex items-center gap-xs">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span>Sistem Durumu: Optimal</span>
+            </div>
+            <span class="hidden md:inline text-outline-variant">|</span>
+            <a class="hover:text-primary transition-colors" href="#">Destek Protokolü</a>
+        </div>
+    </div>
+</footer>
+</body></html>

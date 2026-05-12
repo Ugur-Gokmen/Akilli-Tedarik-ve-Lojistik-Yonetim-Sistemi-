@@ -1,0 +1,165 @@
+package com.project.domain.order;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
+
+import com.project.domain.user.User;
+import com.project.infrastructure.logger.SystemLogger;
+
+/**
+ * Sipariş domain entity'si - State Pattern'in Context sınıfı.
+ *
+ * <p>Order nesnesi mevcut durumunu bir OrderState referansı olarak tutar.
+ * Tüm durum geçiş operasyonları ilgili state nesnesine delege edilir.
+ * Order sınıfının kendisi hiçbir if-else veya switch-case içermez.</p>
+ */
+@Entity
+@Table(name = "orders")
+public class Order {
+
+    @Id
+    private String id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private User customer;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "order_id")
+    private List<OrderItem> items;
+
+    private LocalDateTime createdAt;
+    private String trackingNumber;
+    private double shippingCost;
+    
+    @Column(nullable = false)
+    private boolean isPaid = false;
+
+    // [KRİTİK]: State Pattern - Tekil referans ve JPA Converter
+    @Convert(converter = OrderStateConverter.class)
+    private OrderState currentState;
+
+    @Transient
+    private transient final SystemLogger logger = SystemLogger.getInstance();
+
+    protected Order() {}
+
+    public Order(User customer) {
+        if (customer == null) {
+            throw new IllegalArgumentException("Sipariş için müşteri (customer) null olamaz.");
+        }
+        this.id = UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+        this.customer = customer;
+        this.items = new ArrayList<>();
+        this.createdAt = LocalDateTime.now();
+        // Başlangıç durumu: OrderStates içindeki statik sınıfa erişim
+        this.currentState = new OrderStates.PendingState(); 
+        logger.info("Yeni sipariş oluşturuldu: " + this.id + " | Müşteri: " + customer.getUsername());
+    }
+
+    // --- State Geçiş Metodları (Delegasyon) ---
+
+    public void approve() {
+        if (!isPaid) {
+            throw new IllegalStateException("Ödemesi tamamlanmamış sipariş onaylanamaz!");
+        }
+        currentState.approve(this);
+    }
+    public void startPreparing() { currentState.startPreparing(this); }
+    public void ship()           { currentState.ship(this); }
+    public void deliver()        { currentState.deliver(this); }
+    public void returnOrder()    { currentState.returnOrder(this); }
+    public void cancel()         { currentState.cancel(this); }
+
+    /**
+     * Sequential (Ardışık) geçiş desteği.
+     * OrderService içindeki çağrılar için handleNext metoduna delege eder.
+     */
+    public void nextState() {
+        if (currentState != null) {
+            currentState.handleNext(this);
+        } else {
+            logger.error("Hata: Mevcut durum null, geçiş yapılamıyor! Sipariş ID: " + id);
+        }
+    }
+
+    /**
+     * State nesnelerinin durumu değiştirmek için kullandığı setter.
+     */
+    public void setState(OrderState state) {
+        this.currentState = state;
+        logger.info(String.format("Sipariş [%s] durum değiştirdi -> %s", id, state.getStateName()));
+    }
+
+    // --- Ürün ve Finans Yönetimi ---
+
+    public void addItem(OrderItem item) {
+        if (item == null) {
+            throw new IllegalArgumentException("Eklenecek sipariş kalemi null olamaz.");
+        }
+        
+        // Yalnızca PENDING aşamasında ürün eklenebilir
+        if (!(currentState instanceof OrderStates.PendingState)) {
+            throw new IllegalStateException("Sadece beklemede (Pending) olan siparişlere ürün eklenebilir. Mevcut: " + currentState.getStateName());
+        }
+
+        // Aynı ürün zaten eklendiyse miktarını güncelle
+        var existingItem = items.stream()
+            .filter(i -> i.getProduct().getId().equals(item.getProduct().getId()))
+            .findFirst();
+
+        if (existingItem.isPresent()) {
+            existingItem.get().addQuantity(item.getQuantity());
+        } else {
+            items.add(item);
+        }
+
+        item.getProduct().decreaseStock(item.getQuantity());
+        logger.info(String.format("Siparişe ürün eklendi/güncellendi: %s x%d", item.getProduct().getName(), item.getQuantity()));
+    }
+
+    public double getTotalAmount() {
+        return items.stream().mapToDouble(OrderItem::getTotalPrice).sum();
+    }
+
+    public double getGrandTotal() {
+        return getTotalAmount() + shippingCost;
+    }
+
+    public double getTotalWeightKg() {
+        return items.stream()
+            .mapToDouble(item -> {
+                if (item.getProduct() instanceof com.project.domain.product.SimpleProduct sp) {
+                    return sp.getWeightKg() * item.getQuantity();
+                } else if (item.getProduct() instanceof com.project.domain.product.CompositeProduct cp) {
+                    return cp.getTotalWeightKg() * item.getQuantity();
+                }
+                return 0;
+            }).sum();
+    }
+
+    // --- Getters & Setters ---
+
+    public String getId() { return id; }
+    public User getCustomer() { return customer; }
+    public List<OrderItem> getItems() { return Collections.unmodifiableList(items); }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public String getCurrentStateName() { return currentState.getStateName(); }
+    public OrderState getCurrentState() { return currentState; }
+    public String getTrackingNumber() { return trackingNumber; }
+    public double getShippingCost() { return shippingCost; }
+    public boolean isPaid() { return isPaid; }
+
+    public void setTrackingNumber(String trackingNumber) { this.trackingNumber = trackingNumber; }
+    public void setShippingCost(double shippingCost) { this.shippingCost = shippingCost; }
+    public void setPaid(boolean paid) { this.isPaid = paid; }
+
+    @Override
+    public String toString() {
+        return String.format("Order{id='%s', state='%s', paid=%b, total=%.2f TL}", id, getCurrentStateName(), isPaid, getGrandTotal());
+    }
+}

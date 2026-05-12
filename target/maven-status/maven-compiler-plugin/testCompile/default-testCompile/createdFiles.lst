@@ -1,0 +1,13 @@
+com\project\api\controller\InventorySecurityWebMvcTest.class
+com\project\service\InventoryServiceTest.class
+com\project\domain\cargo\CargoPricingBuilderTest$1.class
+com\project\domain\order\ExtendedOrderStateTest.class
+com\project\infrastructure\adapter\CargoAdaptersTest.class
+com\project\infrastructure\logger\SystemLoggerSingletonTest.class
+com\project\infrastructure\resolver\PaymentStrategyResolverTest.class
+com\project\service\OrderServiceTest.class
+com\project\repository\ProductRepositoryTest.class
+com\project\domain\cargo\CargoPricingBuilderTest.class
+com\project\domain\product\ProductObserverTest.class
+com\project\domain\order\OrderStateTest.class
+com\project\api\OrderFlowIntegrationTest.class

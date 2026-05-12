@@ -1,0 +1,6 @@
+app:
+  crypto:
+    btc-try-rate: 3500000.0
+  facilities:
+    seed-enabled: true
+

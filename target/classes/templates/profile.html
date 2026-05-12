@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/admin_layout :: adminHead('Profil Ayarları')}"></head>
+<body class="bg-background text-on-background font-body-lg flex min-h-screen antialiased overflow-hidden">
+
+<!-- SideNavBar -->
+<div th:replace="~{fragments/admin_layout :: adminSidebar('')}"></div>
+
+<!-- Main Content Area -->
+<div class="flex-1 md:ml-[280px] h-screen overflow-hidden bg-background">
+    <header class="sticky top-0 z-40 w-full bg-slate-900/90 backdrop-blur-md border-b border-white/5 h-16 px-8 flex justify-between items-center">
+        <h1 class="text-lg font-bold text-on-surface">Kullanıcı Ayarları</h1>
+        <div class="flex items-center gap-3">
+            <span class="text-xs text-on-surface-variant font-mono" th:text="${user.employeeId}">EMP-0000</span>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-8 custom-scrollbar h-[calc(100vh-64px)]">
+        <div class="max-w-6xl mx-auto space-y-8">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-on-surface mb-2">Profil ve Hesap</h2>
+                <p class="text-sm text-on-surface-variant">Hesap detaylarınızı, güvenlik tercihlerini ve operasyonel ayarları yönetin.</p>
+            </div>
+
+            <div th:if="${successMessage}" class="p-4 bg-success/10 border border-success/20 text-success rounded-lg text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                <span th:text="${successMessage}">Başarılı</span>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Profile Overview Card -->
+                <div class="col-span-1 bg-surface-container border border-white/10 rounded-xl p-8 flex flex-col items-center text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+                    <div class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-surface mb-6 shadow-2xl">
+                        <div class="w-full h-full bg-surface-container-high flex items-center justify-center text-primary text-4xl font-bold" th:text="${#strings.substring(user.username,0,1).toUpperCase()}">U</div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/60 py-1 cursor-pointer hover:bg-primary transition-all">
+                            <span class="material-symbols-outlined text-white text-sm">photo_camera</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-on-surface mb-1" th:text="${user.fullName}">Kullanıcı Adı</h3>
+                    <p class="text-sm text-primary font-bold uppercase tracking-widest mb-6" th:text="${user.role}">ROL</p>
+                    
+                    <div class="w-full space-y-3 text-left">
+                        <div class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-lg border border-white/5">
+                            <span class="material-symbols-outlined text-outline">badge</span>
+                            <div>
+                                <p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest mb-1">Personel ID</p>
+                                <p class="text-sm font-mono text-on-surface" th:text="${user.employeeId}">EMP-0000</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-lg border border-white/5">
+                            <span class="material-symbols-outlined text-outline">location_city</span>
+                            <div>
+                                <p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest mb-1">Bağlı Tesis</p>
+                                <p class="text-sm text-on-surface" th:text="${user.facility}">Genel Dağıtım Merkezi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Settings Area -->
+                <div class="col-span-1 lg:col-span-2 space-y-8">
+                    <!-- Personal Information Form -->
+                    <div class="bg-surface-container border border-white/10 rounded-xl p-8 shadow-xl">
+                        <div class="flex items-center gap-3 mb-8 border-b border-white/5 pb-4">
+                            <span class="material-symbols-outlined text-primary">person</span>
+                            <h3 class="text-xl font-bold text-on-surface">Kişisel Bilgiler</h3>
+                        </div>
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" th:action="@{/profile/settings}">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            <div class="space-y-2">
+                                <label class="block text-[10px] font-bold text-outline-variant uppercase tracking-widest">Ad</label>
+                                <input name="firstName" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary outline-none transition-all" th:value="${user.firstName}" type="text"/>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="block text-[10px] font-bold text-outline-variant uppercase tracking-widest">Soyad</label>
+                                <input name="lastName" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary outline-none transition-all" th:value="${user.lastName}" type="text"/>
+                            </div>
+                            <div class="space-y-2 md:col-span-2">
+                                <label class="block text-[10px] font-bold text-outline-variant uppercase tracking-widest">E-Posta Adresi</label>
+                                <input name="email" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary outline-none transition-all" th:value="${user.email}" type="email"/>
+                            </div>
+                            <div class="space-y-2 md:col-span-2">
+                                <label class="block text-[10px] font-bold text-outline-variant uppercase tracking-widest">Telefon Numarası</label>
+                                <input name="phone" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary outline-none transition-all" th:value="${user.phone}" type="tel"/>
+                            </div>
+                            <div class="md:col-span-2 flex justify-end mt-4">
+                                <button class="bg-primary text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-3 rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20" type="submit">Değişiklikleri Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="bg-surface-container border border-white/10 rounded-xl p-8 shadow-xl">
+                        <div class="flex items-center gap-3 mb-8 border-b border-white/5 pb-4">
+                            <span class="material-symbols-outlined text-error">lock</span>
+                            <h3 class="text-xl font-bold text-on-surface">Güvenlik</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-white/5">
+                                <div>
+                                    <h4 class="text-sm font-bold text-on-surface mb-1">İki Faktörlü Doğrulama (2FA)</h4>
+                                    <p class="text-xs text-on-surface-variant">Hesabınıza ekstra bir güvenlik katmanı ekleyin.</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input class="sr-only peer" th:checked="${user.twoFactorEnabled}" type="checkbox"/>
+                                    <div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+                                </label>
+                            </div>
+                            <div class="p-6 bg-surface-container-lowest rounded-lg border border-white/5">
+                                <h4 class="text-sm font-bold text-on-surface mb-4">Şifre Değiştir</h4>
+                                <form class="space-y-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="space-y-2">
+                                            <label class="block text-[10px] font-bold text-outline-variant uppercase tracking-widest">Mevcut Şifre</label>
+                                            <input class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary outline-none" type="password"/>
+                                        </div>
+                                        <div class="hidden md:block"></div>
+                                        <div class="space-y-2">
+                                            <label class="block text-[10px] font-bold text-outline-variant uppercase tracking-widest">Yeni Şifre</label>
+                                            <input class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary outline-none" type="password"/>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="block text-[10px] font-bold text-outline-variant uppercase tracking-widest">Yeni Şifre (Tekrar)</label>
+                                            <input class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary outline-none" type="password"/>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-end mt-6">
+                                        <button class="bg-surface-container-high text-on-surface font-bold text-xs uppercase tracking-widest px-6 py-2.5 rounded-lg border border-white/10 hover:bg-surface-variant transition-all" type="button">Şifreyi Güncelle</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>

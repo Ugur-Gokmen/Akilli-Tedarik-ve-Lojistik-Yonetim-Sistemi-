@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="customerHead(pageTitle)" th:replace="~{fragments/common_head :: appHead(${pageTitle})}"></head>
+<body>
+<aside th:fragment="customerSidebar(activeMenu, cartCount)" class="fixed left-0 top-0 bottom-0 w-[280px] bg-slate-900 shadow-xl border-r border-white/10 flex flex-col h-full py-6 z-40 hidden md:flex">
+    <div class="px-6 mb-8 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center border border-white/10 shrink-0">
+            <span class="material-symbols-outlined text-blue-300 fill">local_shipping</span>
+        </div>
+        <div>
+            <h1 class="text-xl font-black text-white tracking-tight">LogiControl</h1>
+            <p class="text-xs text-slate-400 mt-1">Müşteri Portalı</p>
+        </div>
+    </div>
+    <nav class="flex-1 px-4 space-y-1">
+        <a th:href="@{/catalog}" th:classappend="${activeMenu == 'catalog'} ? ' text-blue-300 bg-blue-500/10 border-r-2 border-blue-500' : ' text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-sm">
+            <span class="material-symbols-outlined">storefront</span><span>Ürün Kataloğu</span>
+        </a>
+        <a th:href="@{/cart}" th:classappend="${activeMenu == 'cart'} ? ' text-blue-300 bg-blue-500/10 border-r-2 border-blue-500' : ' text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'" class="flex items-center justify-between px-4 py-3 rounded-lg transition-all font-medium text-sm">
+            <span class="flex items-center gap-3"><span class="material-symbols-outlined">shopping_cart</span><span>Sepet</span></span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200" th:text="${cartCount}">0</span>
+        </a>
+        <a th:href="@{/orders/my-orders}" th:classappend="${activeMenu == 'orders'} ? ' text-blue-300 bg-blue-500/10 border-r-2 border-blue-500' : ' text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'" class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-sm">
+            <span class="material-symbols-outlined">receipt_long</span><span>Siparişlerim</span>
+        </a>
+    </nav>
+    <div class="px-4 mt-auto border-t border-white/10 pt-4">
+        <div class="px-4 py-2 text-xs text-slate-400 uppercase">Kullanıcı: <span class="text-slate-200" th:text="${currentUser != null ? currentUser.username : '-'}">-</span></div>
+        <a th:href="@{/auth/logout}" class="flex items-center gap-3 px-4 py-2 rounded-lg text-red-400 hover:bg-red-900/20 transition-all font-medium text-sm">
+            <span class="material-symbols-outlined text-[20px]">logout</span><span>Çıkış Yap</span>
+        </a>
+    </div>
+</aside>
+
+<header th:fragment="customerTopbar(pageTitle, pageSubtitle)" class="sticky top-0 z-30 bg-slate-900/70 backdrop-blur-md border-b border-white/10 px-6 py-4 mb-8">
+    <h1 class="text-2xl font-bold text-slate-100" th:text="${pageTitle}">Başlık</h1>
+    <p class="text-slate-400 mt-1" th:text="${pageSubtitle}">Açıklama</p>
+</header>
+</body>
+</html>

@@ -1,0 +1,6 @@
+- [x] Implement `ExtendedOrderStateTest.java`
+- [x] Implement `PaymentStrategyResolverTest.java`
+- [x] Implement `CargoAdaptersTest.java`
+- [x] Implement `ProductObserverTest.java`
+- [x] Implement `SystemLoggerSingletonTest.java`
+- [x] Run test suite and review results

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/admin_layout :: adminHead('Tesis Yönetimi')}"></head>
+<body class="bg-background text-on-background font-body-lg flex flex-col md:flex-row min-h-screen antialiased">
+
+<!-- SideNavBar -->
+<div th:replace="~{fragments/admin_layout :: adminSidebar('facilities')}"></div>
+
+<main class="flex-1 md:ml-[280px] p-8">
+    <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
+        <div>
+            <h1 class="text-3xl font-bold text-on-surface">Tesis Genel Bakış</h1>
+            <p class="text-on-surface-variant mt-1">Küresel dağıtım merkezlerini yönetin ve kapasiteyi gerçek zamanlı izleyin.</p>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <!-- Facility Card -->
+        <div th:each="f : ${facilities}" class="bg-surface-container border border-white/10 rounded-xl overflow-hidden flex flex-col hover:border-primary/30 transition-all group relative">
+            
+            <!-- Header Image -->
+            <div class="h-32 relative bg-surface-container-highest overflow-hidden">
+                <div th:if="${f.status == 'MAINTENANCE'}" class="absolute inset-0 bg-surface-container-highest/80 z-10 flex items-center justify-center backdrop-blur-sm">
+                    <span class="material-symbols-outlined text-4xl text-outline-variant">construction</span>
+                </div>
+                <img alt="Facility" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-all"
+                     th:src="${f.type == 'Port' ? '/images/ops/fleet.svg' : (f.type == 'Hub' ? '/images/ops/warehouse.svg' : '/images/ops/analytics.svg')}"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+                <div class="absolute top-4 right-4">
+                    <span class="bg-surface-container-highest/80 backdrop-blur-sm text-on-surface px-2 py-1 rounded text-[10px] font-mono border border-white/10" th:text="'ID: ' + ${#strings.substring(f.id,0,8).toUpperCase()}">ID</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 flex-1 flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-on-surface mb-1" th:text="${f.name}">Tesis Adı</h3>
+                        <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[14px]">location_on</span>
+                            <span th:text="${f.location}">Konum</span>
+                        </p>
+                    </div>
+                    <!-- Status Badge -->
+                    <div class="px-2.5 py-1 rounded-full flex items-center gap-1.5 border"
+                         th:classappend="${f.status == 'OPTIMAL' ? 'bg-success/10 text-success border-success/20' : 
+                                         (f.status == 'NEAR_CAPACITY' ? 'bg-tertiary/10 text-tertiary border-tertiary/20 pulse-critical' : 'bg-outline/10 text-outline border-outline/20')}">
+                        <div class="w-1.5 h-1.5 rounded-full" th:classappend="${f.status == 'OPTIMAL' ? 'bg-success' : (f.status == 'NEAR_CAPACITY' ? 'bg-tertiary' : 'bg-outline')}"></div>
+                        <span class="text-[9px] font-bold uppercase tracking-widest" th:text="${f.status}">DURUM</span>
+                    </div>
+                </div>
+
+                <!-- Capacity Metrics -->
+                <div class="mb-8">
+                    <div class="flex justify-between text-[10px] font-bold mb-2 uppercase tracking-widest text-on-surface-variant">
+                        <span>Kapasite Kullanımı</span>
+                        <span class="font-mono text-on-surface" th:text="${f.usagePercentage} + '%'">0%</span>
+                    </div>
+                    <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full rounded-full transition-all duration-1000" 
+                             th:style="'width: ' + ${f.usagePercentage} + '%'"
+                             th:classappend="${f.usagePercentage > 90 ? 'bg-tertiary' : (f.usagePercentage > 70 ? 'bg-primary' : 'bg-primary-container')}"></div>
+                    </div>
+                    <div class="flex justify-between text-[10px] mt-2 text-on-surface-variant font-mono">
+                        <span th:text="${#numbers.formatInteger(f.currentCapacity,0,'POINT')} + ' Palet'">0</span>
+                        <span th:text="${#numbers.formatInteger(f.maxCapacity,0,'POINT')} + ' Maks'">0</span>
+                    </div>
+                </div>
+
+                <!-- Manager Info -->
+                <div class="mt-auto pt-6 border-t border-white/5 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-outline">
+                        <span class="material-symbols-outlined text-[18px]">person</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs font-bold text-on-surface" th:text="${f.managerName}">Yönetici</p>
+                        <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Tesis Müdürü</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="px-6 py-4 bg-surface-container-lowest/30 border-t border-white/5"></div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
